@@ -11,11 +11,15 @@ page-login {
         margin: 0 auto;
         padding: 2px 0 8px 10px;
         height: 185px;
-        width:  185px;
-        border-radius: 70%;
+        width:  175px;
+        border-radius: 1200%;
         align-items: center;
         display: block;
 
+    }
+
+    a:hover{
+        color:rgb(175, 76, 175); 
     }
     
 
