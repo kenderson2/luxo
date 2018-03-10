@@ -18,41 +18,50 @@
 </ion-header>
 
 
-<ion-content padding>
-    <div>
-
-        <img src="assets/imgs/lara.jpg"/>      
-  
-        
-     </div>
+<ion-content padding >
+    
      
      <!--Seccion de registro-->
      <section> 
-
+        
        
-     <div id="marco">
-        <ion-item >
-            <ion-label>Usuario:</ion-label>
-            <ion-input type="text"[(ngModel)]="user" placeholder="Lara" required></ion-input>
-            
-       </ion-item>
-
-       <ion-item>
-          <ion-label>password:</ion-label>
-          <ion-input type="text"[(ngModel)]="password" placeholder="******" required></ion-input>
+      <div id="marco">
+          <button ion-button color="dark" clear icon-only id="cerrar">
+              <ion-icon name="close" ></ion-icon>
+          </button>
+        
+        <div>
+            <img src="assets/imgs/lara.jpg"/>  
+        </div>
           
-     </ion-item>
-    </div>
 
-    <div id="botones">
-        <button ion-button>Cancelar</button>     
-        <button ion-button>Entrar</button>
+        <div padding>
+            <ion-item >
+                <ion-label color="dark"> Usuario :</ion-label>
+                <ion-input type="text"[(ngModel)]="user" placeholder="Lara" required></ion-input>
+                
+           </ion-item>
+    
+           <ion-item>
+              <ion-label color="dark">Password:</ion-label>
+              <ion-input type="password"[(ngModel)]="password" placeholder="******" required></ion-input>
+              
+            </ion-item> 
+        </div> 
+    
+      
+        <button ion-button color="vino" class="botones" round>Cancelar</button>     
+        <button ion-button color="vino" class="botones" round>Ingresar</button>
+      
+    <div id="centrar">
+        <ul id="list"> 
+            <li><a href="#">Registrarse</a></li> 
+            <li><a href="#">Olvidaste tu contraseña?</a></li>
+          </ul>
+
     </div>
     
-    <ul id="list"> 
-      <li><a href="#">Registrarse</a></li> 
-      <li><a href="#">Olvidaste tu contraseña?</a></li>
-    </ul>
+    </div>
 
      </section>
 </ion-content>
