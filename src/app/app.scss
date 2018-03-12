@@ -15,15 +15,29 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
-/*ion-content {
-    background: rgba(144,117,179,1);
-    background: -moz-linear-gradient(left, rgba(144,117,179,1) 0%, rgba(233,58,137,0.61) 48%, rgba(233,58,137,0.55) 55%);
-    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(144,117,179,1)), color-stop(48%, rgba(233,58,137,0.61)), color-stop(55%, rgba(233,58,137,0.55)));
-    background: -webkit-linear-gradient(left, rgba(144,117,179,1) 0%, rgba(233,58,137,0.61) 48%, rgba(233,58,137,0.55) 55%);
-    background: -o-linear-gradient(left, rgba(144,117,179,1) 0%, rgba(233,58,137,0.61) 48%, rgba(233,58,137,0.55) 55%);
-    background: -ms-linear-gradient(left, rgba(144,117,179,1) 0%, rgba(233,58,137,0.61) 48%, rgba(233,58,137,0.55) 55%);
-    background: linear-gradient(to right, rgba(144,117,179,1) 0%, rgba(233,58,137,0.61) 48%, rgba(233,58,137,0.55) 55%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9075b3', endColorstr='#e93a89', GradientType=1 );
+// ion-content {
+//     background: #e2e2e2;  /* fallback for old browsers */
+//         background: -webkit-linear-gradient(to left, #dddcdc, #dbd8da);  /* Chrome 10-25, Safari 5.1-6 */
+//         background: linear-gradient(to left, #d6d3d5, #e0dedf);
 
+// }
+.myBg{
+    background-color:rgb(173, 9, 91);
+  }
+
+
+ion-menu[side=left] .menu-inner {
+    width: 220px;
+    opacity: 0.9;
+   
+   
+    
 }
-*/
+ion-side-menu.menu-left.menu {
+    background-color: rgb(0, 112, 204) !important;
+  }
+
+  [scrollbar-y-auto] .scroll-content {
+    overflow-y: auto !important;
+  }
+  
