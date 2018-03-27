@@ -7,13 +7,79 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content>
+     <section>
+    
+    <ion-slides autoplay="6000" slidesPerView="1" loop="true" effect="coverflow">
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-    josue
-  </p>
+        <ion-slide>
+            <img src="assets/imgs/imagen1.jpg">            
+       </ion-slide>
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+       <ion-slide>
+          <img src="assets/imgs/imagen4.jpg">            
+        </ion-slide>
+
+       <ion-slide>
+        <img src="assets/imgs/imagen3.jpg">            
+       </ion-slide>
+       
+    </ion-slides>
+  
+  </section>
+  
+  <h6 class="titulos">Ultimas tendencias</h6>
+  <div class="fondo">
+      <img src="assets/imgs/luxo2.png">
+   </div> 
+  <div id="slidemin">
+      <ion-slides #slider spaceBetween="8" slidesPerView="3" loop="true">
+
+          <ion-slide  class="minic">
+              <ion-card>
+                  <img src="assets/imgs/imagen1.jpg"/>
+                  
+                </ion-card>
+            
+          </ion-slide>
+        
+          <ion-slide  class="minic">
+              <ion-card>
+                  <img src="assets/imgs/imagen4.jpg"/>
+                  
+                </ion-card>            
+          </ion-slide>
+
+          <ion-slide  class="minic">
+              <ion-card>
+                  <img src="assets/imgs/imagen5.jpg"/>
+                  
+                </ion-card>
+            
+          </ion-slide>
+        
+        </ion-slides>
+  </div>
+
+  <div class="centrado">
+    <button ion-button icon-left outline >
+      <ion-icon name="book"></ion-icon>
+      Catalogo
+    </button>
+    <button ion-button icon-left outline>
+      <ion-icon name="star"></ion-icon>
+      Promociones
+    </button>
+  </div>
+  <div class="centrado">
+    <button ion-button icon-left outline>
+      <ion-icon name="calendar"></ion-icon>
+      agenda
+    </button>
+    <button ion-button icon-left outline>
+      <ion-icon name="people"></ion-icon>
+      Perfil
+    </button>
+  </div> 
+  
 </ion-content>

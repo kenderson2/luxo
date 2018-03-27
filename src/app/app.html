@@ -1,16 +1,33 @@
-<ion-menu  [content]="content">
+<ion-menu [content]="content">
   <ion-header>
-    <ion-toolbar color="vino">
-      <ion-title color="vino">Menu</ion-title>
+    <ion-toolbar color="scarlet">
+      <ion-title >Menu</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <ion-content class="menu-content myBg" scrollbar-y-auto>
-    <ion-list>
-      <button color="vino" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+
+    <div id="prueba">
+        <img src="assets/imgs/lara.jpg"/>
+        <h1>Lara croft</h1>
+    </div>
+    
+    <ion-list >
+      <!-- <button  color="rosa" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" >
         {{p.title}}
-      </button>
+      </button>  -->
+
+      <button  color="scarlet" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">       
+                           
+          <ion-icon small [name]="p.icono" item-start></ion-icon>
+
+         
+              {{p.title}}          
+            
+        </button>
+
     </ion-list>
+
   </ion-content>
 
 </ion-menu>

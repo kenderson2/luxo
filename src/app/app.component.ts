@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { SugerenciaPage } from '../pages/sugerencia/sugerencia';
+import { LoginBackgroundSliderPage } from '../pages/login-background-slider/login-background-slider';
 
 @Component({
   templateUrl: 'app.html'
@@ -15,19 +16,27 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = HomePage;
+  myIcon: string = "home";
+  
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{title: string,icono:string, component: any}>;
 
   constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage },
-      { title: 'login', component: LoginPage },
-      { title: 'sugerencias', component: SugerenciaPage }
+      { title: 'Home', icono:'flask', component: HomePage  },
+      { title: 'List', icono:'wifi',component: ListPage },
+      { title: 'login',icono:'beer', component: LoginPage },
+      { title: 'sugerencias',icono:"rose", component: SugerenciaPage },
+      { title: 'login2', icono:'ionic',component:LoginBackgroundSliderPage }
+      
+
     ];
+
+
+   // this.icons = ['flask', 'wifi', 'beer', 'football'];
 
   }
 

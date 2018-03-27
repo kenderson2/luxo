@@ -1,3 +1,56 @@
 page-home {
+    
+    ion-slides{
+        height: 180px;
+        padding: 0;
+        margin: 0;
+    }
+    swiper-slide img {
+        height: 955px;
+        width: 40px;
+        
+      }
 
+      .fondo {
+          z-index: 1;
+          opacity: 0.7;
+          position: absolute;
+          width: 200px;
+          height: 250px;
+          margin-top: 175px;
+          margin-left: 80px 
+      }
+    .minic img{
+        width: 120px;
+        height: 140px;
+        margin: 0px !important;
+
+    }
+    #slidemin{
+        margin-top: 0px;
+    }
+    
+      
+
+    div.swiper-container.swiper-container-horizontal.swipder-container-android{
+        height: 10px;
+    }
+    .titulos{
+        margin-top: 8px;
+        margin-bottom: 0px;
+        color: rgb(219, 160, 31);
+        margin-left: 8px;
+    }
+    .centrado .button-md{
+        margin-top: 10px;
+        margin-left: 20px;
+        float: left;
+        //padding: 5px;
+        height: 65px;
+        width: 150px;
+        color: rgb(88, 44, 70);
+        border-color: rgb(48, 3, 78);
+        z-index: 2;
+    }
+    
 }
