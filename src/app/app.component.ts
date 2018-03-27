@@ -4,10 +4,11 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { HomePage } from '../pages/home/home';
-import { ListPage } from '../pages/list/list';
-import { LoginPage } from '../pages/login/login';
-import { SugerenciaPage } from '../pages/sugerencia/sugerencia';
 import { LoginBackgroundSliderPage } from '../pages/login-background-slider/login-background-slider';
+import { PerfilPage } from '../pages/perfil/perfil';
+import { AboutPage } from '../pages/about/about';
+import { PromocionesPage } from '../pages/promociones/promociones';
+import { SolicitudPage } from '../pages/solicitud/solicitud';
 
 @Component({
   templateUrl: 'app.html'
@@ -26,12 +27,13 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', icono:'flask', component: HomePage  },
-      { title: 'List', icono:'wifi',component: ListPage },
-      { title: 'login',icono:'beer', component: LoginPage },
-      { title: 'sugerencias',icono:"rose", component: SugerenciaPage },
-      { title: 'login2', icono:'ionic',component:LoginBackgroundSliderPage }
-      
+      { title: 'Home', icono:'home', component: HomePage  },
+      { title: 'Promociones', icono:'basket', component: PromocionesPage },
+      { title: 'Solicitar Cita', icono:'paper', component: SolicitudPage},
+      { title: 'Perfil', icono:"camera", component: PerfilPage},
+   //   { title: 'Notificaciones', icono:'notifications', component: },
+      { title: 'Sobre Nosotros', icono:"heart", component: AboutPage},
+      { title: 'Iniciar sesión', icono:'log-in',component:LoginBackgroundSliderPage },
 
     ];
 

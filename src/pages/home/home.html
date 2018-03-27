@@ -29,9 +29,9 @@
   </section>
   
   <h6 class="titulos">Ultimas tendencias</h6>
-  <div class="fondo">
+ <!-- <div class="fondo">
       <img src="assets/imgs/luxo2.png">
-   </div> 
+   </div> -->
   <div id="slidemin">
       <ion-slides #slider spaceBetween="8" slidesPerView="3" loop="true">
 
@@ -60,26 +60,30 @@
         
         </ion-slides>
   </div>
+  
 
-  <div class="centrado">
-    <button ion-button icon-left outline >
-      <ion-icon name="book"></ion-icon>
-      Catalogo
-    </button>
-    <button ion-button icon-left outline>
-      <ion-icon name="star"></ion-icon>
-      Promociones
-    </button>
-  </div>
-  <div class="centrado">
-    <button ion-button icon-left outline>
-      <ion-icon name="calendar"></ion-icon>
-      agenda
-    </button>
-    <button ion-button icon-left outline>
-      <ion-icon name="people"></ion-icon>
-      Perfil
-    </button>
-  </div> 
+  <ion-item class="botones">
+    <ion-card><ion-icon name="book" item-start></ion-icon>
+      <p>Catalogo</p>
+    </ion-card>
+  </ion-item>
+
+  <ion-item class="botones">
+    <ion-card><ion-icon name="star" item-start></ion-icon>
+      <p>Promociones</p>
+    </ion-card>
+  </ion-item>
+
+  <ion-item class="botones">
+    <ion-card><ion-icon name="calendar" item-start></ion-icon>
+      <p>Agenda</p>
+    </ion-card>
+  </ion-item>
+
+  <ion-item class="botones">
+    <ion-card><ion-icon name="people" item-start></ion-icon>
+      <p>Perfil</p>
+    </ion-card>
+  </ion-item>
   
 </ion-content>

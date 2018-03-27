@@ -1,0 +1,35 @@
+page-servicios-recibidos {
+    #posts {
+        margin-top: 20vh;
+    }  
+    .container {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        margin: auto;
+    }
+    .infos_name,
+    .infos_nick,
+    .infos_fecnac,
+    .infos_dir,
+    .infos_edad {
+      display: block;
+      clear: both;
+      padding: .5em 0;
+      padding-top: 0;
+      position: absolute;
+      width: 100%;
+      text-align: center;
+      font-size: 18px;
+      top: 2px;
+      font-weight: 800;
+    }
+    .infos_dir, .infos_tlfn, .infos_nick, .infos_fecnac, .infos_edad {
+      top: 32px;
+      font-size: 14px;
+      font-weight: 300;
+    }
+    ion-item {
+        height: 90px;
+    }
+}

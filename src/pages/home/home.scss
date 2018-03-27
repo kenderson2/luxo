@@ -42,15 +42,28 @@ page-home {
         margin-left: 8px;
     }
     .centrado .button-md{
-        margin-top: 10px;
+        margin-top: 8px;
         margin-left: 20px;
         float: left;
         //padding: 5px;
         height: 65px;
-        width: 150px;
+        width: 120px;
         color: rgb(88, 44, 70);
         border-color: rgb(48, 3, 78);
         z-index: 2;
     }
+    .botones ion-card.card.card-md{
+        width: 120px;
+        height: 70px;
+        text-align: center;
+    }
+    .botones ion-card.card.card-md ion-icon{
+        text-align: center;
+        display: block;
+        font-size: 30px;
+        
+    }
+    
+    
     
 }
