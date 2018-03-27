@@ -34,13 +34,25 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #488aff,
+  primary:    #66004c,
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #222,
-  vino:       rgba(121, 0, 74, 0.877),
-  ligero:     #d1cccc
+  vino:       #330329,
+  ligero:     #d1cccc,
+  rosa:    rgb(197, 58, 128),
+  blanco:    rgb(248, 248, 248),
+
+// COLORES DE LA PLANTILLA
+
+  scarlet: #66004c,
+  wine:    #77304f,
+  pinnoff: #A87B8f,
+  lila:    #D7C3CC, 
+  beig:    #FAF2DD,
+  bounce : #dbdbdb 
+
 );
 
 
@@ -88,3 +100,6 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+$font-family: 'Montserrat', sans-serif !default;
