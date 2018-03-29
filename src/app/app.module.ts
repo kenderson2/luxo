@@ -15,6 +15,7 @@ import { ProfileSettingsPage } from '../pages/profile-settings/profile-settings'
 import { PreferenciasPage } from '../pages/preferencias/preferencias';
 import { SolicitudPage } from '../pages/solicitud/solicitud';
 import { PromocionesPage } from '../pages/promociones/promociones';
+import { NotificacionesPage } from '../pages/notificaciones/notificaciones'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -31,6 +32,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     PreferenciasPage,
     SolicitudPage,
     PromocionesPage,
+    NotificacionesPage,
     
   ],
   imports: [
@@ -50,6 +52,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     PreferenciasPage,
     SolicitudPage,
     PromocionesPage,
+    NotificacionesPage,
     
   ],
   providers: [
