@@ -1,14 +1,23 @@
 page-home {
     
     ion-slides{
-        height: 180px;
+        height: 200px;
         padding: 0;
         margin: 0;
+        
     }
     swiper-slide img {
         height: 955px;
         width: 40px;
         
+      }
+      ion-title.title.title-md{
+          width: 50%;;
+          
+      }
+      #loguear{
+          display:block;
+          float: left;
       }
 
       .fondo {
@@ -24,13 +33,13 @@ page-home {
         width: 120px;
         height: 140px;
         margin: 0px !important;
+        padding: 0% !important;
 
     }
-    #slidemin{
+    
+    ion-card {
+        padding: 0px;
         
-        display: block !important;
-        position: relative;
-        height: 50px;
     }
     
       
@@ -42,7 +51,9 @@ page-home {
         margin-top: 8px;
         margin-bottom: 0px;
         color: rgb(219, 160, 31);
-        margin-left: 8px;
+        margin-left:1%;
+        
+        
     }
     .centrado .button-md{
         margin-top: 8px;
@@ -66,7 +77,20 @@ page-home {
         font-size: 30px;
         
     }
-    
+
+// esto modifca la altura de el slide de tendencias
+    ion-slides.slides.slides-md.slides-1{
+        height: 120px;
+        padding: 0 1% 1%;
+    }
+//tamanio de slide pequenio de tendencias
+    .slidemin{
+        max-height: 7em;
+    }
+
+    #slidemin > ion-card > ion-slides > div{
+        height: 50% !important;
+    }
     
        
 }
