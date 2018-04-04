@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { ServiciosRecibidosPage } from '../servicios-recibidos/servicios-recibidos';
 import { PreferenciasPage } from '../preferencias/preferencias';
-import { SolicitudPage } from '../solicitud/solicitud';
+import { SolicitudCitaPage } from '../solicitud-cita/solicitud-cita';
 
 @Component({
   selector: 'page-home',
@@ -19,7 +19,7 @@ export class HomePage {
   }
 
   solicitud() {
-    this.navCtrl.push(SolicitudPage);
+    this.navCtrl.push(SolicitudCitaPage);
   }
 
   constructor(public navCtrl: NavController) {

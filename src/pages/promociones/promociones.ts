@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import {SolicitudCitaPage } from '../solicitud-cita/solicitud-cita';
 
 @Component({
   selector: 'page-promociones',
@@ -50,6 +51,10 @@ iniciarLista(){
         return (item.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
       })
     }
+  }
+
+  Solicitar(){
+    this.navCtrl.push(SolicitudCitaPage);
   }
   constructor(public navCtrl: NavController) {
     this.iniciarLista();

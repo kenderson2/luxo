@@ -13,8 +13,12 @@ import { AboutPage } from '../pages/about/about';
 import { ServiciosRecibidosPage } from'../pages/servicios-recibidos/servicios-recibidos';
 import { ProfileSettingsPage } from '../pages/profile-settings/profile-settings';
 import { PreferenciasPage } from '../pages/preferencias/preferencias';
-import { SolicitudPage } from '../pages/solicitud/solicitud';
+import { SolicitudCitaPage } from '../pages/solicitud-cita/solicitud-cita';
 import { PromocionesPage } from '../pages/promociones/promociones';
+import { MotivosRechazoCitaPage }from '../pages/motivos-rechazo-cita/motivos-rechazo-cita';
+import { EditDatosPage } from '../pages/edit-datos/edit-datos';
+import { ViewServicioPage } from '../pages/view-servicio/view-servicio';
+import { MotivoGarantiaPage }from '../pages/motivo-garantia/motivo-garantia';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -29,9 +33,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ServiciosRecibidosPage,
     ProfileSettingsPage,
     PreferenciasPage,
-    SolicitudPage,
+    SolicitudCitaPage,
     PromocionesPage,
-    
+    MotivosRechazoCitaPage,
+    EditDatosPage,
+    ViewServicioPage,
+    MotivoGarantiaPage
   ],
   imports: [
     BrowserModule,
@@ -48,9 +55,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ServiciosRecibidosPage,
     ProfileSettingsPage,
     PreferenciasPage,
-    SolicitudPage,
+    SolicitudCitaPage,
     PromocionesPage,
-    
+    MotivosRechazoCitaPage,
+    EditDatosPage,
+    ViewServicioPage,
+    MotivoGarantiaPage
   ],
   providers: [
     StatusBar,

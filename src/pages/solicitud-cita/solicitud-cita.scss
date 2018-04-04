@@ -1,0 +1,48 @@
+page-solicitud-cita {
+    .label {
+        color: #000000;
+      }
+    alert-md .alert-message {
+      max-height: 2px;
+      font-size: 15px;
+    }
+    ion-modal,
+    .show-page {
+      // transparent black background overlay
+      background-color: rgba(0, 0, 0, .5) !important;
+      padding: 50px !important;
+    }
+    .toolbar-background {
+      color: red !important;
+    }
+    ion-modal.modal-wrapper {
+      transform: translateY(30%) !important;
+    }
+    ion-page.modal {
+      padding: 30px;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .modal-backdrop-bg {
+      background-color: #000;
+      opacity: 0;
+    }
+    .active .modal-backdrop-bg {
+      opacity: 0.5;
+    }
+  .contenedor {
+    background-color: #FFF;
+    padding: 10px;
+  }
+  .infos_presup{
+    display: block;
+    text-align: justify;
+    font-size: 18px;
+  }
+
+  }
+  ion-modal.inset-modal {
+    // transparent black background overlay
+    background-color: rgba(0, 0, 0, .5) !important;
+    transition: opacity .25s ease-in-out;
+    padding: 27vh 10vw;
+  }

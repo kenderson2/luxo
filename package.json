@@ -43,7 +43,10 @@
   "cordova": {
     "plugins": {
       "cordova-plugin-calendar": {},
-      "cordova-plugin-camera": {}
+      "cordova-plugin-camera": {
+        "CAMERA_USAGE_DESCRIPTION": "the app need the camera",
+        "PHOTOLIBRARY_USAGE_DESCRIPTION": "the app need the photolibrary"
+      }
     }
   }
 }

@@ -32,6 +32,9 @@ export class PreferenciasPage {
       date: '05/12/2015'
     },
   ];
+  user = {
+    profileImage: '../assets/imgs/nury.jpg',
+  };
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

@@ -49,7 +49,7 @@ export class LoginBackgroundSliderPage {
     }
   }
   Signup(){
-    let f = {user: this.user, pass: this.pass};
+  //  let f = {user: this.user, pass: this.pass};
     
         //Metodo cutre para entrar a la app
         if (this.user=="" && this.pass==""){

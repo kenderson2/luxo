@@ -1,0 +1,26 @@
+page-view-servicio {
+    .titulo{
+        text-align: center;
+        color: #000;
+        font-style: italic;
+    }
+    ion-card-content.card-content.card-content-md{
+        background-color: #FAF2DD;
+    }
+    ion-card.card.card-md {
+        background-color: #FAF2DD;
+    }
+    .item-md p{
+        color: #000;
+    }
+    .cont-comentario{
+        background-color: #FAF2DD;
+    }
+}
+
+ion-modal.inset-modal {
+    // transparent black background overlay
+    background-color: rgba(0, 0, 0, .5) !important;
+    transition: opacity .25s ease-in-out;
+    padding: 27vh 10vw;
+  }
