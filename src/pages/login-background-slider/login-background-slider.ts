@@ -49,10 +49,17 @@ export class LoginBackgroundSliderPage {
     }
   }
   Signup(){
+<<<<<<< HEAD
   //  let f = {user: this.user, pass: this.pass};
     
         //Metodo cutre para entrar a la app
         if (this.user=="" && this.pass==""){
+=======
+    let f = {user: this.user, pass: this.pass};
+    
+        //Metodo cutre para entrar a la app
+        if (this.user=="Nury" && this.pass=="1234"){
+>>>>>>> b6312e2ae6f86b33044cfa4f519cc7e7b7550cbe
             this.navCtrl.setRoot(HomePage)
         } 
         else {

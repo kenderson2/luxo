@@ -2,8 +2,11 @@ import { ToastService } from '../../providers/toast.service';
 import { Component } from '@angular/core';
 import { NavController, IonicPage, ViewController} from 'ionic-angular';
 import { ProfileSettingsPage } from '../profile-settings/profile-settings';
+<<<<<<< HEAD
 import { ViewServicioPage } from '../view-servicio/view-servicio';
 import { PreferenciasPage } from '../preferencias/preferencias';
+=======
+>>>>>>> b6312e2ae6f86b33044cfa4f519cc7e7b7550cbe
 
 
 @IonicPage()
@@ -62,12 +65,21 @@ export class PerfilPage {
     this.toastCtrl.create('Post image clicked');
   }
 
+<<<<<<< HEAD
   detalle(){
     this.navCtrl.push(ViewServicioPage);
   }
   
   preferencias(){
     this.navCtrl.push(PreferenciasPage);
+=======
+  comment(post) {
+    this.toastCtrl.create('Comments clicked');
+  }
+
+  like(post) {
+    this.toastCtrl.create('Like clicked');
+>>>>>>> b6312e2ae6f86b33044cfa4f519cc7e7b7550cbe
   }
 
 }

@@ -32,9 +32,12 @@ export class PreferenciasPage {
       date: '05/12/2015'
     },
   ];
+<<<<<<< HEAD
   user = {
     profileImage: '../assets/imgs/nury.jpg',
   };
+=======
+>>>>>>> b6312e2ae6f86b33044cfa4f519cc7e7b7550cbe
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
