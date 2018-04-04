@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-<<<<<<< HEAD
 import {SolicitudCitaPage } from '../solicitud-cita/solicitud-cita';
-=======
-import {SolicitudPage} from '../solicitud/solicitud';
->>>>>>> b6312e2ae6f86b33044cfa4f519cc7e7b7550cbe
 
 @Component({
   selector: 'page-promociones',
@@ -57,16 +53,9 @@ iniciarLista(){
     }
   }
 
-<<<<<<< HEAD
   Solicitar(){
     this.navCtrl.push(SolicitudCitaPage);
   }
-=======
-  Solicitud(){
-    this.navCtrl.push(SolicitudPage);
-  }
-
->>>>>>> b6312e2ae6f86b33044cfa4f519cc7e7b7550cbe
   constructor(public navCtrl: NavController) {
     this.iniciarLista();
   }
