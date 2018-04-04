@@ -23,17 +23,17 @@
           {{servicio.desc}}
         </p>
       </ion-item>
-      <ion-item>
+      <ion-item text-wrap>
         <ion-icon name="ios-clock-outline" item-start large></ion-icon>
         <h2>Fecha:</h2>
         <p>{{servicio.fecha}}</p>
       </ion-item>
-      <ion-item>
+      <ion-item text-wrap>
         <ion-icon name="flower" item-start large></ion-icon>
         <h2>Manicurista:</h2>
         <p>{{servicio.manicurista}}</p>
       </ion-item>
-      <ion-item>
+      <ion-item text-wrap>
         <ion-icon name="star" item-start large></ion-icon>
         <h2>Calificación</h2>
         <p>{{servicio.calificacion}}</p>
@@ -62,7 +62,7 @@
       <ion-avatar item-start>
         <img [src]="user.image">
       </ion-avatar>
-      <ion-item>
+      <ion-item text-wrap>
         <ion-textarea placeholder="Agrega una sugerencia, queja o comentario"></ion-textarea>
       </ion-item>
       <button ion-button full color="secondary" (click)="Enviar()">
