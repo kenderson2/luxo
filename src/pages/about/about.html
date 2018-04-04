@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Sobre Nosotros
+    </ion-title>
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <h2 align="Center">Quienes somos</h2>
+  <div id="prueba" align="center"><img align="Center" src="../assets/imgs/luxo2.png"/></div>
+
+    <h3 align="justify">
+      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis est in, inventore veritatis veniam enim totam illum illo! Laboriosam similique quibusdam, quae dolorum illo enim aliquid magni ad labore nisi?
+    </h3>
+    <accordion-list *ngFor="let item of items; let index = index" [title]="item.name"
+      textColor="#FFF"
+      hasMargin="false"
+      headerColor="#831a6c" >
+      <p text-wrap>{{item.description}}</p>
+    </accordion-list>
+</ion-content>

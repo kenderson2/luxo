@@ -1,0 +1,25 @@
+<ion-header no-border>
+  <ion-navbar transparent>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-slides pager="false" autoplay="2000" loop="true" speed="1500" effect="fade">
+    <ion-slide class="slide-background swiper-no-swiping" *ngFor="let background of backgrounds" [ngStyle]="{'background-image': 'url(' + background +')'}">
+    </ion-slide>
+  </ion-slides>
+  <div class="login-container">
+    <img class="logo" src="assets/imgs/luxo.png" />
+    <form (submit)="doLogin()">
+      <strong>Login:</strong>
+      <ion-item>
+        <ion-input type="email" placeholder="Correo electronico"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="password" placeholder="Contraseña"></ion-input>
+      </ion-item>
+      <button ion-button (click)="Signup()" class="login-button">Iniciar Sesión</button>
+      <p (click)="openResetPassword()"><strong>Olvidaste tu contraseña?</strong></p>      
+      <a href="#"><strong>Suscribirse</strong></a>
+    </form>
+  </div>
+</ion-content>
