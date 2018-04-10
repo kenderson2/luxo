@@ -21,10 +21,22 @@
     </ion-list-header>
     <ion-item>
         <ion-icon name='create' item-start></ion-icon>
-        <button ion-button color="secondary" (click)="Datos()" >
+        <button ion-button color="secondary" (click)="Datos()" block>
           Editar Mis Datos
         </button>
     </ion-item>
+    <ion-item>
+      <ion-icon name='create' item-start></ion-icon>
+      <button ion-button color="secondary"  block>
+        Editar Mis Preferencias
+      </button>
+  </ion-item>
+  <ion-item>
+    <ion-icon name='create' item-start></ion-icon>
+    <button ion-button color="secondary" block>
+      Cambiar mi contraseña
+    </button>
+</ion-item>
     <ion-item>
       <ion-toggle [(ngModel)]="enableNotifications" (click)="toggleNotifications()"></ion-toggle>
       <ion-label class="label"> Notificaciones </ion-label>
