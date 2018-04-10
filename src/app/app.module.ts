@@ -22,6 +22,11 @@ import { MotivoGarantiaPage }from '../pages/motivo-garantia/motivo-garantia';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { CatalogoPage } from '../pages/catalogo/catalogo';
+
+import { CatalogomanicurePage } from '../pages/catalogomanicure/catalogomanicure';
+import { CatalogopedicurePage } from '../pages/catalogopedicure/catalogopedicure';
+import { CatalogosistemaPage } from '../pages/catalogosistema/catalogosistema';
 
 @NgModule({
   declarations: [
@@ -38,7 +43,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MotivosRechazoCitaPage,
     EditDatosPage,
     ViewServicioPage,
-    MotivoGarantiaPage
+    MotivoGarantiaPage,
+
+    CatalogoPage,
+
+    CatalogomanicurePage,
+    CatalogopedicurePage,
+    CatalogosistemaPage
   ],
   imports: [
     BrowserModule,
@@ -60,7 +71,12 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MotivosRechazoCitaPage,
     EditDatosPage,
     ViewServicioPage,
-    MotivoGarantiaPage
+    MotivoGarantiaPage,
+    
+    CatalogoPage,
+    CatalogomanicurePage,
+    CatalogopedicurePage,
+    CatalogosistemaPage
   ],
   providers: [
     StatusBar,

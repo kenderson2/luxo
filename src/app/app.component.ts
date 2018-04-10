@@ -9,6 +9,7 @@ import { PerfilPage } from '../pages/perfil/perfil';
 import { AboutPage } from '../pages/about/about';
 import { PromocionesPage } from '../pages/promociones/promociones';
 import { SolicitudCitaPage } from '../pages/solicitud-cita/solicitud-cita';
+import { CatalogoPage } from '../pages/catalogo/catalogo';
 
 @Component({
   templateUrl: 'app.html'
@@ -31,7 +32,7 @@ export class MyApp {
       { title: 'Iniciar sesión', icono:'log-in',component:LoginBackgroundSliderPage },
       { title: 'Perfil', icono:'camera', component: PerfilPage},
     //   { title: 'Notificaciones', icono:'notifications', component: },
-    //{ title: 'Catalogo', icono:'', component: CatalogoPage},
+    { title: 'Catalogo', icono:'ios-basket', component: CatalogoPage},
       { title: 'Promociones', icono:'basket', component: PromocionesPage },
       { title: 'Solicitar Cita', icono:'paper', component: SolicitudCitaPage},
     // { title: 'Mi Calendario', icono:'calendar', component: CalendarioPage},
