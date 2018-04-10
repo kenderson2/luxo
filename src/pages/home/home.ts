@@ -9,7 +9,7 @@ import {PromocionesPage} from '../promociones/promociones';
 })
 export class HomePage {
 
-	
+	//test
   Promocion(){
     this.navCtrl.push(PromocionesPage);
   }
