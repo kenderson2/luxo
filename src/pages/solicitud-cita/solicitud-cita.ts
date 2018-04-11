@@ -82,6 +82,9 @@ export class SolicitudCitaPage {
   openModal(pageName) {
     this.modalCtrl.create(pageName, null, { cssClass: 'inset-modal' }).present();
   }
+  prev(){
+    this.solicitudSlider.slidePrev();
+}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SolicitudCitaPage');

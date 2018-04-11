@@ -10,18 +10,17 @@ import { CatalogoPage } from '../catalogo/catalogo';
 })
 export class HomePage {
 
-  //test
-  
-  Catalogo()
-  {
-    this.navCtrl.push(CatalogoPage)
-  }
+	
   Promocion(){
     this.navCtrl.push(PromocionesPage);
   }
 
   Perfil(){
     this.navCtrl.push(PerfilPage);
+  }
+
+  Servicios(){
+    this.navCtrl.push(CatalogoPage);
   }
 
   constructor(public navCtrl: NavController) {

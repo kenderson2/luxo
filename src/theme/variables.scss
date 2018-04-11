@@ -35,8 +35,8 @@ $app-direction: ltr;
 
 $colors: (
   primary:    #66004c,
-  secondary:  #d111a1,
-  danger:     #9b0644,
+  secondary:  #32db64,
+  danger:     #f53d3d,
   light:      #f4f4f4,
   dark:       #222,
   vino:       #330329,
@@ -48,10 +48,18 @@ $colors: (
 
   scarlet: #66004c,
   wine:    #77304f,
-  pinnoff: #A87B8f,
+  pinnoff: rgb(201, 39, 112),
   lila:    #D7C3CC, 
   beig:    #FAF2DD,
-  bounce : #dbdbdb 
+  bounce : #dbdbdb,
+  
+  //ultima paleta
+  nav: #c91c71,
+  //azul: #64aeb1,
+  azul:#34cae9,
+  tercer:#f25089,
+  cuarto: #ec86ac,
+  tinto:#510226
 
 );
 

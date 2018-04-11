@@ -27,6 +27,7 @@ import { CatalogoPage } from '../pages/catalogo/catalogo';
 import { CatalogomanicurePage } from '../pages/catalogomanicure/catalogomanicure';
 import { CatalogopedicurePage } from '../pages/catalogopedicure/catalogopedicure';
 import { CatalogosistemaPage } from '../pages/catalogosistema/catalogosistema';
+import { NotificacionesPage } from '../pages/notificaciones/notificaciones';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { CatalogosistemaPage } from '../pages/catalogosistema/catalogosistema';
     EditDatosPage,
     ViewServicioPage,
     MotivoGarantiaPage,
+    NotificacionesPage,
 
     CatalogoPage,
 
@@ -72,6 +74,7 @@ import { CatalogosistemaPage } from '../pages/catalogosistema/catalogosistema';
     EditDatosPage,
     ViewServicioPage,
     MotivoGarantiaPage,
+    NotificacionesPage,
     
     CatalogoPage,
     CatalogomanicurePage,

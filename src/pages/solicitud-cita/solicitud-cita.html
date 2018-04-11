@@ -33,7 +33,7 @@
             </ion-item>                  
             <ion-item>
               <ion-buttons end>
-                <button ion-button icon-only color="secondary" round>
+                <button ion-button icon-only color="cuarto" round>
                 <ion-icon name="add"></ion-icon>
                 </button>
               </ion-buttons>
@@ -45,10 +45,10 @@
             </ion-item>              
         
         <ion-fab right bottom>
-          <button ion-button class="icon-right" (click)="next()">Aceptar</button>
+          <button ion-button class="icon-right" color="azul" (click)="next()">Aceptar</button>
         </ion-fab>
         <ion-fab left bottom>
-          <button ion-button class="icon-left" color="danger" (click)="cancelar()">Cancelar</button>
+          <button ion-button class="icon-left" color="tercer" (click)="cancelar()">Cancelar</button>
         </ion-fab>
       </div>
       </ion-slide>
@@ -56,12 +56,13 @@
       <ion-slide>
         <ion-header>
           <ion-navbar>
+            <button ion-button class="izq" color="bounce" (click)="prev()"clear><ion-icon name="ios-arrow-dropleft-circle"></ion-icon></button>
             <ion-title>Solicitud de Cita</ion-title>
-            <button ion-button menuToggle>
-              <ion-icon name="menu"></ion-icon>
-            </button>
           </ion-navbar>
         </ion-header>
+      
+        
+      
         <div class="contenedor">
         <ion-list no-lines>
         <p align="justify">Elige la manicurista con la cual deseas tu cita:</p>
@@ -83,10 +84,10 @@
         </ion-list>
       </div>
         <ion-fab right bottom>
-            <button ion-button class="icon-right" (click)="save()">Registrar</button>
+            <button ion-button class="icon-right" color="azul" (click)="save()">Registrar</button>
         </ion-fab>
         <ion-fab left bottom>
-            <button ion-button class="icon-left" color="danger" (click)="cancelar()">Cancelar</button>
+            <button ion-button class="icon-left" color="tercer" (click)="cancelar()">Cancelar</button>
         </ion-fab>  
       </ion-slide>         
     </ion-slides>

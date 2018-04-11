@@ -28,58 +28,66 @@
   
   </section>
   
-  <h6 class="titulos">Ultimas tendencias</h6>
+
  <!-- <div class="fondo">
       <img src="assets/imgs/luxo2.png">
    </div> -->
-  <div id="slidemin">
-      <ion-slides #slider spaceBetween="8" slidesPerView="3" loop="true">
+  
+    <ion-card>
+        <h6 class="titulos">Ultimas tendencias</h6>
+      <ion-slides class="slidemin" #slider autoplay="9000"  spaceBetween="8" slidesPerView="3" loop="true">
 
           <ion-slide  class="minic">
-              <ion-card>
+              
                   <img src="assets/imgs/imagen1.jpg"/>
                   
-                </ion-card>
             
           </ion-slide>
         
           <ion-slide  class="minic">
-              <ion-card>
+             
                   <img src="assets/imgs/imagen4.jpg"/>
                   
-                </ion-card>            
+                          
           </ion-slide>
 
           <ion-slide  class="minic">
-              <ion-card>
+              
                   <img src="assets/imgs/imagen5.jpg"/>
                   
-                </ion-card>
+               
             
           </ion-slide>
         
         </ion-slides>
-  </div>
+      </ion-card>
+ 
+  
 
-  <div class="centrado">
-    <button ion-button icon-left (click)="Catalogo()" outline >
-      <ion-icon name="book"></ion-icon>
-      Catalogo
-    </button>
-    <button ion-button icon-left (click)="Promocion()" outline>
-      <ion-icon name="star"></ion-icon>
-      Promociones
-    </button>
+  <div class="botones">
+    <ion-item class="seccion2">
+      <ion-card><ion-icon color="azul" name="book" (click)="Servicios()" item-start></ion-icon>
+        <p>Catalogo</p>
+      </ion-card>
+    </ion-item>
+  
+    <ion-item class="seccion2">
+      <ion-card><ion-icon color="azul" name="star" (click)="Promocion()" item-start></ion-icon>
+        <p>Promociones</p>
+      </ion-card>
+    </ion-item>
+  
+    <ion-item class="seccion2">
+      <ion-card><ion-icon color="azul" name="calendar" item-start></ion-icon>
+        <p>Agenda</p>
+      </ion-card>
+    </ion-item>
+  
+    <ion-item class="seccion2">
+      <ion-card><ion-icon  color="azul" name="people" (click)="Perfil()" item-start></ion-icon>
+        <p>Perfil</p>
+      </ion-card>
+    </ion-item>
   </div>
-  <div class="centrado">
-    <button ion-button icon-left outline>
-      <ion-icon name="calendar"></ion-icon>
-      agenda
-    </button>
-    <button ion-button icon-left (click)="Perfil()" outline>
-      <ion-icon name="people"></ion-icon>
-      Perfil
-    </button>
-  </div> 
   
 </ion-content>
