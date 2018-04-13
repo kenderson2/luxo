@@ -29,6 +29,10 @@ import { CatalogopedicurePage } from '../pages/catalogopedicure/catalogopedicure
 import { CatalogosistemaPage } from '../pages/catalogosistema/catalogosistema';
 import { NotificacionesPage } from '../pages/notificaciones/notificaciones';
 
+import { AuthService } from '../services/auth.service';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -55,6 +59,8 @@ import { NotificacionesPage } from '../pages/notificaciones/notificaciones';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
     SharedModule,
   ],
@@ -86,6 +92,7 @@ import { NotificacionesPage } from '../pages/notificaciones/notificaciones';
     ToastService,
     SplashScreen,
     AlertService,
+    AuthService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
