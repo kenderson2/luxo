@@ -18,4 +18,50 @@
     <img id="profile-image" [src]="user.profileImage">
   </div>
   <h1>Preferencias</h1>
+  <div>
+    <ion-segment [(ngModel)]="preferencias">
+      <ion-segment-button value="esmaltes">
+        Esmaltes
+      </ion-segment-button>
+      <ion-segment-button value="servicios">
+        Servicios
+      </ion-segment-button>
+      <ion-segment-button value="decoraciones">
+        Decoraciones
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  
+  <div [ngSwitch]="preferencias">
+    <ion-list *ngSwitchCase="'esmaltes'">
+    <!--  <ion-item>
+        <h2>Tipo de Esmaltes</h2>
+        <li>
+          <ul>Nude</ul>
+          <ul>Escarchado</ul>
+        </li>
+      </ion-item>
+      <ion-item>
+        <h2>Colores</h2>
+        <li>
+          <ul>Beige</ul>
+          <ul>Rojo</ul>
+          <ul>Azul</ul>
+        </li>
+      </ion-item> -->
+    </ion-list>
+  
+    <ion-list *ngSwitchCase="'servicios'">
+  <!--    <ion-item>
+        <h2>Luna</h2>
+      </ion-item>
+      ... -->
+    </ion-list>
+    <ion-list *ngSwitchCase="'decoraciones'">
+      <!--    <ion-item>
+            <h2>Luna</h2>
+          </ion-item>
+          ... -->
+        </ion-list>
+  </div>
 </ion-content>

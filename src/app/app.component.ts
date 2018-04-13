@@ -6,11 +6,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { HomePage } from '../pages/home/home';
 import { LoginBackgroundSliderPage } from '../pages/login-background-slider/login-background-slider';
 import { PerfilPage } from '../pages/perfil/perfil';
-import { AboutPage } from '../pages/about/about';
 import { PromocionesPage } from '../pages/promociones/promociones';
 import { SolicitudCitaPage } from '../pages/solicitud-cita/solicitud-cita';
 import { CatalogoPage } from '../pages/catalogo/catalogo';
 import { NotificacionesPage } from '../pages/notificaciones/notificaciones';
+import { OpinionPage } from '../pages/opinion/opinion';
 
 @Component({
   templateUrl: 'app.html'
@@ -29,16 +29,15 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', icono:'home', component: HomePage  },
-      { title: 'Iniciar sesión', icono:'log-in',component:LoginBackgroundSliderPage },
+      { title: 'Home', icono:'home', component: HomePage  },      
       { title: 'Perfil', icono:'camera', component: PerfilPage},
       { title: 'Notificaciones', icono:'notifications', component:NotificacionesPage },
     { title: 'Catalogo', icono:'ios-basket', component: CatalogoPage},
       { title: 'Promociones', icono:'basket', component: PromocionesPage },
       { title: 'Solicitar Cita', icono:'paper', component: SolicitudCitaPage},
+      { title: 'Mi opinión', icono:'chatbubbles', component: OpinionPage},
     // { title: 'Mi Calendario', icono:'calendar', component: CalendarioPage},
     // { title: 'Cerrar sesión', icono: 'logOut', component: LogoutPage }.
-      { title: 'Sobre Nosotros', icono:"heart", component: AboutPage},
 
     ];
 

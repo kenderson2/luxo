@@ -33,7 +33,7 @@
             </ion-item>                  
             <ion-item>
               <ion-buttons end>
-                <button ion-button icon-only color="cuarto" round>
+                <button ion-button icon-only color="cuarto" (click)="addServicio()" round>
                 <ion-icon name="add"></ion-icon>
                 </button>
               </ion-buttons>
@@ -56,7 +56,7 @@
       <ion-slide>
         <ion-header>
           <ion-navbar>
-            <button ion-button class="izq" color="bounce" (click)="prev()"clear><ion-icon name="ios-arrow-dropleft-circle"></ion-icon></button>
+            <button ion-button class="izq" color="bounce" (click)="prev()"clear><ion-icon name="arrow-back"></ion-icon></button>
             <ion-title>Solicitud de Cita</ion-title>
           </ion-navbar>
         </ion-header>

@@ -26,14 +26,14 @@
         </button>
     </ion-item>
     <ion-item>
-      <ion-icon name='create' item-start></ion-icon>
-      <button ion-button color="azul"  block>
+      <ion-icon name='star' item-start></ion-icon>
+      <button ion-button color="azul" (click)="preferencias()" block>
         Editar Mis Preferencias
       </button>
   </ion-item>
   <ion-item>
-    <ion-icon name='create' item-start></ion-icon>
-    <button ion-button color="azul" block>
+    <ion-icon name='lock' item-start></ion-icon>
+    <button ion-button color="azul" (click)="cambio()" block>
       Cambiar mi contraseña
     </button>
 </ion-item>

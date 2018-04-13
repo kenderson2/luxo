@@ -16,12 +16,15 @@ import { PerfilPage } from '../perfil/perfil';
 })
 export class EditDatosPage {
   img1: any;
+  sexo: any;
   profilePicture: string;
   user = {
     name: 'Nury',
     apellido: 'Amaro',
     imageUrl: 'assets/imgs/nury.jpg'
   };
+
+  sexos = ['Femenino', 'Masculino'];
 
   updateImage(value) {
     this.profilePicture = 'data:image/jpeg;base64,' + value.val();

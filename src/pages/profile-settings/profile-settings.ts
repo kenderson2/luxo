@@ -3,6 +3,7 @@ import { AlertService } from '../../providers/alert.service';
 import { Component } from '@angular/core';
 import { IonicPage, NavController } from 'ionic-angular';
 import { EditDatosPage } from '../edit-datos/edit-datos';
+import { EditPreferenciasPage } from '../edit-preferencias/edit-preferencias';
 
 @IonicPage()
 @Component({
@@ -48,6 +49,14 @@ export class ProfileSettingsPage {
 
   Datos(){
     this.navCtrl.push(EditDatosPage);
+  }
+  
+  preferencias(){
+    this.navCtrl.push(EditPreferenciasPage);
+  }
+
+  cambio(){
+    
   }
 
   logOut() {

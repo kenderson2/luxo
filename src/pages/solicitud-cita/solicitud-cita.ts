@@ -58,6 +58,10 @@ export class SolicitudCitaPage {
     alert.present();
   }
 
+  addServicio() {
+  	console.log('Agregar Servicios');
+  	this.servicios.push();
+  }
   cancelar(){
     const alert = this.alertCtrl.create({
     title: 'Seguro de cancelar la solicitud?',

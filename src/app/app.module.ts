@@ -4,6 +4,8 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { ToastService } from '../providers/toast.service';
 import { AlertService } from '../providers/alert.service';
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -19,15 +21,14 @@ import { MotivosRechazoCitaPage }from '../pages/motivos-rechazo-cita/motivos-rec
 import { EditDatosPage } from '../pages/edit-datos/edit-datos';
 import { ViewServicioPage } from '../pages/view-servicio/view-servicio';
 import { MotivoGarantiaPage }from '../pages/motivo-garantia/motivo-garantia';
-
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { EditPreferenciasPage } from '../pages/edit-preferencias/edit-preferencias';
+import {OpinionPage } from '../pages/opinion/opinion';
 import { CatalogoPage } from '../pages/catalogo/catalogo';
-
 import { CatalogomanicurePage } from '../pages/catalogomanicure/catalogomanicure';
 import { CatalogopedicurePage } from '../pages/catalogopedicure/catalogopedicure';
 import { CatalogosistemaPage } from '../pages/catalogosistema/catalogosistema';
 import { NotificacionesPage } from '../pages/notificaciones/notificaciones';
+
 
 @NgModule({
   declarations: [
@@ -46,12 +47,12 @@ import { NotificacionesPage } from '../pages/notificaciones/notificaciones';
     ViewServicioPage,
     MotivoGarantiaPage,
     NotificacionesPage,
-
+    EditPreferenciasPage,
     CatalogoPage,
-
     CatalogomanicurePage,
     CatalogopedicurePage,
-    CatalogosistemaPage
+    CatalogosistemaPage,
+    OpinionPage,   
   ],
   imports: [
     BrowserModule,
@@ -75,11 +76,12 @@ import { NotificacionesPage } from '../pages/notificaciones/notificaciones';
     ViewServicioPage,
     MotivoGarantiaPage,
     NotificacionesPage,
-    
+    EditPreferenciasPage,
     CatalogoPage,
     CatalogomanicurePage,
     CatalogopedicurePage,
-    CatalogosistemaPage
+    CatalogosistemaPage,
+    OpinionPage,   
   ],
   providers: [
     StatusBar,

@@ -32,7 +32,9 @@
   </ion-item>
   <ion-item>
     <ion-label floating>Sexo</ion-label>
-    <ion-input></ion-input>
+    <ion-select [(ngModel)]="sexo">
+      <ion-option *ngFor="let sexo of sexos" [value]="sexo">{{sexo}}</ion-option>
+    </ion-select>
   </ion-item>
   <ion-item>
     <ion-label floating>Dirección</ion-label>

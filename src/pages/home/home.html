@@ -4,6 +4,11 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Home</ion-title>
+    <ion-buttons end>
+      <button class="login" ion-button (click)="login()" clear icon-only>
+        <ion-icon name="person"></ion-icon>
+      </button>
+    </ion-buttons>   
   </ion-navbar>
 </ion-header>
 
@@ -39,26 +44,30 @@
 
           <ion-slide  class="minic">
               
-                  <img src="assets/imgs/imagen1.jpg"/>
+                  <img src="assets/imgs/imagen6.jpg"/>
                   
             
           </ion-slide>
         
           <ion-slide  class="minic">
              
-                  <img src="assets/imgs/imagen4.jpg"/>
+                  <img src="assets/imgs/permanenteuña.jpg"/>
                   
                           
           </ion-slide>
 
           <ion-slide  class="minic">
               
-                  <img src="assets/imgs/imagen5.jpg"/>
-                  
+                  <img src="assets/imgs/imagen13.jpg"/>                 
                
             
           </ion-slide>
         
+          <ion-slide  class="minic">
+              
+            <img src="assets/imgs/imagen10.jpg"/>                 
+         
+          </ion-slide>
         </ion-slides>
       </ion-card>
  
@@ -84,8 +93,8 @@
     </ion-item>
   
     <ion-item class="seccion2">
-      <ion-card><ion-icon  color="azul" name="people" (click)="Perfil()" item-start></ion-icon>
-        <p>Perfil</p>
+      <ion-card><ion-icon  color="azul" name="heart" (click)="nosotros()" item-start></ion-icon>
+        <p>Sobre Nosotros</p>
       </ion-card>
     </ion-item>
   </div>
