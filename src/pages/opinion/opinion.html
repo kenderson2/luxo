@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Mi Opinión</ion-title>
+    <ion-title>Contacto</ion-title>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -22,7 +22,7 @@
   </ion-item>
   <ion-card>
     <ion-item text-wrap>
-      <ion-label floating>Motivo</ion-label>
+      <ion-label floating>Categoria</ion-label>
       <ion-select [(ngModel)]="motivo">
        <ion-option *ngFor="let c of comunicaciones" value="{{c.nombre}}" (ionSelect)="itemView(c.razones);">{{c.nombre}}
        </ion-option>
@@ -31,7 +31,7 @@
   </ion-card>
   <ion-card>
     <ion-item text-wrap>
-      <ion-label floating>Razón</ion-label>
+      <ion-label floating>Motivo</ion-label>
       <ion-select [(ngModel)]="razon">
         <ion-option *ngFor="let r of razones" value="{{r.id}}">{{r.nombre}}
       </ion-option>  

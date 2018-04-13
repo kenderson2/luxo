@@ -29,13 +29,13 @@ export class MyApp {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', icono:'home', component: HomePage  },      
+      { title: 'Inicio', icono:'home', component: HomePage  },      
       { title: 'Perfil', icono:'camera', component: PerfilPage},
       { title: 'Notificaciones', icono:'notifications', component:NotificacionesPage },
-    { title: 'Catalogo', icono:'ios-basket', component: CatalogoPage},
+    { title: 'Servicios', icono:'ios-basket', component: CatalogoPage},
       { title: 'Promociones', icono:'basket', component: PromocionesPage },
       { title: 'Solicitar Cita', icono:'paper', component: SolicitudCitaPage},
-      { title: 'Mi opinión', icono:'chatbubbles', component: OpinionPage},
+      { title: 'Contacto', icono:'chatbubbles', component: OpinionPage},
     // { title: 'Mi Calendario', icono:'calendar', component: CalendarioPage},
     // { title: 'Cerrar sesión', icono: 'logOut', component: LogoutPage }.
 
