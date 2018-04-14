@@ -19,60 +19,7 @@ page-notificaciones {
       $atletico: darken(#f4f4f4, 45%);
       $javascript: #f7e023;
     
-      .item-ribbon{
-        background-color: #fff;
-        position: relative;
-        filter: none;
-        opacity: 1;
-        .ribbon {
-          position: absolute;
-          right: -5px;
-          top: -5px;
-          z-index: 2;
-          overflow: hidden;
-          width: 75px;
-          height: 75px;
-          text-align: right;
-          span {
-            font-size: 1rem;
-            font-weight: bold;
-            color: #fff;
-            text-transform: uppercase;
-            text-align: center;
-            line-height: 20px;
-            transform: rotate(45deg);
-            -webkit-transform: rotate(45deg);
-            width: 100px;
-            display: block;
-            background: $default;
-            position: absolute;
-            top: 19px;
-            right: -21px;
-            &::before {
-              content: "";
-              position: absolute;
-              left: 0;
-              top: 100%;
-              z-index: -1;
-              border-left: 3px solid $default;
-              border-right: 3px solid transparent;
-              border-bottom: 3px solid transparent;
-              border-top: 3px solid $default;
-            }
-            &::after {
-              content: "";
-              position: absolute;
-              right: 0;
-              top: 100%;
-              z-index: -1;
-              border-left: 3px solid transparent;
-              border-right: 3px solid $default;
-              border-bottom: 3px solid transparent;
-              border-top: 3px solid $default;
-            }
-          }
-        }
-      }
+      
     
       .ribbon.cruzeiro {
         @include ribbonize($cruzeiro);
@@ -92,5 +39,25 @@ page-notificaciones {
          padding-left: 3%;
 
       }
+  h4{
+    color: #c0ad59;
+    padding: 0.2em;
+    text-align: center;
+   
+  }
+      .button-small-md {
+        width: 24em;
+        height: 2em;
+        font-size: 1.3rem;
+        padding: 0.9em;
+        margin-left: 1em;
+        margin-bottom: 1em;
+    }
+
+    img {
+      width: 75px;
+      height: 75px;
+      border-radius: 9px;
+  }
 
 }
