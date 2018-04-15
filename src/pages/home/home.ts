@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import {PerfilPage} from '../perfil/perfil';
 import {PromocionesPage} from '../promociones/promociones';
+import { CatalogoPage } from '../catalogo/catalogo';
+import { AboutPage } from '../about/about';
+import { LoginBackgroundSliderPage } from '../login-background-slider/login-background-slider';
 
 @Component({
   selector: 'page-home',
@@ -14,8 +16,15 @@ export class HomePage {
     this.navCtrl.push(PromocionesPage);
   }
 
-  Perfil(){
-    this.navCtrl.push(PerfilPage);
+  nosotros(){
+    this.navCtrl.push(AboutPage);
+  }
+
+  Servicios(){
+    this.navCtrl.push(CatalogoPage);
+  }
+  login(){
+    this.navCtrl.push(LoginBackgroundSliderPage);
   }
 
   constructor(public navCtrl: NavController) {

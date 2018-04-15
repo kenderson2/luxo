@@ -1,8 +1,9 @@
 import { ToastService } from '../../providers/toast.service';
 import { AlertService } from '../../providers/alert.service';
 import { Component } from '@angular/core';
-//import { Camera } from '@ionic-native/camera';
-import { IonicPage } from 'ionic-angular';
+import { IonicPage, NavController } from 'ionic-angular';
+import { EditDatosPage } from '../edit-datos/edit-datos';
+import { EditPreferenciasPage } from '../edit-preferencias/edit-preferencias';
 
 @IonicPage()
 @Component({
@@ -28,7 +29,7 @@ export class ProfileSettingsPage {
   constructor(
     public alertService: AlertService,
     public toastCtrl: ToastService,
-   // public camera: Camera
+    public navCtrl: NavController,
   ) { }
 
   toggleNotifications() {
@@ -43,17 +44,19 @@ export class ProfileSettingsPage {
     this.profilePicture = 'data:image/jpeg;base64,' + value.val();
   }
 
-  updateProfileImage() {/*
-    this.camera.getPicture({
-      quality: 50,
-      allowEdit: true,
-      cameraDirection: this.camera.Direction.FRONT,
-      destinationType: this.camera.DestinationType.DATA_URL
-    }).then((imageData) => {
-      this.user.imageUrl = imageData;
-    }, (err) => {
-      this.toastCtrl.create('Error: ' + err);
-    });*/
+  updateProfileImage() {
+  }
+
+  Datos(){
+    this.navCtrl.push(EditDatosPage);
+  }
+  
+  preferencias(){
+    this.navCtrl.push(EditPreferenciasPage);
+  }
+
+  cambio(){
+    
   }
 
   logOut() {

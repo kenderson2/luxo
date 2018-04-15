@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import {SolicitudPage} from '../solicitud/solicitud';
+import {SolicitudCitaPage } from '../solicitud-cita/solicitud-cita';
 
 @Component({
   selector: 'page-promociones',
@@ -53,10 +53,9 @@ iniciarLista(){
     }
   }
 
-  Solicitud(){
-    this.navCtrl.push(SolicitudPage);
+  Solicitar(){
+    this.navCtrl.push(SolicitudCitaPage);
   }
-
   constructor(public navCtrl: NavController) {
     this.iniciarLista();
   }

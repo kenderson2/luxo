@@ -8,16 +8,19 @@
     </ion-slide>
   </ion-slides>
   <div class="login-container">
-    <img class="logo" src="assets/imgs/luxo23.png" />
-    <form (submit)="doLogin()">
+    <img class="logo" src="assets/imgs/luxo.png" />
+    <div id="circulo"></div>
+    <form  [formGroup]="loginForm">
       <strong>Login:</strong>
       <ion-item>
-        <ion-input type="email" placeholder="Correo electronico"></ion-input>
+        <ion-label>Usuario</ion-label>
+        <ion-input formControlName="email" type="email"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input type="password" placeholder="Contraseña"></ion-input>
+      <ion-label>Contraseña</ion-label>
+       <ion-input formControlName="password" type="password"></ion-input>
       </ion-item>
-      <button ion-button (click)="Signup()" class="login-button">Iniciar Sesión</button>
+      <button ion-button color="azul" (click)="Signup()" class="login-button">Iniciar Sesión</button>
       <p (click)="openResetPassword()"><strong>Olvidaste tu contraseña?</strong></p>      
       <a href="#"><strong>Suscribirse</strong></a>
     </form>

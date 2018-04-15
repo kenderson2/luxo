@@ -1,0 +1,80 @@
+<!--
+  Generated template for the EditPreferenciasPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Editar Preferencias</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <div section="pinturas">
+    <ion-card>
+      <ion-card-title class="titulo">Esmaltes</ion-card-title>
+      <p>Cual es tu esmalte de uñas favorito?</p>
+      <ion-item text-wrap>
+        <ion-label floating>Tipo de esmalte</ion-label>
+        <ion-select [(ngModel)]="esmalte">
+          <ion-option *ngFor="let c of esmaltes" value="{{c.nombre}}" (ionSelect)="itemView(c.colores);">{{c.nombre}}
+          </ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item text-wrap>
+        <ion-label floating>Colores</ion-label>
+        <ion-select [(ngModel)]="color">
+          <ion-option *ngFor="let r of colores" value="{{r.id}}">{{r.nombre}}
+          </ion-option>  
+        </ion-select>
+      </ion-item>
+    </ion-card>
+  </div>
+
+  <div section="servicios">
+      <ion-card>
+          <ion-card-title class="titulo">Servicios</ion-card-title>
+          <p>Cual/es son tus servicios favoritos?</p>
+              <ion-item text-wrap>
+                  <ion-label floating>Tipo de servicio</ion-label>
+                  <ion-select [(ngModel)]="servicio">
+                    <ion-option *ngFor="let servicio of servicios" [value]="servicio">{{servicio}}</ion-option>
+                  </ion-select>
+                </ion-item> 
+        </ion-card>
+  </div>
+
+  <div section="decoraciones">
+      <ion-card>
+          <ion-card-title class="titulo">Decoraciones</ion-card-title>
+          <p>Cual/es son tus tipos de decoraciones favoritos?</p>
+              <ion-item text-wrap>
+                  <ion-label floating>Decoraciones</ion-label>
+                  <ion-select [(ngModel)]="decoracion">
+                    <ion-option *ngFor="let decoracion of decoraciones" [value]="decoracion">{{decoracion}}</ion-option>
+                  </ion-select>
+                </ion-item> 
+        </ion-card>
+  </div>
+
+<div section="otros">
+    <form ion-grid fixed>
+        <ion-card ion-row>
+          <ion-card-title class="titulo">Otras Preferencias</ion-card-title>
+          <ion-item ion-col col-12>
+            <ion-label floating>Comentario</ion-label>
+            <ion-textarea name="Comentario"></ion-textarea>
+          </ion-item>
+        </ion-card>
+      </form>  
+</div>
+    <button type="submit" color="azul" ion-button icon-left (click)="guardar()">
+      <ion-icon name="send"></ion-icon>
+      Guardar
+    </button>
+</ion-content>

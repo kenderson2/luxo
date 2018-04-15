@@ -4,6 +4,8 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { ToastService } from '../providers/toast.service';
 import { AlertService } from '../providers/alert.service';
+import { StatusBar } from '@ionic-native/status-bar';
+import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -13,12 +15,23 @@ import { AboutPage } from '../pages/about/about';
 import { ServiciosRecibidosPage } from'../pages/servicios-recibidos/servicios-recibidos';
 import { ProfileSettingsPage } from '../pages/profile-settings/profile-settings';
 import { PreferenciasPage } from '../pages/preferencias/preferencias';
-import { SolicitudPage } from '../pages/solicitud/solicitud';
+import { SolicitudCitaPage } from '../pages/solicitud-cita/solicitud-cita';
 import { PromocionesPage } from '../pages/promociones/promociones';
-import { NotificacionesPage } from '../pages/notificaciones/notificaciones'
+import { MotivosRechazoCitaPage }from '../pages/motivos-rechazo-cita/motivos-rechazo-cita';
+import { EditDatosPage } from '../pages/edit-datos/edit-datos';
+import { ViewServicioPage } from '../pages/view-servicio/view-servicio';
+import { MotivoGarantiaPage }from '../pages/motivo-garantia/motivo-garantia';
+import { EditPreferenciasPage } from '../pages/edit-preferencias/edit-preferencias';
+import {OpinionPage } from '../pages/opinion/opinion';
+import { CatalogoPage } from '../pages/catalogo/catalogo';
+import { CatalogomanicurePage } from '../pages/catalogomanicure/catalogomanicure';
+import { CatalogopedicurePage } from '../pages/catalogopedicure/catalogopedicure';
+import { CatalogosistemaPage } from '../pages/catalogosistema/catalogosistema';
+import { NotificacionesPage } from '../pages/notificaciones/notificaciones';
 
-import { StatusBar } from '@ionic-native/status-bar';
-import { SplashScreen } from '@ionic-native/splash-screen';
+import { AuthService } from '../services/auth.service';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -30,13 +43,24 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ServiciosRecibidosPage,
     ProfileSettingsPage,
     PreferenciasPage,
-    SolicitudPage,
+    SolicitudCitaPage,
     PromocionesPage,
+    MotivosRechazoCitaPage,
+    EditDatosPage,
+    ViewServicioPage,
+    MotivoGarantiaPage,
     NotificacionesPage,
-    
+    EditPreferenciasPage,
+    CatalogoPage,
+    CatalogomanicurePage,
+    CatalogopedicurePage,
+    CatalogosistemaPage,
+    OpinionPage,   
   ],
   imports: [
     BrowserModule,
+    HttpModule,
+    HttpClientModule,
     IonicModule.forRoot(MyApp),
     SharedModule,
   ],
@@ -50,16 +74,26 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ServiciosRecibidosPage,
     ProfileSettingsPage,
     PreferenciasPage,
-    SolicitudPage,
+    SolicitudCitaPage,
     PromocionesPage,
+    MotivosRechazoCitaPage,
+    EditDatosPage,
+    ViewServicioPage,
+    MotivoGarantiaPage,
     NotificacionesPage,
-    
+    EditPreferenciasPage,
+    CatalogoPage,
+    CatalogomanicurePage,
+    CatalogopedicurePage,
+    CatalogosistemaPage,
+    OpinionPage,   
   ],
   providers: [
     StatusBar,
     ToastService,
     SplashScreen,
     AlertService,
+    AuthService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

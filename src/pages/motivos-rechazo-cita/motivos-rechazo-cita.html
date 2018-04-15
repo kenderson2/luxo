@@ -1,0 +1,37 @@
+<!--
+  Generated template for the MotivosRechazoCitaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Motivos de Rechazo</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-item>
+      <ion-label floating>Motivos</ion-label>
+      <ion-select [(ngModel)]="motivo">
+        <ion-option *ngFor="let motivo of motivos" [value]="motivo">{{motivo}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-content>
+  <ion-footer>
+      <ion-row class="align-center">
+          <ion-col col-6>
+            <button ion-button full color="secondary" (click)="Enviar()">
+                  Enviar
+            </button>
+          </ion-col>
+          <ion-col col-6>
+            <button ion-button full color="danger" (click)="dismiss()">
+                  Regresar
+            </button>
+          </ion-col>
+        </ion-row>
+  </ion-footer>

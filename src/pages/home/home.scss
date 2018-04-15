@@ -15,6 +15,16 @@ page-home {
           width: 50%;;
           
       }
+
+      .login{
+        border: 1px ;
+        background-color: white;
+        border-radius: 10%;
+        margin-right: 1em;
+
+        
+      }
+
       #loguear{
           display:block;
           float: left;
@@ -41,7 +51,6 @@ page-home {
         padding: 0px;
         
     }
-    
     
       
 
@@ -71,7 +80,7 @@ page-home {
     }
     .botones{
        margin-left: 1em;
-       margin-top: 2em;
+       margin-top: 0%;
     }
     .botones ion-card.card.card-md{
         width: 120px;
@@ -101,10 +110,12 @@ page-home {
 
    
     .seccion2{
-        max-width: 165px;
+        max-width: 45%;
         max-height: 6em;
         float: left;
-        margin-top: 0px;
+        margin-left: 0px;
+        padding-left: 0px;
+        margin-top: 0px;        
         display: block;
     
     }

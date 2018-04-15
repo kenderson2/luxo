@@ -5,5 +5,15 @@ page-profile-settings {
   .label {
     color: #7f7f7f;
   }
+  .item-md p{
+    color: #000;
+}
+
+.item-md ion-avatar img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+}
 }
 
