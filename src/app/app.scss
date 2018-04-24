@@ -59,10 +59,10 @@ ion-side-menu.menu-left.menu {
     overflow-y: auto !important;
   }
   #prueba img{
-    margin: 15px auto 0 auto ;
+    margin: 30px auto 0 auto ;
     //padding: 2px 0px 0px 10px;
-    width:  115px;
-    height: 120px;
+    width:  105px;
+    height: 110px;
     border-radius: 75%;
     border:1px;
     border: solid;
@@ -71,6 +71,12 @@ ion-side-menu.menu-left.menu {
     align-items: center;
     display: block;   
 }
+  h5{
+    text-align: center;
+    color:  azure;
+    margin-top: 2%;
+    margin-bottom: 14%;
+  }
   div h1{
     color:white;
     text-align: center;
@@ -88,6 +94,10 @@ ion-side-menu.menu-left.menu {
   
   .list-md .item-block .item-inner {
     border-bottom: 0px;
+}
+element {
+  margin-top: 56px;
+  background-color: #fafaf8;
 }
 
 .toolbar-background-md {

@@ -1,15 +1,16 @@
 <ion-menu [content]="content">
   <ion-header>
-    <ion-toolbar color="nav">
-      <ion-title >Menu</ion-title>
-    </ion-toolbar>
+
+    <!-- si quiero que todo el side tenga degradado entonces  debo quitar las lineas del 5 al 7-->
+    
+  
   </ion-header>
 
   <ion-content class="menu-content myBg" scrollbar-y-auto>
 
     <div id="prueba">
         <img src="assets/imgs/luxo2.png"/>
-       <!-- <h1>Nury Amaro</h1> -->
+       <h5>Nury Amaro</h5>
     </div>
     
     <ion-list >
@@ -17,7 +18,8 @@
         {{p.title}}
       </button>  -->
 
-      <button  color="scarlet" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">                       
+      <button  color="scarlet" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">       
+                           
           <ion-icon small [name]="p.icono" item-start></ion-icon>
 
          
