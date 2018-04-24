@@ -4,8 +4,8 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Inicio</ion-title>
-    <ion-buttons end>
-      <button class="login" ion-button (click)="login()" clear icon-only>
+    <ion-buttons end >
+      <button class="login" ion-button (click)="login()" clear icon-only *ngIf="!(loggedIn)">
         <ion-icon  name="person"></ion-icon>
       </button>
     </ion-buttons>   
@@ -13,7 +13,11 @@
 </ion-header>
 
 <ion-content>
-     <section>
+  <div>
+    Add your content here!
+  </div>  
+  
+  <section>
     
     <ion-slides autoplay="6000" slidesPerView="1" loop="true" effect="coverflow">
 
