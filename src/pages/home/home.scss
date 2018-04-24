@@ -5,7 +5,9 @@ page-home {
         padding: 0;
         margin: 0;
         
+        
     }
+    
     swiper-slide img {
         height: 955px;
         width: 40px;
@@ -18,12 +20,16 @@ page-home {
 
       .login{
         border: 1px ;
-        background-color: white;
-        border-radius: 10%;
+        background-color:#ec0c71;
+        border-radius: 20%;
         margin-right: 1em;
 
         
       }
+      element {
+        margin-top: 56px;
+        background-color: #fafaf8;
+    }
 
       #loguear{
           display:block;
@@ -81,6 +87,7 @@ page-home {
     .botones{
        margin-left: 1em;
        margin-top: 0%;
+      
     }
     .botones ion-card.card.card-md{
         width: 120px;
