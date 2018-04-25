@@ -6,63 +6,99 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>notificaciones</ion-title>
-    <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-    <ion-list>
-        <strong><h6>Especiales para ti</h6></strong>
-        <ion-card>
-            <ion-item class="item-ribbon">
-                <span class="ribbon cruzeiro">
-                  <span>Activa</span>
-                </span>
+    <ion-navbar>
+      <ion-title>Notificaciones</ion-title>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content >
+  
+        
+  
+  
+  <div padding>
+    <ion-segment [(ngModel)]="pet">
+      <ion-segment-button value="Promociones">
+        Promociones
+      </ion-segment-button>
+      <ion-segment-button value="Otros">
+        Otros
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  
+  <div [ngSwitch]="pet">
+    <ion-list *ngSwitchCase="'Otros'">
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="img/thumbnail-puppy-1.jpg">
+        </ion-thumbnail>
+        <h2>Ruby</h2>
+      </ion-item>
+      ...
+    </ion-list>
+  
+    <ion-list *ngSwitchCase="'Promociones'">
+        <h4>Especialmente para ti</h4>
+        <ion-list>
+          <ion-card>
+            <ion-item>
+              <ion-thumbnail item-left>
+                <img src="assets/imgs/imagen2.jpg" alt="">
+              </ion-thumbnail>
+              <h2>30% de descuento</h2>
+              <p>Valido hasta 20/04/2018</p>
+            </ion-item>  
+           
+            <ion-card-content>
+              <p>Prueba esta nueva promocion, especialmente para ti</p>
+            </ion-card-content>
+          
+            <button ion-button outline small>Aplicar</button>
+          </ion-card>
+        
+         
+          <ion-card>
+            <ion-item>
               <ion-thumbnail item-left>
                 <img src="assets/imgs/imagen10.jpg" alt="">
               </ion-thumbnail>
-              <div>
-                <p>Increible</p>
-              </div>
-            </ion-item>
-         </ion-card>
-      
-          <ion-card>
-              <ion-item class="item-ribbon">
-                  <span class="ribbon javascript">
-                    <span>Activa</span>
-                  </span>
-                <ion-thumbnail item-left>
-                  <img src="assets/imgs/imagen7.jpg" alt="">
-                </ion-thumbnail>
-                <div>
-                  <p>Nuevos diseños</p>
-      
-                </div>
-              </ion-item>
+              <h2>30% de descuento</h2>
+              <p>Valido hasta la 01/05/2018</p>
+            </ion-item>  
+           
+            <ion-card-content>
+              <p>Prueba esta nueva promocion, especialmente para ti</p>
+            </ion-card-content>
+          
+            <button ion-button outline small>Aplicar</button>
           </ion-card>
-
-          <strong><h6>Tal vez te pueda interesar</h6></strong>
-        <ion-item *ngFor="let item of thumbnails">
-          <ion-thumbnail item-left class="item-ribbon">
-            <span class="ribbon {{ item.class }}">
-              <span>{{ item.ribbonText }}</span>
-            </span>
-            <img [src]="item.image">
-          </ion-thumbnail>
-          <div>
-            <p>{{ item.title }}</p>
-          </div>
-        </ion-item>
-    
-      
-    
-      </ion-list>
-
-</ion-content>
+        
+        
+          <ion-card>
+            <ion-item>
+              <ion-thumbnail item-left>
+                <img src="assets/imgs/imagen5.jpg" alt="">
+              </ion-thumbnail>
+              <h2>30% de descuento</h2>
+              <p>Valido hasta la 01/05/2018</p>
+            </ion-item>  
+           
+            <ion-card-content>
+              <p>Prueba esta nueva promocion, especialmente para ti</p>
+            </ion-card-content>
+          
+            <button ion-button outline small>Aplicar</button>
+          </ion-card>
+          
+          
+        </ion-list>
+    </ion-list>
+  </div>
+  
+  </ion-content>
