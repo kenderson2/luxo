@@ -18,7 +18,7 @@
       <ion-header>
         <ion-navbar>
           <ion-title>Solicitud de Cita</ion-title>
-          <button ion-button menuToggle>
+          <button color="bounce" ion-button menuToggle>
             <ion-icon name="menu"></ion-icon>
           </button>
         </ion-navbar>
@@ -39,13 +39,7 @@
             </ion-option>  
           </ion-select>
         </ion-item>
-          <ion-item>
-            <ion-buttons end>
-              <button ion-button icon-only color="cuarto" (click)="addServicio()" round>
-              <ion-icon name="add"></ion-icon>
-              </button>
-            </ion-buttons>
-          </ion-item>
+          
         <p align="justify">Presupuesto:</p>
           <ion-item>
          <!--   <ion-label floating>Monto a cancelar:</ion-label>-->
@@ -83,9 +77,24 @@
               </ion-select>
           </ion-item>
         <p align="justify">Fecha de la cita</p>
-        <span ion-datepicker (ionChanged)="setDate($event);" [value]="localDate" [min]="localDate" clear class="ScheduleDate">
-          <span>{{localDate | date}} <ion-icon name="calendar" item-left ></ion-icon> </span>
-        </span>
+              <span ion-datepicker
+                (ionChanged)="setDate($event);"
+                [max]="maxDate" 
+                [min]="initDate2"
+                [value]="initDate"
+                [showMaxAndMin]="true"
+                [disabledDates]="disabledDates"
+                [markDates]="markDates"
+                [okText]="Aceptar"
+                [cancelText]="Cancelar"
+                [localeStrings]="{ weekdays: ['Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab', 'Dom'], months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'], monday:true }"
+                clear
+                class="ScheduleDate">
+                <span>{{initDate | date: 'dd/MM/yyyy' }} 
+                  <ion-icon name="calendar" item-left></ion-icon> 
+                </span>
+              </span>
+           
         <p align="justify">Hora de la cita</p>
         <ion-item>
           <ion-label floating>Hora:</ion-label>

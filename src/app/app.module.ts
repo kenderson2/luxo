@@ -6,6 +6,7 @@ import { ToastService } from '../providers/toast.service';
 import { AlertService } from '../providers/alert.service';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { DatePickerModule } from 'ionic3-datepicker';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -28,6 +29,8 @@ import { CatalogomanicurePage } from '../pages/catalogomanicure/catalogomanicure
 import { CatalogopedicurePage } from '../pages/catalogopedicure/catalogopedicure';
 import { CatalogosistemaPage } from '../pages/catalogosistema/catalogosistema';
 import { NotificacionesPage } from '../pages/notificaciones/notificaciones';
+import { MicalendarioPage } from '../pages/micalendario/micalendario';
+import { RechazoservicioPage } from '../pages/rechazoservicio/rechazoservicio';
 
 import { AuthService } from '../services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -55,7 +58,9 @@ import { HttpModule } from '@angular/http';
     CatalogomanicurePage,
     CatalogopedicurePage,
     CatalogosistemaPage,
-    OpinionPage,   
+    OpinionPage,
+    MicalendarioPage,   
+    RechazoservicioPage,
   ],
   imports: [
     BrowserModule,
@@ -63,6 +68,7 @@ import { HttpModule } from '@angular/http';
     HttpClientModule,
     IonicModule.forRoot(MyApp),
     SharedModule,
+    DatePickerModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -86,7 +92,9 @@ import { HttpModule } from '@angular/http';
     CatalogomanicurePage,
     CatalogopedicurePage,
     CatalogosistemaPage,
-    OpinionPage,   
+    OpinionPage, 
+    MicalendarioPage,
+    RechazoservicioPage,  
   ],
   providers: [
     StatusBar,

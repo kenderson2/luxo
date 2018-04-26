@@ -31,51 +31,67 @@ export class SolicitudCitaPage {
     "nombre": "Manicure",
     "tipos": [{
       "id": "1",
-      "nombre": "Limpieza"}, 
+      "nombre": "Limpieza",
+      "precio": "1000"
+    }, 
       {
         "id": "2",
-        "nombre": "Aplicación de esmalte"
+        "nombre": "Aplicación de esmalte",
+        "precio": "700"
       },
       {
         "id":"3",
-        "nombre": "Decoración"
+        "nombre": "Decoración",
+        "precio": "1000"
       }, {
         "id": "4",
-        "nombre": "Servicio completo"
+        "nombre": "Servicio completo",
+        "precio": "5000"
       }]
   }, {
     "id": "1",
     "nombre": "Pedicure",
     "tipos": [{
       "id": "1",
-      "nombre": "Limpieza"}, 
+      "nombre": "Limpieza",
+      "precio": "1000"
+    }, 
       {
         "id": "2",
-        "nombre": "Aplicación de esmalte"
+        "nombre": "Aplicación de esmalte",
+        "precio": "700"
       },
       {
         "id":"3",
-        "nombre": "Decoración"
+        "nombre": "Decoración",
+        "precio": "1000"
       }, {
         "id": "4",
-        "nombre": "Servicio completo"
+        "nombre": "Servicio completo",
+        "precio": "5000"
       }]
   }, {
     "id": "1",
     "nombre": "Sistema de Uñas",
     "tipos": [{
       "id": "1",
-      "nombre": "Gel"}, 
+      "nombre": "Gel",
+      "precio": "5000"
+    }, 
       {
         "id": "2",
-        "nombre": "Acrigel"},
+        "nombre": "Acrigel",
+        "precio": "5000"
+      },
       {
         "id": "3",
-        "nombre": "Esculpida"
+        "nombre": "Esculpida",
+        "precio": "5000"
       },
       {
         "id":"4",
-        "nombre": "Mantenimiento"
+        "nombre": "Mantenimiento",
+        "precio": "3000"
       }]
   }
   ];
@@ -143,6 +159,22 @@ export class SolicitudCitaPage {
   prev(){
     this.solicitudSlider.slidePrev();
 }
+
+public localDate: Date = new Date();
+  public initDate: Date = new Date();
+  public initDate2: Date = new Date(2015, 1, 1);
+  
+  public min: Date = new Date()
+  public maxDate: Date = new Date(new Date().setDate(new Date().getDate() + 30));
+
+  public disabledDates: Date[] = [new Date(2018, 3, 1), new Date(2018, 3, 3), new Date(2018, 3, 5)];
+public markDates: Date[] = [new Date(2018, 3, 2), new Date(2018, 3, 4), new Date(2018, 3, 6)];
+
+setDate(date: Date) {
+  console.log(date);
+  this.initDate = date;
+}
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SolicitudCitaPage');

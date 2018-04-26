@@ -4,7 +4,12 @@
         <ion-icon name="menu"></ion-icon>
       </button>
       <ion-title>Inicio</ion-title>
-      <ion-buttons end>
+
+      
+      <ion-buttons end>  
+          <button class="login" ion-button (click)="notificaciones()" clear icon-only>
+              <ion-icon color="blanco"  name="notifications"></ion-icon>
+          </button>                   
         <button class="login" ion-button (click)="login()" clear icon-only>
           <ion-icon color="blanco"  name="person"></ion-icon>
         </button>
@@ -54,8 +59,8 @@
       </ion-item>
     
       <ion-item class="seccion2">
-        <ion-card><ion-icon color="azul" name="calendar" item-start></ion-icon>
-          <p>Agenda</p>
+        <ion-card><ion-icon color="azul" name="calendar" (click)="agenda()" item-start></ion-icon>
+          <p>Mi agenda</p>
         </ion-card>
       </ion-item>
     

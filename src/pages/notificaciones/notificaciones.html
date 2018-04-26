@@ -8,7 +8,7 @@
 
     <ion-navbar>
       <ion-title>Notificaciones</ion-title>
-      <button ion-button menuToggle>
+      <button color="bounce" ion-button menuToggle>
           <ion-icon name="menu"></ion-icon>
         </button>
     </ion-navbar>
@@ -22,8 +22,8 @@
   
   
   <div padding>
-    <ion-segment [(ngModel)]="pet">
-      <ion-segment-button value="Promociones">
+    <ion-segment [(ngModel)]="notificacion">
+      <ion-segment-button  value="Promociones">
         Promociones
       </ion-segment-button>
       <ion-segment-button value="Otros">
@@ -32,15 +32,40 @@
     </ion-segment>
   </div>
   
-  <div [ngSwitch]="pet">
+  <div [ngSwitch]="notificacion">
     <ion-list *ngSwitchCase="'Otros'">
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="img/thumbnail-puppy-1.jpg">
-        </ion-thumbnail>
-        <h2>Ruby</h2>
-      </ion-item>
-      ...
+        <ion-card>
+            <ion-item>
+              <ion-thumbnail item-left>
+                <img src="assets/imgs/garantia.png" alt="">
+              </ion-thumbnail>
+              <h2>Garantia</h2>              
+            </ion-item>  
+           
+            <ion-card-content>
+              <p align="justify">Su garantia ha sido aprobada,presione el boton aplicar para programar su nueva cita. Recuerde estamos para servirle</p>
+            </ion-card-content>
+          
+            <button color="azul" ion-button outline small>Aplicar</button>
+          </ion-card>
+
+          <ion-card>
+              <ion-item>
+                <ion-thumbnail item-left>
+                  <img src="assets/imgs/luxo2.png" alt="">
+                </ion-thumbnail>
+                              
+              </ion-item>  
+             
+              <ion-card-content>
+                <p align="justify">Gracias por sus sugerencias, sus opiones son muy importantes para nosotros,
+                  nos ayudan a mejorar para prestarle un mejor servicio.
+                </p>
+              </ion-card-content>
+            
+              
+            </ion-card>
+      
     </ion-list>
   
     <ion-list *ngSwitchCase="'Promociones'">
@@ -59,7 +84,7 @@
               <p>Prueba esta nueva promocion, especialmente para ti</p>
             </ion-card-content>
           
-            <button ion-button outline small>Aplicar</button>
+            <button color="azul" ion-button outline small>Aplicar</button>
           </ion-card>
         
          
@@ -76,7 +101,7 @@
               <p>Prueba esta nueva promocion, especialmente para ti</p>
             </ion-card-content>
           
-            <button ion-button outline small>Aplicar</button>
+            <button color="azul" ion-button outline small>Aplicar</button>
           </ion-card>
         
         
@@ -93,7 +118,7 @@
               <p>Prueba esta nueva promocion, especialmente para ti</p>
             </ion-card-content>
           
-            <button ion-button outline small>Aplicar</button>
+            <button color="azul" ion-button outline small>Aplicar</button>
           </ion-card>
           
           

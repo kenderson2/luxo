@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Mis Citas Agendadas
+    </ion-title>
+    <button color="bounce" ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+<ion-card *ngFor="let cita of citas">
+  <ion-card-content>
+    <ion-row>
+      <ion-col>
+        <h2><strong>Fecha</strong></h2> 
+      </ion-col>
+      <ion-col>
+        <h2><strong>Hora</strong></h2> 
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+          {{cita.fecha}}
+      </ion-col>
+      <ion-col>
+          {{cita.hora}}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h2><strong>Manicurista:</strong></h2>
+      </ion-col>
+      <ion-col>
+          <p>{{cita.manicurista}}</p>
+      </ion-col>
+    </ion-row>
+     
+    <h2><strong>Servicios</strong></h2> 
+    <ion-list>
+      <ion-item text-wrap>
+          {{cita.servicios}}
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+  <ion-row class="align-center">
+    <ion-col col-6>
+      <button ion-button class="icon-left" color="tercer" (click)="cancelar()">Cancelar </button>
+    </ion-col>
+    <ion-col col-6>
+      <button ion-button class="icon-right" color="azul" (click)="next()">Confirmar</button>
+    </ion-col>
+  </ion-row>
+</ion-card>
+</ion-content>
