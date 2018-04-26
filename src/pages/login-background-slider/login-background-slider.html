@@ -9,15 +9,15 @@
   </ion-slides>
   <div class="login-container">
     <img class="logo" src="assets/imgs/luxo.png" />
-    <div id="circulo"></div>
+    
     <form  [formGroup]="loginForm">
       <strong>Login:</strong>
       <ion-item>
-        <ion-label>Usuario</ion-label>
+        <ion-label stacked color="blanco">Correo electronico</ion-label>
         <ion-input formControlName="email" type="email"></ion-input>
       </ion-item>
       <ion-item>
-      <ion-label>Contraseña</ion-label>
+      <ion-label  stacked color="blanco">Contraseña</ion-label>
        <ion-input formControlName="password" type="password"></ion-input>
       </ion-item>
       <button ion-button color="azul" (click)="Signup()" class="login-button">Iniciar Sesión</button>

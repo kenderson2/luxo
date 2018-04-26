@@ -21,14 +21,14 @@
       <p>Cual es tu esmalte de uñas favorito?</p>
       <ion-item text-wrap>
         <ion-label floating>Tipo de esmalte</ion-label>
-        <ion-select [(ngModel)]="esmalte">
+        <ion-select [(ngModel)]="esmalte" multiple="true">
           <ion-option *ngFor="let c of esmaltes" value="{{c.nombre}}" (ionSelect)="itemView(c.colores);">{{c.nombre}}
           </ion-option>
         </ion-select>
       </ion-item>
       <ion-item text-wrap>
         <ion-label floating>Colores</ion-label>
-        <ion-select [(ngModel)]="color">
+        <ion-select [(ngModel)]="color" multiple="true">
           <ion-option *ngFor="let r of colores" value="{{r.id}}">{{r.nombre}}
           </ion-option>  
         </ion-select>
@@ -42,7 +42,7 @@
           <p>Cual/es son tus servicios favoritos?</p>
               <ion-item text-wrap>
                   <ion-label floating>Tipo de servicio</ion-label>
-                  <ion-select [(ngModel)]="servicio">
+                  <ion-select [(ngModel)]="servicio" multiple="true">
                     <ion-option *ngFor="let servicio of servicios" [value]="servicio">{{servicio}}</ion-option>
                   </ion-select>
                 </ion-item> 
@@ -55,7 +55,7 @@
           <p>Cual/es son tus tipos de decoraciones favoritos?</p>
               <ion-item text-wrap>
                   <ion-label floating>Decoraciones</ion-label>
-                  <ion-select [(ngModel)]="decoracion">
+                  <ion-select [(ngModel)]="decoracion" multiple="true">
                     <ion-option *ngFor="let decoracion of decoraciones" [value]="decoracion">{{decoracion}}</ion-option>
                   </ion-select>
                 </ion-item> 

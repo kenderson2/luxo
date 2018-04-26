@@ -7,7 +7,7 @@
 <ion-header>
     
       <ion-navbar>
-        <ion-title></ion-title>
+        <ion-title>Preferencias</ion-title>
       </ion-navbar>
     
     </ion-header>
@@ -17,10 +17,9 @@
   <div padding>
     <img id="profile-image" [src]="user.profileImage">
   </div>
-  <h1>Preferencias</h1>
   <div>
     <ion-segment [(ngModel)]="preferencias">
-      <ion-segment-button value="esmaltes">
+      <ion-segment-button value="esmaltes" checked>
         Esmaltes
       </ion-segment-button>
       <ion-segment-button value="servicios">
@@ -34,34 +33,46 @@
   
   <div [ngSwitch]="preferencias">
     <ion-list *ngSwitchCase="'esmaltes'">
-    <!--  <ion-item>
-        <h2>Tipo de Esmaltes</h2>
-        <li>
-          <ul>Nude</ul>
-          <ul>Escarchado</ul>
-        </li>
-      </ion-item>
-      <ion-item>
-        <h2>Colores</h2>
-        <li>
-          <ul>Beige</ul>
-          <ul>Rojo</ul>
-          <ul>Azul</ul>
-        </li>
-      </ion-item> -->
+      <ion-list>
+        <ion-item>
+          Nude
+          <ion-list>
+            <ion-list-header>Colores</ion-list-header>
+            <ion-item>Beige</ion-item>
+            <ion-item>Marrón</ion-item>
+            <ion-item>Rosa</ion-item>
+          </ion-list>
+        </ion-item>
+            
+        <ion-item>
+          Escarchado
+          <ion-list>
+            <ion-list-header>Colores</ion-list-header>
+            <ion-item>Morado</ion-item>
+            <ion-item>Dorado</ion-item>
+            <ion-item>Plateado</ion-item>
+          </ion-list>
+        </ion-item>
+      </ion-list>
     </ion-list>
   
     <ion-list *ngSwitchCase="'servicios'">
-  <!--    <ion-item>
-        <h2>Luna</h2>
+      <ion-item>
+        Sistema de Uñas
+        <ion-list>
+          <ion-list-header>Tipo:</ion-list-header>
+          <ion-item>Gel</ion-item>
+          <ion-item>Esculpida</ion-item>
+        </ion-list>
       </ion-item>
-      ... -->
+      <ion-item>
+        Pedicure
+      </ion-item>
     </ion-list>
     <ion-list *ngSwitchCase="'decoraciones'">
-      <!--    <ion-item>
-            <h2>Luna</h2>
-          </ion-item>
-          ... -->
-        </ion-list>
+     <ion-item>Floral</ion-item>
+     <ion-item>Animal Print</ion-item>
+     <ion-item>Francesas</ion-item>
+    </ion-list>
   </div>
 </ion-content>

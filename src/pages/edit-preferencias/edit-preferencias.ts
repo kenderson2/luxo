@@ -14,6 +14,8 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
   templateUrl: 'edit-preferencias.html',
 })
 export class EditPreferenciasPage {
+  testCheckboxOpen = false;
+  testCheckboxResult: any;
   colores:any;
   esmaltes:any = [{
     "id": 1,
@@ -131,6 +133,7 @@ export class EditPreferenciasPage {
   decoraciones = [
     'Francesita', 'Floral', 'Lineas', 'Circulos', 'Animal Print', 'Coloridas'
   ]
+
 
   constructor(
     public navCtrl:   NavController,

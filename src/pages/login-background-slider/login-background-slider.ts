@@ -49,28 +49,29 @@ export class LoginBackgroundSliderPage {
       console.log('user data', userEmail, userPassword);
     }
   }
-  alerta(){
-    let alert = this.alertCtrl.create({
-      title: 'Usuario no registrado',
-      subTitle: 'Si no te has registrado vamos hazlo ya que esperas es gratis...',
-      buttons: ['OK']
-      });
-      alert.present();
-  }
   Signup(){
   //metodo pulido y arrecho de ingresas a la aplicacion ** Soy es yo en 4D jaja
-     
-  let f = {correo: this.loginForm.value.email, contrasenna: this.loginForm.value.password};
-     this.auth.login(f)
-      .subscribe(results=>{
-        if(results){
-          this.navCtrl.setRoot(HomePage)
+     let f = {correo: this.loginForm.value.email, contrasenna: this.loginForm.value.password};
+     console.log(f);       
+       this.auth.login(f)
+      .subscribe(
+        rs => this.isLogged = rs,
+        er => console.log(er),
+        () => {
+          if (this.isLogged){
+            this.navCtrl.setRoot(HomePage)
+            .then(data => console.log(data),
+            error => console.log(error));
+          } else {
+            let alert = this.alertCtrl.create({
+            title: 'Usuario no registrado',
+            subTitle: 'Si no te has registrado vamos hazlo ya que esperas es gratis...',
+            buttons: ['OK']
+            });
+            alert.present();
+          }
         }
-      },
-        error=>{
-          this.alerta();
-        }
-      );
+      )
   }
 
 }
