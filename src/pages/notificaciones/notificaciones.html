@@ -23,7 +23,7 @@
   
   <div padding>
     <ion-segment [(ngModel)]="notificacion">
-      <ion-segment-button  value="Promociones">
+      <ion-segment-button ng-selected="selected" value="Promociones">
         Promociones
       </ion-segment-button>
       <ion-segment-button value="Otros">
@@ -46,7 +46,7 @@
               <p align="justify">Su garantia ha sido aprobada,presione el boton aplicar para programar su nueva cita. Recuerde estamos para servirle</p>
             </ion-card-content>
           
-            <button color="azul" ion-button outline small>Aplicar</button>
+            <button color="azul" (click)="cita()" ion-button outline small>Aplicar</button>
           </ion-card>
 
           <ion-card>
@@ -84,7 +84,7 @@
               <p>Prueba esta nueva promocion, especialmente para ti</p>
             </ion-card-content>
           
-            <button color="azul" ion-button outline small>Aplicar</button>
+            <button color="azul" (click)="cita()"  ion-button outline small>Aplicar</button>
           </ion-card>
         
          
@@ -93,7 +93,7 @@
               <ion-thumbnail item-left>
                 <img src="assets/imgs/imagen10.jpg" alt="">
               </ion-thumbnail>
-              <h2>30% de descuento</h2>
+              <h2>10% de descuento</h2>
               <p>Valido hasta la 01/05/2018</p>
             </ion-item>  
            
@@ -101,7 +101,7 @@
               <p>Prueba esta nueva promocion, especialmente para ti</p>
             </ion-card-content>
           
-            <button color="azul" ion-button outline small>Aplicar</button>
+            <button color="azul" (click)="cita()"  ion-button outline small>Aplicar</button>
           </ion-card>
         
         
@@ -110,7 +110,7 @@
               <ion-thumbnail item-left>
                 <img src="assets/imgs/imagen5.jpg" alt="">
               </ion-thumbnail>
-              <h2>30% de descuento</h2>
+              <h2>20% de descuento</h2>
               <p>Valido hasta la 01/05/2018</p>
             </ion-item>  
            
@@ -118,7 +118,7 @@
               <p>Prueba esta nueva promocion, especialmente para ti</p>
             </ion-card-content>
           
-            <button color="azul" ion-button outline small>Aplicar</button>
+            <button color="azul" (click)="cita()"  ion-button outline small>Aplicar</button>
           </ion-card>
           
           

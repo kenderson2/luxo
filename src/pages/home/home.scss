@@ -17,12 +17,15 @@ page-home {
           width: 50%;;
           
       }
+      ion-slides #sliderhome{
+          height: 80px;
+      }
 
       .login{
         border: 1px ;
         background-color:#ec0c71;
         border-radius: 20%;
-        margin-right: 1em;
+        margin-right: 0.5em;
 
         
       }
@@ -37,13 +40,14 @@ page-home {
       }
 
       .fondo {
-          z-index: 1;
-          opacity: 0.7;
+          z-index: 1;         
           position: absolute;
-          width: 200px;
-          height: 250px;
-          margin-top: 175px;
-          margin-left: 80px 
+          width: 100px;
+          height: 100px;
+          margin-top: 0px;
+          margin-left: 0px;
+          margin: auto;
+          
       }
     .minic img{
         width: 120px;
@@ -85,8 +89,13 @@ page-home {
         z-index: 2;
     }
     .botones{
-       margin-left: 1em;
-       margin-top: 0%;
+       align-items: center;
+       display: block;
+       position: relative;
+       right: -5%;
+       top: -1%;
+       //padding: 5%;
+       //margin: 0 0 0 4%;
       
     }
     .botones ion-card.card.card-md{
@@ -120,12 +129,28 @@ page-home {
         max-width: 45%;
         max-height: 6em;
         float: left;
-        margin-left: 0px;
+        margin-left: 5px;
         padding-left: 0px;
         margin-top: 0px;        
         display: block;
     
     }
-    
+  h1{
+      position: relative;
+      z-index: -5;
+      
+  }
+  #footer{
+      background-color: #ec0c71;
+      height: 1px;
+      padding: 0px;
+      margin-bottom: 1px;
+      border: 0;
+     ;
+      border: 0;
+  }
+
+ 
+  
        
 }
