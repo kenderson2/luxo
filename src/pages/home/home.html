@@ -7,16 +7,19 @@
 
       
       <ion-buttons end>  
-          <button class="login" ion-button (click)="notificaciones()" clear icon-only>
+          <button class="login" ion-button (click)="notificaciones()" clear icon-only *ngIf="(loggedIn)">
               <ion-icon color="blanco"  name="notifications"></ion-icon>
           </button>                   
-        <button class="login" ion-button (click)="login()" clear icon-only>
-          <ion-icon color="blanco"  name="person"></ion-icon>
-        </button>
+          <button class="login" ion-button (click)="login()" clear icon-only *ngIf="!(loggedIn)">
+            <ion-icon  name="person"></ion-icon>
+          </button> 
+          <button class="login" ion-button (click)="logout()" clear icon-only *ngIf="(loggedIn)">
+            <ion-icon  name="person"></ion-icon>
+          </button>    
       </ion-buttons>   
     </ion-navbar>
   </ion-header>
-  
+ 
   <ion-content>
        <section>
       
@@ -62,7 +65,7 @@
       </ion-item>
     
       <ion-item class="seccion2">
-        <ion-card><ion-icon color="azul" name="calendar" (click)="agenda()" item-start></ion-icon>
+        <ion-card *ngIf="(loggedIn)"><ion-icon color="azul" name="calendar" (click)="agenda()" item-start ></ion-icon>
           <p>Mi agenda</p>
         </ion-card>
       </ion-item>

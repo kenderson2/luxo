@@ -16,7 +16,8 @@ import {  SolicitudCitaPage } from '../solicitud-cita/solicitud-cita';
 })
 export class NotificacionesPage {
 
-  notificacion:any;
+notificacion: any;
+
 
   public thumbnails: { title: string, image: string, ribbonText: string, class: string }[] = [
     { title: 'Sistema de uñas 30% de descuento', image: 'assets/imgs/imagen11.jpg', ribbonText: 'activa', class: 'sale' },
@@ -25,7 +26,7 @@ export class NotificacionesPage {
   ];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.notificacion="Promociones";
+  this.notificacion= "Promociones";
   }
 
   ionViewDidLoad() {
