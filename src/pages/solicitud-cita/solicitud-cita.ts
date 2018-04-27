@@ -146,7 +146,7 @@ export class SolicitudCitaPage {
         {
           text: 'No',
           handler: () => {
-            this.viewCtrl.dismiss()
+            this.navCtrl.setRoot(SolicitudCitaPage)
           }
         }        
       ]

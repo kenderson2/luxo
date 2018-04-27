@@ -9,7 +9,7 @@ export class AuthService {
    
    loggedIn: boolean;
    showLogout:boolean = false;
-   url = 'http://localhost:5000/login';
+   url = 'http://localhost:5000/loginid';
 
    constructor(private http: Http){
     this.loggedIn = false;
@@ -45,7 +45,7 @@ export class AuthService {
        return this.showLogout;
       }
 
-   logout(): void {
+   logout(){
       localStorage.removeItem('token');
       this.loggedIn = false;
    }

@@ -66,7 +66,7 @@ alert.present();
         {
           text: 'No',
           handler: () => {
-            this.navCtrl.pop()
+            this.navCtrl.setRoot(MicalendarioPage)
             console.log("ok")
           }
         }        
