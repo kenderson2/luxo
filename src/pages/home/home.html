@@ -10,7 +10,7 @@
           <button class="login" ion-button (click)="notificaciones()" clear icon-only *ngIf="(loggedIn)">
               <ion-icon color="blanco"  name="notifications"></ion-icon>
           </button>                   
-          <button class="login" ion-button (click)="login()" clear icon-only *ngIf="!(loggedIn)">
+          <button class="login" color="bounce" ion-button (click)="login()" clear icon-only *ngIf="!(loggedIn)">
             <ion-icon  name="person"></ion-icon>
           </button> 
           <button class="login" ion-button (click)="logout()" clear icon-only *ngIf="(loggedIn)">
@@ -64,15 +64,15 @@
         </ion-card>
       </ion-item>
     
-      <ion-item class="seccion2">
-        <ion-card *ngIf="(loggedIn)"><ion-icon color="azul" name="calendar" (click)="agenda()" item-start ></ion-icon>
+      <ion-item class="seccion2" *ngIf="(loggedIn)">
+        <ion-card ><ion-icon color="azul" name="calendar" (click)="agenda()" item-start ></ion-icon>
           <p>Mi agenda</p>
         </ion-card>
       </ion-item>
     
-      <ion-item class="seccion2">
-        <ion-card><ion-icon  color="azul" name="heart" (click)="nosotros()" item-start></ion-icon>
-          <p>Nosotros</p>
+      <ion-item class="seccion2" *ngIf="(loggedIn)">
+        <ion-card><ion-icon  color="azul" name="heart" (click)="solicitud()" item-start></ion-icon>
+          <p>Solicitar Cita</p>
         </ion-card>
       </ion-item>
     </div>

@@ -7,6 +7,7 @@ import { MicalendarioPage } from '../micalendario/micalendario';
 import { LoginBackgroundSliderPage } from '../login-background-slider/login-background-slider';
 import { NotificacionesPage } from '../notificaciones/notificaciones';
 import { AuthService } from '../../services/auth.service';
+import { SolicitudCitaPage } from '../solicitud-cita/solicitud-cita';
 
 @Component({
   selector: 'page-home',
@@ -41,6 +42,10 @@ export class HomePage {
       });
     alert.present();
   // this.navCtrl.setRoot(HomePage)
+  }
+
+  solicitud(){
+    this.navCtrl.push(SolicitudCitaPage);
   }
 
   nosotros(){

@@ -13,6 +13,7 @@ import { NotificacionesPage } from '../pages/notificaciones/notificaciones';
 import { OpinionPage } from '../pages/opinion/opinion';
 import { MicalendarioPage } from '../pages/micalendario/micalendario';
 import { AuthService } from '../services/auth.service';
+import { AboutPage } from '../pages/about/about';
 
 @Component({
   templateUrl: 'app.html'
@@ -39,8 +40,9 @@ export class MyApp {
      { title: 'Perfíl', icono:'camera', component: PerfilPage},            
       { title: 'Servicios', icono:'ios-basket', component: CatalogoPage},
       { title: 'Promociones', icono:'basket', component: PromocionesPage },
-     { title: 'Solicitar Cita', icono:'paper', component: SolicitudCitaPage},
+  //   { title: 'Solicitar Cita', icono:'paper', component: SolicitudCitaPage},
       { title: 'Contacto', icono:'chatbubbles', component: OpinionPage},
+      { title: 'Sobre Nosotros', icono:'heart',component: AboutPage},
     //{ title: 'Cerrar sesión', icono: 'logOut', component: LogoutPage }.
 
     ];
