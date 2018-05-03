@@ -96,7 +96,7 @@ export class SolicitudCitaPage {
   }
   ];
 
-  manicuristas = ['Maria Perez', 'Luisa Diaz', 'Paula Ramos', 'Maria Rojas'];
+  manicuristas = ['Maria Perez', 'Luisa Diaz', 'Paula Ramos', 'Maria Rojas', 'Indiferente'];
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, public alertService: AlertService,
     public toastCtrl: ToastService, public modalCtrl: ModalController, public viewCtrl: ViewController) {
@@ -146,7 +146,7 @@ export class SolicitudCitaPage {
         {
           text: 'No',
           handler: () => {
-            this.viewCtrl.dismiss()
+            this.navCtrl.setRoot(SolicitudCitaPage)
           }
         }        
       ]

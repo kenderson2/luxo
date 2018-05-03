@@ -14,7 +14,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'preferencias.html',
 })
 export class PreferenciasPage {
-
+preferencias: any;
   items = [
     {
       title: 'First Cup',
@@ -37,6 +37,7 @@ export class PreferenciasPage {
   };
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+  this.preferencias= "esmaltes";
   }
 
   ionViewDidLoad() {
