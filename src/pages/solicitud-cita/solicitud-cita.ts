@@ -19,13 +19,83 @@ import { MotivosRechazoCitaPage } from '../motivos-rechazo-cita/motivos-rechazo-
 })
 export class SolicitudCitaPage {
   @ViewChild('solicitudSlider') solicitudSlider: any;
-  servicio: any;
   manicurista: any;
+  hora: any;
+  tipos: any;
   presupuesto = {
     monto:'0 BsF'
   };
+  horas = ['08:00 am','09:00 am', '10:00 am','11:00 am','01:00 pm','02:00 pm','03:00 pm','04:00 pm'];
+  servicios: any = [{
+    "id": "1",
+    "nombre": "Manicure",
+    "tipos": [{
+      "id": "1",
+      "nombre": "Limpieza",
+      "precio": "1000"
+    }, 
+      {
+        "id": "2",
+        "nombre": "Aplicación de esmalte",
+        "precio": "700"
+      },
+      {
+        "id":"3",
+        "nombre": "Decoración",
+        "precio": "1000"
+      }, {
+        "id": "4",
+        "nombre": "Servicio completo",
+        "precio": "5000"
+      }]
+  }, {
+    "id": "1",
+    "nombre": "Pedicure",
+    "tipos": [{
+      "id": "1",
+      "nombre": "Limpieza",
+      "precio": "1000"
+    }, 
+      {
+        "id": "2",
+        "nombre": "Aplicación de esmalte",
+        "precio": "700"
+      },
+      {
+        "id":"3",
+        "nombre": "Decoración",
+        "precio": "1000"
+      }, {
+        "id": "4",
+        "nombre": "Servicio completo",
+        "precio": "5000"
+      }]
+  }, {
+    "id": "1",
+    "nombre": "Sistema de Uñas",
+    "tipos": [{
+      "id": "1",
+      "nombre": "Gel",
+      "precio": "5000"
+    }, 
+      {
+        "id": "2",
+        "nombre": "Acrigel",
+        "precio": "5000"
+      },
+      {
+        "id": "3",
+        "nombre": "Esculpida",
+        "precio": "5000"
+      },
+      {
+        "id":"4",
+        "nombre": "Mantenimiento",
+        "precio": "3000"
+      }]
+  }
+  ];
 
-  servicios = ['Manicure', 'Pedicure', 'Sistema de uñas', 'Promoción'];
   manicuristas = ['Maria Perez', 'Luisa Diaz', 'Paula Ramos', 'Maria Rojas'];
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, public alertService: AlertService,
@@ -90,8 +160,30 @@ export class SolicitudCitaPage {
     this.solicitudSlider.slidePrev();
 }
 
+public localDate: Date = new Date();
+  public initDate: Date = new Date();
+  public initDate2: Date = new Date(2015, 1, 1);
+  
+  public min: Date = new Date()
+  public maxDate: Date = new Date(new Date().setDate(new Date().getDate() + 30));
+
+  public disabledDates: Date[] = [new Date(2018, 3, 1), new Date(2018, 3, 3), new Date(2018, 3, 5)];
+public markDates: Date[] = [new Date(2018, 3, 2), new Date(2018, 3, 4), new Date(2018, 3, 6)];
+
+setDate(date: Date) {
+  console.log(date);
+  this.initDate = date;
+}
+
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad SolicitudCitaPage');
+  }
+
+  itemView(tipos){
+    console.log('Seleccionado:');
+    console.log(tipos);
+    this.tipos = tipos;
   }
 
 }

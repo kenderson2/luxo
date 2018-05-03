@@ -11,6 +11,7 @@ import { SolicitudCitaPage } from '../pages/solicitud-cita/solicitud-cita';
 import { CatalogoPage } from '../pages/catalogo/catalogo';
 import { NotificacionesPage } from '../pages/notificaciones/notificaciones';
 import { OpinionPage } from '../pages/opinion/opinion';
+import { MicalendarioPage } from '../pages/micalendario/micalendario';
 
 @Component({
   templateUrl: 'app.html'
@@ -30,13 +31,11 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Inicio', icono:'home', component: HomePage  },      
-      { title: 'Perfil', icono:'camera', component: PerfilPage},
-      { title: 'Notificaciones', icono:'notifications', component:NotificacionesPage },
-    { title: 'Servicios', icono:'ios-basket', component: CatalogoPage},
+      { title: 'Perfíl', icono:'camera', component: PerfilPage},            
+      { title: 'Servicios', icono:'ios-basket', component: CatalogoPage},
       { title: 'Promociones', icono:'basket', component: PromocionesPage },
       { title: 'Solicitar Cita', icono:'paper', component: SolicitudCitaPage},
       { title: 'Contacto', icono:'chatbubbles', component: OpinionPage},
-    // { title: 'Mi Calendario', icono:'calendar', component: CalendarioPage},
     // { title: 'Cerrar sesión', icono: 'logOut', component: LogoutPage }.
 
     ];

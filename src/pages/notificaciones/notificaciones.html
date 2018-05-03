@@ -6,118 +6,124 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>notificaciones</ion-title>
-    <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content >
-  <!--  <ion-list>
-        <strong><h6>Especiales para ti</h6></strong>
+    <ion-navbar>
+      <ion-title>Notificaciones</ion-title>
+      <button color="bounce" ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    </ion-navbar>
+  
+  </ion-header>
+  
+  
+  <ion-content >
+  
+        
+  
+  
+  <div padding>
+    <ion-segment [(ngModel)]="notificacion">
+      <ion-segment-button ng-selected="selected" value="Promociones">
+        Promociones
+      </ion-segment-button>
+      <ion-segment-button value="Otros">
+        Otros
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  
+  <div [ngSwitch]="notificacion">
+    <ion-list *ngSwitchCase="'Otros'">
         <ion-card>
-            <ion-item class="item-ribbon">
-                <span class="ribbon cruzeiro">
-                  <span>Activa</span>
-                </span>
+            <ion-item>
+              <ion-thumbnail item-left>
+                <img src="assets/imgs/garantia.png" alt="">
+              </ion-thumbnail>
+              <h2>Garantia</h2>              
+            </ion-item>  
+           
+            <ion-card-content>
+              <p align="justify">Su garantia ha sido aprobada,presione el boton aplicar para programar su nueva cita. Recuerde estamos para servirle</p>
+            </ion-card-content>
+          
+            <button color="azul" (click)="cita()" ion-button outline small>Aplicar</button>
+          </ion-card>
+
+          <ion-card>
+              <ion-item>
+                <ion-thumbnail item-left>
+                  <img src="assets/imgs/luxo2.png" alt="">
+                </ion-thumbnail>
+                              
+              </ion-item>  
+             
+              <ion-card-content>
+                <p align="justify">Gracias por sus sugerencias, sus opiones son muy importantes para nosotros,
+                  nos ayudan a mejorar para prestarle un mejor servicio.
+                </p>
+              </ion-card-content>
+            
+              
+            </ion-card>
+      
+    </ion-list>
+  
+    <ion-list *ngSwitchCase="'Promociones'">
+        <h4>Especialmente para ti</h4>
+        <ion-list>
+          <ion-card>
+            <ion-item>
+              <ion-thumbnail item-left>
+                <img src="assets/imgs/imagen2.jpg" alt="">
+              </ion-thumbnail>
+              <h2>30% de descuento</h2>
+              <p>Valido hasta 20/04/2018</p>
+            </ion-item>  
+           
+            <ion-card-content>
+              <p>Prueba esta nueva promocion, especialmente para ti</p>
+            </ion-card-content>
+          
+            <button color="azul" (click)="cita()"  ion-button outline small>Aplicar</button>
+          </ion-card>
+        
+         
+          <ion-card>
+            <ion-item>
               <ion-thumbnail item-left>
                 <img src="assets/imgs/imagen10.jpg" alt="">
               </ion-thumbnail>
-              <div>
-                <p>Increible</p>
-              </div>
-            </ion-item>
-         </ion-card>
-      
-          <ion-card>
-              <ion-item class="item-ribbon">
-                  <span class="ribbon javascript">
-                    <span>Activa</span>
-                  </span>
-                <ion-thumbnail item-left>
-                  <img src="assets/imgs/imagen7.jpg" alt="">
-                </ion-thumbnail>
-                <div>
-                  <p>Nuevos diseños</p>
-      
-                </div>
-              </ion-item>
+              <h2>10% de descuento</h2>
+              <p>Valido hasta la 01/05/2018</p>
+            </ion-item>  
+           
+            <ion-card-content>
+              <p>Prueba esta nueva promocion, especialmente para ti</p>
+            </ion-card-content>
+          
+            <button color="azul" (click)="cita()"  ion-button outline small>Aplicar</button>
           </ion-card>
-
-          <strong><h6>Tal vez te pueda interesar</h6></strong>
-        <ion-item *ngFor="let item of thumbnails">
-          <ion-thumbnail item-left class="item-ribbon">
-            <span class="ribbon {{ item.class }}">
-              <span>{{ item.ribbonText }}</span>
-            </span>
-            <img [src]="item.image">
-          </ion-thumbnail>
-          <div>
-            <p>{{ item.title }}</p>
-          </div>
-        </ion-item>
-    
-      
-    
-      </ion-list>-->
-      
-<h4>Especialmente para ti</h4>
-<ion-list>
-  <ion-card>
-    <ion-item>
-      <ion-thumbnail item-left>
-        <img src="assets/imgs/imagen2.jpg" alt="">
-      </ion-thumbnail>
-      <h2>30% de descuento</h2>
-      <p>Valido hasta 20/04/2018</p>
-    </ion-item>  
-   
-    <ion-card-content>
-      <p>Prueba esta nueva promocion, especialmente para ti</p>
-    </ion-card-content>
+        
+        
+          <ion-card>
+            <ion-item>
+              <ion-thumbnail item-left>
+                <img src="assets/imgs/imagen5.jpg" alt="">
+              </ion-thumbnail>
+              <h2>20% de descuento</h2>
+              <p>Valido hasta la 01/05/2018</p>
+            </ion-item>  
+           
+            <ion-card-content>
+              <p>Prueba esta nueva promocion, especialmente para ti</p>
+            </ion-card-content>
+          
+            <button color="azul" (click)="cita()"  ion-button outline small>Aplicar</button>
+          </ion-card>
+          
+          
+        </ion-list>
+    </ion-list>
+  </div>
   
-    <button ion-button outline small>Aplicar</button>
-  </ion-card>
-
- 
-  <ion-card>
-    <ion-item>
-      <ion-thumbnail item-left>
-        <img src="assets/imgs/imagen10.jpg" alt="">
-      </ion-thumbnail>
-      <h2>30% de descuento</h2>
-      <p>Valido hasta la 01/05/2018</p>
-    </ion-item>  
-   
-    <ion-card-content>
-      <p>Prueba esta nueva promocion, especialmente para ti</p>
-    </ion-card-content>
-  
-    <button ion-button outline small>Aplicar</button>
-  </ion-card>
-
-
-  <ion-card>
-    <ion-item>
-      <ion-thumbnail item-left>
-        <img src="assets/imgs/imagen5.jpg" alt="">
-      </ion-thumbnail>
-      <h2>30% de descuento</h2>
-      <p>Valido hasta la 01/05/2018</p>
-    </ion-item>  
-   
-    <ion-card-content>
-      <p>Prueba esta nueva promocion, especialmente para ti</p>
-    </ion-card-content>
-  
-    <button ion-button outline small>Aplicar</button>
-  </ion-card>
-  
-  
-</ion-list>
-
-</ion-content>
+  </ion-content>

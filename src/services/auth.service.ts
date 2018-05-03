@@ -8,10 +8,11 @@ import 'rxjs/add/operator/map';
 export class AuthService {
    
    loggedIn: boolean;
+   showLogout:boolean = false;
    url = 'http://localhost:5000/login';
 
    constructor(private http: Http){
-      this.loggedIn = false;
+    this.loggedIn = false;
    }
    
    login(userInfo) {
@@ -23,17 +24,26 @@ export class AuthService {
             'Content-Type':'application/json'
          })
       })
-      .map(res => res.text())
       .map(res => {
-         if (res=="error" || res=="nofound"){
-            this.loggedIn = false;
-         } else {
-            localStorage.setItem('token', res);
+            localStorage.setItem('token', res.text());
             this.loggedIn = true;
-         }
-         return this.loggedIn;
-      });
+            return this.loggedIn;
+    }
+    )
    }
+
+     checkSession() {
+       let checkKey = localStorage.getItem('token');
+       if(checkKey == null){
+           this.showLogout = false; // changed
+           console.log('null key: ', checkKey);
+       } else {
+           this.showLogout = true; // changed
+           //this check will only be available once the user is logged in
+           console.log('key exist: ', checkKey);
+       }
+       return this.showLogout;
+      }
 
    logout(): void {
       localStorage.removeItem('token');

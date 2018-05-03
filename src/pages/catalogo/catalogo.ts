@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { HomePage } from '../home/home';
 import { CatalogomanicurePage } from '../catalogomanicure/catalogomanicure';
 import { CatalogopedicurePage } from '../catalogopedicure/catalogopedicure';
 import { CatalogosistemaPage } from '../catalogosistema/catalogosistema';

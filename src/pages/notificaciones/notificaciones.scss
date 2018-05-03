@@ -1,63 +1,67 @@
 page-notificaciones {
-    @mixin ribbonize ($ribbon-color, $text-color: white, $border-width: 3px) {
-        span {
-          color: $text-color;
-          background: $ribbon-color;
-          &::before {
-            border-left: $border-width solid $ribbon-color;
-            border-top: $border-width solid $ribbon-color;
-          }
-          &::after {
-            border-right: $border-width solid $ribbon-color;
-            border-top: $border-width solid $ribbon-color;
-          }
+  @mixin ribbonize ($ribbon-color, $text-color: white, $border-width: 3px) {
+      span {
+        color: $text-color;
+        background: $ribbon-color;
+        &::before {
+          border-left: $border-width solid $ribbon-color;
+          border-top: $border-width solid $ribbon-color;
+        }
+        &::after {
+          border-right: $border-width solid $ribbon-color;
+          border-top: $border-width solid $ribbon-color;
         }
       }
+    }
+  
+    $default: #f53d3d;
+    $cruzeiro: #387ef5;
+    $atletico: darken(#f4f4f4, 45%);
+    $javascript: #f7e023;
+  
     
-      $default: #f53d3d;
-      $cruzeiro: #387ef5;
-      $atletico: darken(#f4f4f4, 45%);
-      $javascript: #f7e023;
-    
-      
-    
-      .ribbon.cruzeiro {
-        @include ribbonize($cruzeiro);
-      }
-    
-      .ribbon.atletico {
-        @include ribbonize($atletico);
-      }
-    
-      .ribbon.javascript {
-        @include ribbonize($javascript, black);
-      }
-
-      strong h6 {
-         color: #d69028d2;
-         padding: 2px;
-         padding-left: 3%;
-
-      }
-  h4{
-    color: #c0ad59;
-    padding: 0.2em;
-    text-align: center;
-   
-  }
-      .button-small-md {
-        width: 24em;
-        height: 2em;
-        font-size: 1.3rem;
-        padding: 0.9em;
-        margin-left: 1em;
-        margin-bottom: 1em;
+  
+    .ribbon.cruzeiro {
+      @include ribbonize($cruzeiro);
+    }
+  
+    .ribbon.atletico {
+      @include ribbonize($atletico);
+    }
+  
+    .ribbon.javascript {
+      @include ribbonize($javascript, black);
     }
 
-    img {
-      width: 75px;
-      height: 75px;
-      border-radius: 9px;
+    strong h6 {
+       color: #d69028d2;
+       padding: 2px;
+       padding-left: 3%;
+
+    }
+h4{
+  color: #c0ad59;
+  padding: 0.2em;
+  text-align: center;
+ 
+}
+element {
+  margin-top: 56px;
+  background-color: #fafaf8;
+}
+    .button-small-md {
+      width: 90%;
+      height: 2em;
+      font-size: 1.3rem;
+      padding: 0.9em;
+      margin-left: 1em;
+      margin-bottom: 1em;
   }
+
+  img {
+    width: 75px;
+    height: 75px;
+    border-radius: 9px;
+}
 
 }

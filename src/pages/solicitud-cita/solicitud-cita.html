@@ -13,84 +13,104 @@
 -->
 
 <ion-content>
-    <ion-slides #solicitudSlider>                 
-      <ion-slide>    
-        <ion-header>
-          <ion-navbar>
-            <ion-title>Solicitud de Cita</ion-title>
-            <button ion-button menuToggle>
-              <ion-icon name="menu"></ion-icon>
-            </button>
-          </ion-navbar>
-        </ion-header> 
-        <div class="contenedor">                        
-        <p align="justify">Elige el tipo de servicio que deseas solicitar:</p>
-            <ion-item text-wrap>
-              <ion-label floating>Tipo de servicio</ion-label>
-              <ion-select [(ngModel)]="servicio">
-                <ion-option *ngFor="let servicio of servicios" [value]="servicio">{{servicio}}</ion-option>
+  <ion-slides #solicitudSlider>                 
+    <ion-slide>    
+      <ion-header>
+        <ion-navbar>
+          <ion-title>Solicitud de Cita</ion-title>
+          <button color="bounce" ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+          </button>
+        </ion-navbar>
+      </ion-header> 
+      <div class="contenedor">                        
+      <p align="justify">Elige el tipo de servicio que deseas solicitar:</p>
+      <ion-item text-wrap>
+          <ion-label floating>Tipo de Servicio:</ion-label>
+          <ion-select [(ngModel)]="servicio">
+            <ion-option *ngFor="let c of servicios" value="{{c.nombre}}" (ionSelect)="itemView(c.tipos);">{{c.nombre}}
+            </ion-option>
+          </ion-select>
+        </ion-item>
+        <ion-item text-wrap>
+          <ion-label floating>Detalle:</ion-label>
+          <ion-select [(ngModel)]="tipo" multiple="true">
+            <ion-option *ngFor="let r of tipos" value="{{r.id}}">{{r.nombre}}
+            </ion-option>  
+          </ion-select>
+        </ion-item>
+          
+        <p align="justify">Presupuesto:</p>
+          <ion-item>
+         <!--   <ion-label floating>Monto a cancelar:</ion-label>-->
+            <span class="infos_presup">{{presupuesto.monto}}</span>
+          </ion-item>              
+      
+      <ion-fab right bottom>
+        <button ion-button class="icon-right" color="azul" (click)="next()">Aceptar</button>
+      </ion-fab>
+      <ion-fab left bottom>
+        <button ion-button class="icon-left" color="tercer" (click)="cancelar()">Cancelar</button>
+      </ion-fab>
+    </div>
+    </ion-slide>
+         
+    <ion-slide>
+      <ion-header>
+        <ion-navbar>
+          <button ion-button class="izq" color="bounce" (click)="prev()"clear><ion-icon name="arrow-back"></ion-icon></button>
+          <ion-title>Solicitud de Cita</ion-title>
+        </ion-navbar>
+      </ion-header>
+
+      <div class="contenedor">
+      <ion-list no-lines>
+      <p align="justify">Elige la manicurista con la cual deseas tu cita:</p>
+         <ion-item>
+            <ion-label>Al azar</ion-label>
+            <ion-radio checked="false" value="any"></ion-radio>
+          </ion-item>
+          <ion-item>
+            <ion-label floating>Manicurista Preferida</ion-label>
+              <ion-select [(ngModel)]="manicurista">
+                <ion-option *ngFor="let manicurista of manicuristas" [value]="manicurista">{{manicurista}}</ion-option>
               </ion-select>
-            </ion-item>                  
-            <ion-item>
-              <ion-buttons end>
-                <button ion-button icon-only color="cuarto" (click)="addServicio()" round>
-                <ion-icon name="add"></ion-icon>
-                </button>
-              </ion-buttons>
-            </ion-item>
-          <p align="justify">Presupuesto:</p>
-            <ion-item>
-           <!--   <ion-label floating>Monto a cancelar:</ion-label>-->
-              <span class="infos_presup">{{presupuesto.monto}}</span>
-            </ion-item>              
-        
-        <ion-fab right bottom>
-          <button ion-button class="icon-right" color="azul" (click)="next()">Aceptar</button>
-        </ion-fab>
-        <ion-fab left bottom>
-          <button ion-button class="icon-left" color="tercer" (click)="cancelar()">Cancelar</button>
-        </ion-fab>
-      </div>
-      </ion-slide>
+          </ion-item>
+        <p align="justify">Fecha de la cita</p>
+              <span ion-datepicker
+                (ionChanged)="setDate($event);"
+                [max]="maxDate" 
+                [min]="initDate2"
+                [value]="initDate"
+                [showMaxAndMin]="true"
+                [disabledDates]="disabledDates"
+                [markDates]="markDates"
+                [okText]="Aceptar"
+                [cancelText]="Cancelar"
+                [localeStrings]="{ weekdays: ['Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab', 'Dom'], months: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'], monday:true }"
+                clear
+                class="ScheduleDate">
+                <span>{{initDate | date: 'dd/MM/yyyy' }} 
+                  <ion-icon name="calendar" item-left></ion-icon> 
+                </span>
+              </span>
            
-      <ion-slide>
-        <ion-header>
-          <ion-navbar>
-            <button ion-button class="izq" color="bounce" (click)="prev()"clear><ion-icon name="arrow-back"></ion-icon></button>
-            <ion-title>Solicitud de Cita</ion-title>
-          </ion-navbar>
-        </ion-header>
-      
-        
-      
-        <div class="contenedor">
-        <ion-list no-lines>
-        <p align="justify">Elige la manicurista con la cual deseas tu cita:</p>
-           <ion-item>
-              <ion-label>Al azar</ion-label>
-              <ion-radio checked="false" value="any"></ion-radio>
-            </ion-item>
-            <ion-item>
-              <ion-label floating>Manicurista Preferida</ion-label>
-                <ion-select [(ngModel)]="manicurista">
-                  <ion-option *ngFor="let manicurista of manicuristas" [value]="manicurista">{{manicurista}}</ion-option>
-                </ion-select>
-            </ion-item>
-          <p align="justify">Fecha de la cita</p>
-            <ion-item>
-              <ion-label floating>Fecha Cita</ion-label>
-              <ion-datetime displayFormat="DD/MM/YYYY" name="fechacita"></ion-datetime>
-            </ion-item>  
-        </ion-list>
-      </div>
-        <ion-fab right bottom>
-            <button ion-button class="icon-right" color="azul" (click)="save()">Registrar</button>
-        </ion-fab>
-        <ion-fab left bottom>
-            <button ion-button class="icon-left" color="tercer" (click)="cancelar()">Cancelar</button>
-        </ion-fab>  
-      </ion-slide>         
-    </ion-slides>
-   
+        <p align="justify">Hora de la cita</p>
+        <ion-item>
+          <ion-label floating>Hora:</ion-label>
+          <ion-select [(ngModel)]="hora">
+            <ion-option *ngFor="let hora of horas" [value]="hora">{{hora}}</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </div>
+      <ion-fab right bottom>
+          <button ion-button class="icon-right" color="azul" (click)="save()">Registrar</button>
+      </ion-fab>
+      <ion-fab left bottom>
+          <button ion-button class="icon-left" color="tercer" (click)="cancelar()">Cancelar</button>
+      </ion-fab>  
+    </ion-slide>         
+  </ion-slides>
   </ion-content>
   

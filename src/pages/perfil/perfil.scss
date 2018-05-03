@@ -134,10 +134,8 @@ page-perfil {
         }
       }
       .infos_name,
-      .infos_nick,
-      .infos_fecnac,
       .infos_dir,
-      .infos_edad {
+      .infos_tlfn {
         display: block;
         clear: both;
         padding: .5em 0;
@@ -148,9 +146,13 @@ page-perfil {
         font-size: 18px;
         top: 2px;
         font-weight: 800;
+      }.infos_dir {
+        top: 28px;
+        font-size: 14px;
+        font-weight: 300;
       }
-      .infos_dir, .infos_tlfn, .infos_nick, .infos_fecnac, .infos_edad {
-        top: 32px;
+      .infos_tlfn {
+        top: 50px;
         font-size: 14px;
         font-weight: 300;
       }
