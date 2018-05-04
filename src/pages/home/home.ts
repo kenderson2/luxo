@@ -17,6 +17,7 @@ export class HomePage {
   loggedIn: boolean=false;
 	name : string;
   apellido : string;
+  token: any;
 
   Promocion(){
     this.navCtrl.push(PromocionesPage);
@@ -43,6 +44,8 @@ export class HomePage {
     alert.present();
   // this.navCtrl.setRoot(HomePage)
   }
+
+
 
   solicitud(){
     this.navCtrl.push(SolicitudCitaPage);
