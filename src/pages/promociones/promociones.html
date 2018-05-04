@@ -14,12 +14,27 @@
   <ion-card *ngFor="let item of items">
           <img [src]="item.img"/>
           <ion-card-content>
+
+
             <ion-card-title>
               {{item.name}}
               </ion-card-title>
+
             <p align="justify">
               {{item.descripcion}}
             </p>
+            <b> Precio: </b>
+
+      <font color="silver" ><s align="justify">
+              {{item.precio}}
+            </s></font>
+
+
+                <font color="negro">  <b align="justify">
+              {{item.precion}}
+                </b> </font> 
+
+
           </ion-card-content> 
     <ion-row>
       <ion-col>

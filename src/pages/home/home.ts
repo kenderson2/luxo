@@ -5,9 +5,10 @@ import { CatalogoPage } from '../catalogo/catalogo';
 import { AboutPage } from '../about/about';
 import { MicalendarioPage } from '../micalendario/micalendario';
 import { LoginBackgroundSliderPage } from '../login-background-slider/login-background-slider';
-import { NotificacionesPage } from '../notificaciones/notificaciones';
-import { AuthService } from '../../services/auth.service';
 import { SolicitudCitaPage } from '../solicitud-cita/solicitud-cita';
+import { AuthService } from '../../services/auth.service';
+import { ToastController } from 'ionic-angular';
+import { NotificacionesPage } from '../notificaciones/notificaciones';
 
 @Component({
   selector: 'page-home',
@@ -17,13 +18,24 @@ export class HomePage {
   loggedIn: boolean=false;
 	name : string;
   apellido : string;
+  token: any;
+
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, private auth:AuthService,private toastCtrl: ToastController) {
+
+  }
 
   Promocion(){
     this.navCtrl.push(PromocionesPage);
   }
 
   ionViewDidLoad() {
-    this.loggedIn=this.auth.checkSession();
+  //  this.loggedIn=this.auth.checkSession();
+  this.loggedIn=true;
+    if (this.loggedIn == true)
+      {
+        this.presentToast();
+
+      }
   }
 
   logout(){
@@ -44,6 +56,8 @@ export class HomePage {
   // this.navCtrl.setRoot(HomePage)
   }
 
+
+
   solicitud(){
     this.navCtrl.push(SolicitudCitaPage);
   }
@@ -61,12 +75,27 @@ export class HomePage {
   login(){
     this.navCtrl.push(LoginBackgroundSliderPage);
   }
+
   notificaciones(){
     this.navCtrl.push(NotificacionesPage);
   }
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, private auth:AuthService) {
-
+  presentToast() {
+    let toast = this.toastCtrl.create({
+      message: 'Bienvenido Nury',
+      duration: 3000,
+      position: 'top',
+      cssClass: "toast.scss"      
+    });
+  
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+  
+    toast.present();
   }
+  
+
+  
 
 }

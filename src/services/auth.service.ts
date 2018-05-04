@@ -9,12 +9,23 @@ export class AuthService {
    
    loggedIn: boolean;
    showLogout:boolean = false;
-   url = 'http://localhost:5000/loginid';
+   url = 'http://localhost:5000/login';
+   token2 :any;
+   token :any;
 
    constructor(private http: Http){
     this.loggedIn = false;
    }
    
+   obtenerToken(){
+    this.loggedIn=this.checkSession();
+    this.token2=JSON.parse(localStorage.getItem('token'));
+    if(this.loggedIn){
+      this.token=this.token2['data']['token'];
+    }
+    return this.token;
+   }
+
    login(userInfo) {
       let url = `${this.url}`;
       let iJon = JSON.stringify(userInfo);
@@ -25,6 +36,7 @@ export class AuthService {
          })
       })
       .map(res => {
+            console.log("hizo este beta");
             localStorage.setItem('token', res.text());
             this.loggedIn = true;
             return this.loggedIn;

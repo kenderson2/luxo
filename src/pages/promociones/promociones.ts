@@ -13,28 +13,32 @@ export class PromocionesPage {
 iniciarLista(){
  this.items = [
     {
-      name:'Primer Servicio',
+      name:'Tu Primer Manicure',
       img:'assets/imgs/promo1.jpg',
       descripcion:'Obten un 15% en nuestros servicios, si es tu primera solicitud.',
-
+      precio:'100.000',
+      precion:'85.000 ',
     },
     {
       name:'Navidad',
       img:'assets/imgs/promonavidad.jpg',
       descripcion:'La Navidad te Sonrie! Obten un descuento de hasta un 20% con nuestros Servicios relacionados a la Navidad',
-
+      precio:' 200.000',
+      precion:'160.000 ',
     },
     {
       name:'Mejor pelicula animada',
       img:'assets/imgs/coco.jpg',
       descripcion:'Obten un 20% de descuento en nuestro servicio de manicure con decoración de la película Coco, acompañanos a celebrar.',
-
+      precio:' 250.000',
+      precion:'200.000 ',
     },
     {
       name:'Llegaron los carnavales',
       img:'assets/imgs/carnaval.jpg',
       descripcion:'En los carnavales no te quedes en tu casa , aprovecha nuestra oferta del 10 % en todos nuestros servicios',
-
+      precio:'120.000',
+      precion:'108.000 ',
     },
   ];
 }

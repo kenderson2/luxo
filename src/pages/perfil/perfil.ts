@@ -4,6 +4,10 @@ import { NavController, IonicPage, ViewController} from 'ionic-angular';
 import { ProfileSettingsPage } from '../profile-settings/profile-settings';
 import { ViewServicioPage } from '../view-servicio/view-servicio';
 import { PreferenciasPage } from '../preferencias/preferencias';
+import { AuthService } from '../../services/auth.service';
+import { UserService } from '../../providers/user.service';
+import { Usuario } from '../../providers/usuario';
+
 
 
 @IonicPage()
@@ -13,6 +17,9 @@ import { PreferenciasPage } from '../preferencias/preferencias';
 })
 export class PerfilPage {
 
+  loggedIn:boolean=false;
+  usuario=[];
+  user :any;
   posts = [
     {
       name: 'Manicure',
@@ -35,26 +42,30 @@ export class PerfilPage {
     },
   ];
 
-  user = {
-    name: 'Nury',
-    apellido: 'Amaro',
-    profileImage: '../assets/imgs/nury.jpg',
-    fecnac: '24/01/1993',
-    dir: ' ',
-    ciudad: 'Barquisimeto',
-    estado: 'Lara',
-    tlfn: '+58 4245356902',
-    twitter: 'nuryC',
-    edad: 25,
-  };
+  
   configurar() {
     this.navCtrl.push(ProfileSettingsPage);
 }    
 
-  constructor(public navCtrl: NavController, public toastCtrl: ToastService, public viewCtrl: ViewController) { }
+  constructor(public navCtrl: NavController, public toastCtrl: ToastService, public viewCtrl: ViewController, private auth : AuthService, private userauth:UserService) { }
 
   ionViewDidLoad() {
     console.log('Hello Perfil Page');
+    if(this.auth.checkSession){
+      this.userauth.getUsuario()
+      .subscribe(
+        (data) => { // Success
+          this.user=JSON.parse(data.text());
+          this.usuario = this.user['data'];               
+        },
+        (error) =>{
+          console.error(error);
+        }
+      )
+    }
+
+
+    
   }
 
   imageTapped(post) {

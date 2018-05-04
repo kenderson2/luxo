@@ -14,7 +14,7 @@
             <ion-icon  name="person"></ion-icon>
           </button> 
           <button class="login" ion-button (click)="logout()" clear icon-only *ngIf="(loggedIn)">
-            <ion-icon  name="person"></ion-icon>
+            <ion-icon color="bounce" name="md-log-out"></ion-icon>
           </button>    
       </ion-buttons>   
     </ion-navbar>
@@ -69,7 +69,7 @@
       </ion-item>
     
       <ion-item class="seccion2" *ngIf="(loggedIn)">
-        <ion-card><ion-icon  color="azul" name="heart" (click)="solicitud()" item-start></ion-icon>
+        <ion-card><ion-icon  color="azul" name="paper" (click)="solicitud()" item-start></ion-icon>
           <p>Solicitar Cita</p>
         </ion-card>
       </ion-item>
@@ -110,16 +110,14 @@
       </ion-slides>
     </ion-card>
     
-    <div id="footer">
-      <h1>luxo</h1>
-      
-    </div>
-    <div id="footer"></div>
 
     
 
-   <ion-item item-start width="20px" height="20px">
+  <!--  <ion-item item-start width="20px" height="20px">
     <img src="assets/imgs/luxo25.png">
-   </ion-item>
+   </ion-item> -->
+
+  
+
     
   </ion-content>  
