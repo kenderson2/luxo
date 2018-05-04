@@ -33,7 +33,7 @@ import { MicalendarioPage } from '../pages/micalendario/micalendario';
 import { RechazoservicioPage } from '../pages/rechazoservicio/rechazoservicio';
 
 import { AuthService } from '../services/auth.service';
-import {EstadoService } from '../services/estado.service';
+import { UserService } from '../providers/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 
@@ -103,8 +103,8 @@ import { HttpModule } from '@angular/http';
     SplashScreen,
     AlertService,
     AuthService,
-    EstadoService,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    UserService
   ]
 })
 export class AppModule {}

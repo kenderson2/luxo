@@ -34,24 +34,34 @@ export class MyApp {
     this.initializeApp();
     this.sesion();
 
+    if(this.loggedIn){
+     this.pages = [
+      { title: 'Inicio', icono:'home', component: HomePage  },      
+     { title: 'Perfíl', icono:'camera', component: PerfilPage},            
+      { title: 'Servicios', icono:'ios-basket', component: CatalogoPage},
+      { title: 'Promociones', icono:'basket', component: PromocionesPage },
+     { title: 'Solicitar Cita', icono:'paper', component: SolicitudCitaPage},
+      { title: 'Contacto', icono:'chatbubbles', component: OpinionPage},
+      { title: 'Sobre Nosotros', icono:'heart',component: AboutPage},
+   // { title: 'Cerrar sesión', icono: 'logOut', component: LogoutPage }
+    ];
+    }
+
+
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Inicio', icono:'home', component: HomePage  },      
      { title: 'Perfíl', icono:'camera', component: PerfilPage},            
       { title: 'Servicios', icono:'ios-basket', component: CatalogoPage},
       { title: 'Promociones', icono:'basket', component: PromocionesPage },
-  //   { title: 'Solicitar Cita', icono:'paper', component: SolicitudCitaPage},
+   //  { title: 'Solicitar Cita', icono:'paper', component: SolicitudCitaPage},
       { title: 'Contacto', icono:'chatbubbles', component: OpinionPage},
       { title: 'Sobre Nosotros', icono:'heart',component: AboutPage},
-    //{ title: 'Cerrar sesión', icono: 'logOut', component: LogoutPage }.
+   // { title: 'Cerrar sesión', icono: 'logOut', component: LogoutPage }.
 
     ];
 
-    this.pages1={ title: 'Perfíl', icono:'camera', component: SolicitudCitaPage};
-
-this.pages2={ title: 'Perfíl', icono:'camera', component: PerfilPage};
-
-
+   
    // this.icons = ['flask', 'wifi', 'beer', 'football'];
 
   }

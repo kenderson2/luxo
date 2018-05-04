@@ -18,6 +18,7 @@ export class HomePage {
   loggedIn: boolean=false;
 	name : string;
   apellido : string;
+  token: any;
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, private auth:AuthService,private toastCtrl: ToastController) {
 
@@ -54,6 +55,8 @@ export class HomePage {
     alert.present();
   // this.navCtrl.setRoot(HomePage)
   }
+
+
 
   solicitud(){
     this.navCtrl.push(SolicitudCitaPage);
