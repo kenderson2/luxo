@@ -8,6 +8,7 @@ import { LoginBackgroundSliderPage } from '../login-background-slider/login-back
 import { SolicitudCitaPage } from '../solicitud-cita/solicitud-cita';
 import { AuthService } from '../../services/auth.service';
 import { ToastController } from 'ionic-angular';
+import { NotificacionesPage } from '../notificaciones/notificaciones';
 
 @Component({
   selector: 'page-home',
@@ -70,6 +71,10 @@ export class HomePage {
   }
   login(){
     this.navCtrl.push(LoginBackgroundSliderPage);
+  }
+
+  notificaciones(){
+    this.navCtrl.push(NotificacionesPage);
   }
 
   presentToast() {

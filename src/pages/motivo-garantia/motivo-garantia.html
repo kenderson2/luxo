@@ -20,6 +20,12 @@
           <ion-option *ngFor="let motivo of motivos" [value]="motivo">{{motivo}}</ion-option>
         </ion-select>
       </ion-item>
+      <ion-card ion-row>
+        <ion-item ion-col col-12>
+          <ion-label floating>Comentario</ion-label>
+          <ion-textarea name="Comentario"></ion-textarea>
+        </ion-item>
+      </ion-card>
     </ion-content>
     <ion-footer>
         <ion-row class="align-center">

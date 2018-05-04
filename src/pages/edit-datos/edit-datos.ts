@@ -18,7 +18,13 @@ import { ProfileSettingsPage } from '../profile-settings/profile-settings';
 export class EditDatosPage {
   img1: any;
   sexo: any;
+  fechanac:any;
+  direccion:any;
+  telefono:any;
+  ciudad:any;
+  estado:any;
   profilePicture: string;
+  imagen:any;
   user = {
     name: 'Nury',
     apellido: 'Amaro',
@@ -150,7 +156,8 @@ export class EditDatosPage {
   updateProfileImage() {
   }
   save() {
-    //let f = {correo: this., contrasenna: this.loginForm.value.password};
+    let f = {imagen:this.imagen,sexo: this.sexo,estado:this.estado,ciudad:this.ciudad,fecha_nacimiento:this.fechanac,direccion:this.direccion,telefono:this.telefono};
+     console.log(f);
 
 
 

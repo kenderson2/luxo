@@ -23,13 +23,13 @@
     </ion-list-header>
   <div padding>
     <p align="justify">Cambiar foto de perfil</p>
-    <img *ngIf="img1" [src]="img1" width="250" height="150"  size="60"/>   
-    <input type="file" style="background-color:transparent;" value="" (change)="fileChange($event)">
-    <button ion-button color="danger">Change image</button>
+    <img *ngIf="img1"  [src]="img1" width="250" height="150"  size="60"/>   
+    <input type="file" [(ngModel)]="imagen" style="background-color:transparent;" value="" (change)="fileChange($event)">
+
   </div>
   <ion-item>
     <ion-label floating>Fecha de nacimiento</ion-label>
-    <ion-datetime displayFormat="DD/MM/YYYY" name="fechanac"></ion-datetime>
+    <ion-datetime displayFormat="DD/MM/YYYY" name="fechanac" [(ngModel)]="fechanac"></ion-datetime>
   </ion-item>
   <ion-item>
     <ion-label floating>Sexo</ion-label>
@@ -53,11 +53,11 @@
   </ion-item>
   <ion-item>
     <ion-label floating>Dirección</ion-label>
-    <ion-input></ion-input>
+    <ion-input [(ngModel)]="direccion"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label floating>Teléfono</ion-label>
-    <ion-input></ion-input>
+    <ion-input [(ngModel)]="telefono"></ion-input>
   </ion-item>
 </ion-list>
 <ion-row class="align-center">
