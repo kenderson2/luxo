@@ -16,7 +16,7 @@
 <ion-content>
   <ion-list no-lines>
     <ion-list-header>
-      <ion-avatar item-start (click)="fileChange($event)">
+      <ion-avatar item-start >
         <img [src]="user.imageUrl ? user.imageUrl : placeholderPicture">
       </ion-avatar>
       <p class="username">{{user.name}} {{user.apellido}}</p>
@@ -24,7 +24,8 @@
   <div padding>
     <p align="justify">Cambiar foto de perfil</p>
     <img *ngIf="img1" [src]="img1" width="250" height="150"  size="60"/>   
-    <input type="file" value="" (change)="fileChange($event)">
+    <input type="file" style="background-color:transparent;" value="" (change)="fileChange($event)">
+    <button ion-button color="danger">Change image</button>
   </div>
   <ion-item>
     <ion-label floating>Fecha de nacimiento</ion-label>
@@ -34,6 +35,20 @@
     <ion-label floating>Sexo</ion-label>
     <ion-select [(ngModel)]="sexo">
       <ion-option *ngFor="let sexo of sexos" [value]="sexo">{{sexo}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item text-wrap>
+    <ion-label floating>Estado</ion-label>
+    <ion-select [(ngModel)]="estado">
+      <ion-option *ngFor="let c of estados" value="{{c.nombre}}" (ionSelect)="itemView(c.ciudades);">{{c.nombre}}
+      </ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item text-wrap>
+    <ion-label floating>Ciudad</ion-label>
+    <ion-select [(ngModel)]="ciudad">
+      <ion-option *ngFor="let r of ciudades" value="{{r.id}}">{{r.nombre}}
+      </ion-option>  
     </ion-select>
   </ion-item>
   <ion-item>
