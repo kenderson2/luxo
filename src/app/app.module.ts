@@ -36,6 +36,7 @@ import { AuthService } from '../services/auth.service';
 import { UserService } from '../providers/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+import { GhotsProvider } from '../providers/ghots/ghots';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { HttpModule } from '@angular/http';
     IonicModule.forRoot(MyApp),
     SharedModule,
     DatePickerModule,
+    ComponentsModule,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -104,7 +106,8 @@ import { HttpModule } from '@angular/http';
     AlertService,
     AuthService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserService
+    UserService,
+    GhotsProvider
   ]
 })
 export class AppModule {}
