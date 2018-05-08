@@ -36,6 +36,9 @@ import { AuthService } from '../services/auth.service';
 import { UserService } from '../providers/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+import { ServicioService } from '../providers/servicio.service';
+
+
 
 @NgModule({
   declarations: [
@@ -103,6 +106,7 @@ import { HttpModule } from '@angular/http';
     SplashScreen,
     AlertService,
     AuthService,
+    ServicioService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserService
   ]

@@ -10,6 +10,8 @@ import { AuthService } from '../../services/auth.service';
 import { ToastController } from 'ionic-angular';
 import { NotificacionesPage } from '../notificaciones/notificaciones';
 
+
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -19,6 +21,7 @@ export class HomePage {
 	name : string;
   apellido : string;
   token: any;
+  
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, private auth:AuthService,private toastCtrl: ToastController) {
 
