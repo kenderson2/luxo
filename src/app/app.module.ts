@@ -40,6 +40,7 @@ import { ServicioService } from '../providers/servicio.service';
 
 
 
+
 @NgModule({
   declarations: [
     MyApp,
@@ -73,6 +74,7 @@ import { ServicioService } from '../providers/servicio.service';
     IonicModule.forRoot(MyApp),
     SharedModule,
     DatePickerModule,
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -108,7 +110,8 @@ import { ServicioService } from '../providers/servicio.service';
     AuthService,
     ServicioService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserService
+    UserService,
+   
   ]
 })
 export class AppModule {}
