@@ -58,6 +58,7 @@ export class PerfilPage {
         (data) => { // Success
           this.user=JSON.parse(data.text());
           this.usuario = this.user['data'];               
+          console.log(this.usuario)
         },
         (error) =>{
           console.error(error);

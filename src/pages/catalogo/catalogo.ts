@@ -5,6 +5,8 @@ import { CatalogomanicurePage } from '../catalogomanicure/catalogomanicure';
 import { CatalogopedicurePage } from '../catalogopedicure/catalogopedicure';
 import { CatalogosistemaPage } from '../catalogosistema/catalogosistema';
 
+import { ServicioService } from '../../providers/servicio.service';
+
 /**
  * Generated class for the CatalogoPage page.
  *
@@ -18,6 +20,22 @@ import { CatalogosistemaPage } from '../catalogosistema/catalogosistema';
   templateUrl: 'catalogo.html',
 })
 export class CatalogoPage {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private service: ServicioService) {
+    this.iniciarLista();
+  }
+
+  items :any[];
+  iniciarLista(){
+    this.service.getServicios()
+    .subscribe(
+     (data) => { // Success
+       this.items = data['data'];               
+     },
+     (error) =>{
+       console.error(error);
+     }
+   )
+ }
 
   Manicure(){
     this.navCtrl.push(CatalogomanicurePage);
@@ -27,10 +45,6 @@ export class CatalogoPage {
   }
   Sistema(){
     this.navCtrl.push(CatalogosistemaPage);
-  }
-
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
