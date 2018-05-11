@@ -1,6 +1,6 @@
 {
   "name": "luxo",
-  "app_id": "",
+  "app_id": "6f7346cc",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}

@@ -36,6 +36,17 @@ import { AuthService } from '../services/auth.service';
 import { UserService } from '../providers/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+import { ServicioService } from '../providers/servicio.service';
+import { EstadoService } from '../providers/estado.service';
+import { ImagePicker } from '@ionic-native/image-picker';
+import { CiudadService } from '../providers/ciudad.service';
+import { NegocioService } from '../providers/negocio.service';
+import { ContactoService } from '../providers/contacto.service';
+import { TipocService } from '../providers/tipoc.service';
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -70,6 +81,7 @@ import { HttpModule } from '@angular/http';
     IonicModule.forRoot(MyApp),
     SharedModule,
     DatePickerModule,
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -103,8 +115,16 @@ import { HttpModule } from '@angular/http';
     SplashScreen,
     AlertService,
     AuthService,
+    ServicioService,
+    EstadoService,
+    CiudadService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UserService
+    UserService,
+    NegocioService,
+    ContactoService,
+    TipocService,
+    ImagePicker,
+   
   ]
 })
 export class AppModule {}

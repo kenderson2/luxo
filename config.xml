@@ -82,12 +82,7 @@
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
     <plugin name="cordova-plugin-ionic-keyboard" spec="^2.0.5" />
     <plugin name="cordova-plugin-calendar" spec="^5.0.0" />
-<<<<<<< HEAD
-    <plugin name="cordova-plugin-camera" spec="^4.0.2">
         <variable name="CAMERA_USAGE_DESCRIPTION" value="the app need the camera" />
         <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="the app need the photolibrary" />
     </plugin>
-=======
-    <plugin name="cordova-plugin-camera" spec="^4.0.2" />
->>>>>>> b6312e2ae6f86b33044cfa4f519cc7e7b7550cbe
 </widget>

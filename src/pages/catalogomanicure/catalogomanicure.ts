@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController} from 'ionic-angular';
 import {SolicitudCitaPage } from '../solicitud-cita/solicitud-cita';
+import { ServicioService } from '../../providers/servicio.service';
 /**
  * Generated class for the CatalogomanicurePage page.
  *
@@ -14,47 +15,24 @@ import {SolicitudCitaPage } from '../solicitud-cita/solicitud-cita';
   templateUrl: 'catalogomanicure.html',
 })
 
-
-
-
-
 export class CatalogomanicurePage {
   searchQuery: string = '';
   items: any[];
+  constructor(public navCtrl: NavController,private service: ServicioService) {
+    this.iniciarLista();
+  }
   iniciarLista(){
-    this.items = [
-       {
-         name:'Limpieza',
-         img:'assets/imgs/limpieza.jpg',
-         descripcion:'Limpia los residuos que está dentro de las puntas de tus uñas de tus manos, y se cortan si el cliente lo desea '
-   
-       },
-       {
-         name:'Masajes',
-         img:'assets/imgs/masajemanos.jpg',
-         descripcion:'Consiste en un breve Masaje , sobre el area alrededor de las uñas ',
-   
-       },
-       {
-         name:'Aplicacion de Esmalte Tradicional ',
-         img:'assets/imgs/esmaltemanos.jpeg',
-         descripcion:'Consiste en una aplicacion Basica  de una capa de pintura Tradicional',
-   
-       },
-       {
-        name:'Aplicacion de Esmalte Permanente ',
-        img:'assets/imgs/permanenteuña.jpg',
-        descripcion:'Consiste en una aplicacion de un Esmalte permante,con varias capas para una larga duraccion',
+    this.service.getServicios()
+    .subscribe(
+     (data) => { // Success
+       this.items = data['data'];               
+     },
+     (error) =>{
+       console.error(error);
+     }
+   )
+ }
   
-      },
-      {
-        name:'Aplicacion de Stycker ',
-        img:'assets/imgs/styker.jpg',
-        descripcion:'Consiste en colocar Stycker de la preferencia el cliente y arriba una capa de fijador de esmalte ',
-  
-      },
-     ];
-   }
 
    getItems(ev: any) {
     // Reset items back to all of the items
@@ -66,7 +44,7 @@ export class CatalogomanicurePage {
     // if the value is an empty string don't filter the items
     if (val && val.trim() != '') {
       this.items = this.items.filter((item) => {
-        return (item.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
+        return (item.nombre.toLowerCase().indexOf(val.toLowerCase()) > -1);
       })
     }
   }
@@ -74,9 +52,7 @@ export class CatalogomanicurePage {
   Solicitar(){
     this.navCtrl.push(SolicitudCitaPage);
   }
-  constructor(public navCtrl: NavController) {
-    this.iniciarLista();
-  }
+ 
   
 }
 

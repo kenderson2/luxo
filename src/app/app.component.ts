@@ -14,6 +14,7 @@ import { OpinionPage } from '../pages/opinion/opinion';
 import { MicalendarioPage } from '../pages/micalendario/micalendario';
 import { AuthService } from '../services/auth.service';
 import { AboutPage } from '../pages/about/about';
+import { UserService } from '../providers/user.service';
 
 @Component({
   templateUrl: 'app.html'
@@ -21,18 +22,21 @@ import { AboutPage } from '../pages/about/about';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
   
-  loggedIn: boolean=false;
+  loggedIn: boolean;
   rootPage: any = HomePage;
   myIcon: string = "home";
+  usuario=[];
+  user :any;
+
   
 
   pages: Array<{title: string,icono:string, component: any}>;
   pages1: any;
   pages2: any;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,public auth: AuthService) {
+  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,public auth: AuthService,public userauth: UserService) {
     this.initializeApp();
-    this.sesion();
+   
 
     if(this.loggedIn){
      this.pages = [
@@ -65,7 +69,10 @@ export class MyApp {
    // this.icons = ['flask', 'wifi', 'beer', 'football'];
 
   }
-
+  ionViewDidLoad() {
+    this.sesion();
+    this.vistaInicial();
+  }
   initializeApp() {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -83,5 +90,19 @@ export class MyApp {
     // Reset the content nav to have just this page
     // we wouldn't want the back button to show in this scenario
     this.nav.setRoot(page.component);
+  }
+  vistaInicial(){
+    if(this.auth.checkSession){
+      this.userauth.getUsuario()
+      .subscribe(
+        (data) => { // Success
+          this.user=JSON.parse(data.text());
+          this.usuario = this.user['data'];               
+        },
+        (error) =>{
+          console.error(error);
+        }
+      )
+  }
   }
 }

@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ViewController } from 'ionic-angular';
 import { PerfilPage } from '../perfil/perfil';
 import { ProfileSettingsPage } from '../profile-settings/profile-settings';
+import { ImagePicker } from '@ionic-native/image-picker';
+import { EstadoService } from '../../providers/estado.service';
+import { CiudadService } from '../../providers/ciudad.service';
 
 /**
  * Generated class for the EditDatosPage page.
@@ -16,6 +19,47 @@ import { ProfileSettingsPage } from '../profile-settings/profile-settings';
   templateUrl: 'edit-datos.html',
 })
 export class EditDatosPage {
+  searchQuery: string = '';
+  items: any[];
+  items2: any [];
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,
+    public viewCtrl: ViewController, private imagePicker: ImagePicker, private service: EstadoService, private service2: CiudadService) {
+      this.iniciarLista();
+      this.iniciarLista2();
+    }
+
+    public body:any = {
+      "id":null,
+    }
+
+    iniciarLista(){
+      this.service.getServicios()
+      .subscribe(
+       (data) => { // Success
+         this.items = data['data'];     
+         console.log(data);          
+       },
+       (error) =>{
+         console.error(error);
+       }
+     )
+   }
+   iniciarLista2(){
+    this.service2.getCiudades()
+    .subscribe(
+     (data) => { // Success
+       this.items2 = data['data'];     
+       console.log(data); 
+       console.log(this.items2);         
+     },
+     (error) =>{
+       console.error(error);
+     }
+   )
+ }
+
+   
+
   img1: any;
   sexo: any;
   fechanac:any;
@@ -25,6 +69,7 @@ export class EditDatosPage {
   estado:any;
   profilePicture: string;
   imagen:any;
+  images: any = [];
   user = {
     name: 'Nury',
     apellido: 'Amaro',
@@ -33,8 +78,7 @@ export class EditDatosPage {
 
   sexos = ['Femenino', 'Masculino'];
 
-  ciudades:any;
-  estados:any = [{
+   /*= [{
     "id": 1,
     "nombre": "Lara",
     "ciudades": [{
@@ -141,60 +185,30 @@ export class EditDatosPage {
       "id":3,
       "nombre": "Azul"
     }]
-  }]
+  }]*/
 
-  itemView(ciudades){
+  itemView(entidad,data){
     console.log('Seleccionado:');
-    console.log(ciudades);
-    this.ciudades = ciudades;
+    console.log(data);
+    if(entidad == 'items2') this.items2 = data;
+    if(entidad == 'item2') this.body.id= data.id;
   }
 
-  updateImage(value) {
-    this.profilePicture = 'data:image/jpeg;base64,' + value.val();
-  }
-
-  updateProfileImage() {
-  }
-  save() {
-    let f = {imagen:this.imagen,sexo: this.sexo,estado:this.estado,ciudad:this.ciudad,fecha_nacimiento:this.fechanac,direccion:this.direccion,telefono:this.telefono};
-     console.log(f);
-
-
-
-
-    const alert = this.alertCtrl.create({
-      title: 'Datos guardados!',
-      subTitle: 'Sus datos fueron guardados satisfactoriamente',
-      buttons: [{
-        text: 'OK!',
-        handler: () => {
-          this.navCtrl.setRoot(ProfileSettingsPage)
-        }
-      }
-    ]
-    });
-    alert.present();
-  }
-
+   
   dismiss() {
     this.viewCtrl.dismiss();
   }
 
-  fileChange(event){
-    if(event.target.files && event.target.files[0]){
-      let reader = new FileReader();
-      reader.onload = (event:any) => { 
-        this.img1 = event.target.result;
-      }
-      reader.readAsDataURL(event.target.files[0]);
-    }
-    let fileList: FileList = event.target.files;  
-    let file: File = fileList[0];
-    console.log(file);
-  }
   
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,
-  public viewCtrl: ViewController) {
+
+  getPictures(){ 
+    this.imagePicker.getPictures({
+    }).then( results =>{
+      console.log(results);
+      for(let i=0; i < results.length;i++){
+        this.images.push(results[i]);
+      };
+    });
   }
 
   ionViewDidLoad() {

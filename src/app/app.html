@@ -10,8 +10,9 @@
 
     <div id="prueba">
         <img src="assets/imgs/luxo2.png"/>
-       <h5>Nury Amaro</h5>
-    </div>
+        <h5 *ngIf="(loggedIn)">{{usuario.nombre}}{{usuario.apellido}}</h5>
+        <h5 *ngIf="!(loggedIn)">Usuario invitado..</h5>
+      </div>
     
     <ion-list >
       <!-- <button  color="rosa" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" >

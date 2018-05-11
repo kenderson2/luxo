@@ -51,6 +51,7 @@ export class PerfilPage {
 
   ionViewDidLoad() {
     console.log('Hello Perfil Page');
+
     if(this.auth.checkSession){
       this.userauth.getUsuario()
       .subscribe(
