@@ -12,6 +12,7 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class UserService {
     private url = 'http://localhost:5000/tokencliente';
+    private url2= 'http://localhost:5000/tokenperfil';
     token : any;
     private options;
 
@@ -20,7 +21,7 @@ export class UserService {
          console.log(this.token)
             //let token = localStorage.getItem('token');
             let headers = new Headers({
-              'Content-Type': 'application/x-www-form-urlencoded',
+              'Content-Type': 'application/json',
               'Authorization':'Bearer '+this.token
             });
             this.options = new RequestOptions({ headers: headers });
@@ -42,5 +43,8 @@ export class UserService {
         }
         console.error(errMsg);
         return Observable.throw(errMsg);
+      }
+      actualizarPerfil(usuario: Usuario){
+          return this.http.post(this.url2,usuario,this.options); /*Cambiar la ruta por el localhost*/ 
       }
 }

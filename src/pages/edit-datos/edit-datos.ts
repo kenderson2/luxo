@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ViewController } from 'ionic-angular';
 import { PerfilPage } from '../perfil/perfil';
 import { ProfileSettingsPage } from '../profile-settings/profile-settings';
-
+import { UserService } from '../../providers/user.service';
+import { AuthService } from '../../services/auth.service';
 /**
  * Generated class for the EditDatosPage page.
  *
@@ -25,6 +26,7 @@ export class EditDatosPage {
   estado:any;
   profilePicture: string;
   imagen:any;
+  usuario=[];
   user = {
     name: 'Nury',
     apellido: 'Amaro',
@@ -155,13 +157,24 @@ export class EditDatosPage {
 
   updateProfileImage() {
   }
+  
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,
+    public viewCtrl: ViewController,public auth:AuthService,public userauth:UserService) {
+    }
+  
   save() {
-    let f = {imagen:this.imagen,sexo: this.sexo,estado:this.estado,ciudad:this.ciudad,fecha_nacimiento:this.fechanac,direccion:this.direccion,telefono:this.telefono};
+    let f = {sexo :this.sexo,direccion:this.direccion,telefono:this.telefono};
      console.log(f);
-
-
-
-
+   
+      this.userauth.actualizarPerfil(f)
+          .subscribe(
+            rs => this.showAlert(),
+            er => console.log(er),
+            () => console.log('ok')
+          )
+    
+  }
+  showAlert(){
     const alert = this.alertCtrl.create({
       title: 'Datos guardados!',
       subTitle: 'Sus datos fueron guardados satisfactoriamente',
@@ -193,12 +206,20 @@ export class EditDatosPage {
     console.log(file);
   }
   
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,
-  public viewCtrl: ViewController) {
-  }
-
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditDatosPage');
+    if(this.auth.checkSession){
+      this.userauth.getUsuario()
+      .subscribe(
+        (data) => { // Success
+          this.user=JSON.parse(data.text());
+          this.usuario = this.user['data'];               
+        },
+        (error) =>{
+          console.error(error);
+        }
+      )
+    }
   }
 
 
