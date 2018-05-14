@@ -33,13 +33,14 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
-  //  this.loggedIn=this.auth.checkSession();
-  this.loggedIn=true;
+  this.loggedIn=this.auth.checkSession();
+  //this.loggedIn=true;
     if (this.loggedIn == true)
       {
         this.presentToast();
 
       }
+  // this.loggedIn=this.auth.checkSession();
   }
 
   logout(){

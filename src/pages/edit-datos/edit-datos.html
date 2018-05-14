@@ -17,16 +17,15 @@
   <ion-list no-lines>
     <ion-list-header>
       <ion-avatar item-start >
-        <img [src]="user.imageUrl ? user.imageUrl : placeholderPicture">
+        <img [src]="user.imageUrl ? user.imageUrl : placeholderPicture" >
       </ion-avatar>
-      <p class="username">{{user.name}} {{user.apellido}}</p>
     </ion-list-header>
-  <div padding>
-    <p align="justify">Cambiar foto de perfil</p>
-    <img *ngIf="img1"  [src]="img1" width="250" height="150"  size="60"/>   
-    <input type="file" [(ngModel)]="imagen" style="background-color:transparent;" value="" (change)="fileChange($event)">
 
-  </div>
+    <button ion-button (click)="getPictures()">Get Pictures</button>
+    <div *ngFor="let image of images">
+    <img src="{{image}}"/>
+    </div>
+ 
   <ion-item>
     <ion-label floating>Fecha de nacimiento</ion-label>
     <ion-datetime displayFormat="DD/MM/YYYY" name="fechanac" [(ngModel)]="fechanac"></ion-datetime>
@@ -40,14 +39,14 @@
   <ion-item text-wrap>
     <ion-label floating>Estado</ion-label>
     <ion-select [(ngModel)]="estado">
-      <ion-option *ngFor="let c of estados" value="{{c.nombre}}" (ionSelect)="itemView(c.ciudades);">{{c.nombre}}
+      <ion-option *ngFor="let c of items" value="{{c.id}}" (ionSelect)="itemView('items2', c.items2);">{{c.descripcion}}
       </ion-option>
     </ion-select>
   </ion-item>
   <ion-item text-wrap>
     <ion-label floating>Ciudad</ion-label>
-    <ion-select [(ngModel)]="ciudad">
-      <ion-option *ngFor="let r of ciudades" value="{{r.id}}">{{r.nombre}}
+    <ion-select [(ngModel)]="item2">
+      <ion-option *ngFor="let r of items2" value="{{r.id}}" (ionSelect)="itemView('item2', r);">{{r.descripcion}}
       </ion-option>  
     </ion-select>
   </ion-item>

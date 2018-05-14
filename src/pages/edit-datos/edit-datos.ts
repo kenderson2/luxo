@@ -2,7 +2,12 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ViewController } from 'ionic-angular';
 import { PerfilPage } from '../perfil/perfil';
 import { ProfileSettingsPage } from '../profile-settings/profile-settings';
+import { ImagePicker } from '@ionic-native/image-picker';
+import { EstadoService } from '../../providers/estado.service';
+import { CiudadService } from '../../providers/ciudad.service';
 
+import { UserService } from '../../providers/user.service';
+import { AuthService } from '../../services/auth.service';
 /**
  * Generated class for the EditDatosPage page.
  *
@@ -16,6 +21,48 @@ import { ProfileSettingsPage } from '../profile-settings/profile-settings';
   templateUrl: 'edit-datos.html',
 })
 export class EditDatosPage {
+  searchQuery: string = '';
+  items: any[];
+  items2: any [];
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,
+    public viewCtrl: ViewController, private imagePicker: ImagePicker, private service: EstadoService, private service2: CiudadService,
+    public auth:AuthService,public userauth:UserService) {
+      this.iniciarLista();
+      this.iniciarLista2();
+    }
+
+    public body:any = {
+      "id":null,
+    }
+
+    iniciarLista(){
+      this.service.getServicios()
+      .subscribe(
+       (data) => { // Success
+         this.items = data['data'];     
+         console.log(data);          
+       },
+       (error) =>{
+         console.error(error);
+       }
+     )
+   }
+   iniciarLista2(){
+    this.service2.getCiudades()
+    .subscribe(
+     (data) => { // Success
+       this.items2 = data['data'];     
+       console.log(data); 
+       console.log(this.items2);         
+     },
+     (error) =>{
+       console.error(error);
+     }
+   )
+ }
+
+   
+
   img1: any;
   sexo: any;
   fechanac:any;
@@ -25,6 +72,8 @@ export class EditDatosPage {
   estado:any;
   profilePicture: string;
   imagen:any;
+  images: any = [];
+  usuario=[];
   user = {
     name: 'Nury',
     apellido: 'Amaro',
@@ -33,8 +82,7 @@ export class EditDatosPage {
 
   sexos = ['Femenino', 'Masculino'];
 
-  ciudades:any;
-  estados:any = [{
+   /*= [{
     "id": 1,
     "nombre": "Lara",
     "ciudades": [{
@@ -141,8 +189,8 @@ export class EditDatosPage {
       "id":3,
       "nombre": "Azul"
     }]
-  }]
-
+  }]*/
+ciudades:any;
   itemView(ciudades){
     console.log('Seleccionado:');
     console.log(ciudades);
@@ -155,13 +203,21 @@ export class EditDatosPage {
 
   updateProfileImage() {
   }
+  
+  
   save() {
-    let f = {imagen:this.imagen,sexo: this.sexo,estado:this.estado,ciudad:this.ciudad,fecha_nacimiento:this.fechanac,direccion:this.direccion,telefono:this.telefono};
+    let f = {sexo :this.sexo,direccion:this.direccion,telefono:this.telefono};
      console.log(f);
-
-
-
-
+   
+      this.userauth.actualizarPerfil(f)
+          .subscribe(
+            rs => this.showAlert(),
+            er => console.log(er),
+            () => console.log('ok')
+          )
+    
+  }
+  showAlert(){
     const alert = this.alertCtrl.create({
       title: 'Datos guardados!',
       subTitle: 'Sus datos fueron guardados satisfactoriamente',
@@ -176,29 +232,37 @@ export class EditDatosPage {
     alert.present();
   }
 
+   
   dismiss() {
     this.viewCtrl.dismiss();
   }
 
-  fileChange(event){
-    if(event.target.files && event.target.files[0]){
-      let reader = new FileReader();
-      reader.onload = (event:any) => { 
-        this.img1 = event.target.result;
-      }
-      reader.readAsDataURL(event.target.files[0]);
-    }
-    let fileList: FileList = event.target.files;  
-    let file: File = fileList[0];
-    console.log(file);
-  }
   
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,
-  public viewCtrl: ViewController) {
+
+  getPictures(){ 
+    this.imagePicker.getPictures({
+    }).then( results =>{
+      console.log(results);
+      for(let i=0; i < results.length;i++){
+        this.images.push(results[i]);
+      };
+    });
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad EditDatosPage');
+    if(this.auth.checkSession){
+      this.userauth.getUsuario()
+      .subscribe(
+        (data) => { // Success
+          this.user=JSON.parse(data.text());
+          this.usuario = this.user['data'];               
+        },
+        (error) =>{
+          console.error(error);
+        }
+      )
+    }
   }
 
 

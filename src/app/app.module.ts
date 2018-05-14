@@ -37,6 +37,13 @@ import { UserService } from '../providers/user.service';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { ServicioService } from '../providers/servicio.service';
+import { EstadoService } from '../providers/estado.service';
+import { ImagePicker } from '@ionic-native/image-picker';
+import { CiudadService } from '../providers/ciudad.service';
+import { NegocioService } from '../providers/negocio.service';
+import { ContactoService } from '../providers/contacto.service';
+import { TipocService } from '../providers/tipoc.service';
+
 
 
 
@@ -109,8 +116,14 @@ import { ServicioService } from '../providers/servicio.service';
     AlertService,
     AuthService,
     ServicioService,
+    EstadoService,
+    CiudadService,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserService,
+    NegocioService,
+    ContactoService,
+    TipocService,
+    ImagePicker,
    
   ]
 })

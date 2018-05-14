@@ -24,7 +24,7 @@
     <ion-item text-wrap>
       <ion-label floating>Categoria</ion-label>
       <ion-select [(ngModel)]="motivo">
-       <ion-option *ngFor="let c of comunicaciones" value="{{c.nombre}}" (ionSelect)="itemView(c.razones);">{{c.nombre}}
+       <ion-option *ngFor="let i of items1" value="{{i.id}}" >{{i.descripcion}}
        </ion-option>
        </ion-select>
     </ion-item>
@@ -33,7 +33,7 @@
     <ion-item text-wrap>
       <ion-label floating>Motivo</ion-label>
       <ion-select [(ngModel)]="razon">
-        <ion-option *ngFor="let r of razones" value="{{r.id}}">{{r.nombre}}
+        <ion-option *ngFor="let c of items" value="{{c.id}}" >{{c.descripcion}}
       </ion-option>  
       </ion-select>
     </ion-item>

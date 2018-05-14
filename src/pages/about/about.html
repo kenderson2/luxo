@@ -5,21 +5,46 @@
     </ion-title>
     <button color="bounce" ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
-      </button>
-  </ion-navbar>
+     </button>
+  </ion-navbar> 
 </ion-header>
-
-<ion-content padding>
+<ion-content padding id="page1"  >
     <h2 align="Center">Quienes somos</h2>
-  <div id="prueba" align="center"><img align="Center" src="../assets/imgs/luxo2.png"/></div>
+  
+                <div id="prueba" align="center"><img align="Center" src="../assets/imgs/luxo2.png"/></div>
+              
 
-    <h3 align="justify">
-      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis est in, inventore veritatis veniam enim totam illum illo! Laboriosam similique quibusdam, quae dolorum illo enim aliquid magni ad labore nisi?
-    </h3>
-    <accordion-list *ngFor="let item of items; let index = index" [title]="item.name"
-      textColor="#FFF"
-      hasMargin="false"
-      headerColor="#f25089" >
-      <p text-wrap>{{item.description}}</p>
-    </accordion-list>
+
+                <accordion-list *ngFor="let item of items; let index = index" [title]="'Mision'"
+
+                textColor="#FFF"
+                hasMargin="false"
+                headerColor="#f25089" >
+
+                <p text-wrap>{{item.mision}}</p>
+               
+
+              </accordion-list>
+              <accordion-list *ngFor="let item of items; let index = index" [title]="'Vision'"
+
+              textColor="#FFF"
+              hasMargin="false"
+              headerColor="#f25089" >
+
+              <p text-wrap>{{item.vision}}</p>
+             
+
+            </accordion-list>
+            <accordion-list *ngFor="let item of items; let index = index" [title]="'Valores '"
+
+            textColor="#FFF"
+            hasMargin="false"
+            headerColor="#f25089" >
+
+            <p text-wrap>{{item.valores}}</p>
+           
+
+          </accordion-list>
+          
+
 </ion-content>
