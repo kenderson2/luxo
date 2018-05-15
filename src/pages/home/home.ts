@@ -9,7 +9,7 @@ import { SolicitudCitaPage } from '../solicitud-cita/solicitud-cita';
 import { AuthService } from '../../services/auth.service';
 import { ToastController } from 'ionic-angular';
 import { NotificacionesPage } from '../notificaciones/notificaciones';
-
+import { UserService } from '../../providers/user.service';
 
 
 @Component({
@@ -21,10 +21,8 @@ export class HomePage {
 	name : string;
   apellido : string;
   token: any;
-  
-
-
-
+  user :any;
+  usuario:any[];
 
   slides = [
     {
@@ -48,8 +46,8 @@ export class HomePage {
     
   ];
 
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, private auth:AuthService,private toastCtrl: ToastController) {
-    
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, private auth:AuthService,private toastCtrl: ToastController,private userauth:UserService) {
+
   }
 
   Promocion(){
@@ -89,6 +87,20 @@ export class HomePage {
 
   solicitud(){
     this.navCtrl.push(SolicitudCitaPage);
+  }
+  getUsuario(){
+    if(this.auth.checkSession()){
+      this.userauth.getUsuario()
+      .subscribe(
+        (data) => { // Success
+          this.user=JSON.parse(data.text());
+          this.usuario = this.user['data'];               
+        },
+        (error) =>{
+          console.error(error);
+        }
+      )
+    }
   }
 
   nosotros(){
