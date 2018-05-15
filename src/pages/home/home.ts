@@ -23,6 +23,31 @@ export class HomePage {
   token: any;
   
 
+
+
+
+  slides = [
+    {
+      title  : 'Bienvenido',
+      imagen : 'assets/imgs/imagen.jpg',   
+      precio : '$5.00',
+
+    },
+    {
+      title  : 'Bienvenido 2',
+      imagen : 'assets/imgs/esmaltemanos.jpeg',  
+      precio : '$20',    
+
+    },
+    {
+      title  : 'Bienvenido 3',
+      imagen : 'assets/imgs/imagen1.jpg',    
+      precio : '30% menos',  
+
+    }
+    
+  ];
+
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, private auth:AuthService,private toastCtrl: ToastController) {
     
   }
@@ -32,8 +57,8 @@ export class HomePage {
   }
 
   ionViewDidLoad() {
-  this.loggedIn=this.auth.checkSession();
-  //this.loggedIn=true;
+  //this.loggedIn=this.auth.checkSession();
+  this.loggedIn=true;
     if (this.loggedIn == true)
       {
         this.presentToast();

@@ -20,36 +20,26 @@
     </ion-navbar>
   </ion-header>
  
-  <ion-content>
-       <section>
-      
-      <ion-slides id="sliderhome" autoplay="6000" slidesPerView="1" loop="true" effect="coverflow">
-  
-          <ion-slide>
-              <img src="assets/imgs/imagen.jpg"> 
-                        
-         </ion-slide>
-  
-         <ion-slide>
-            <img src="assets/imgs/esmaltemanos.jpeg">   
-                      
-          </ion-slide>
-  
-         <ion-slide>
-          <img src="assets/imgs/imagen1.jpg">  
-                    
-         </ion-slide>
+  <ion-content text-center>
+
+
+     <ion-slides id="sliderhome" autoplay="6000" slidesPerView="1" loop="true" effect="coverflow">
          
+        <ion-slide *ngFor="let slide of slides" [ngStyle]="{'background' : 'url(' + slide.imagen + ')'}" >
+        
+        <section class="banner">
+            <span class="banner-titulo">{{slide.title}}</span>
+            <span class="precio">{{ slide.precio }}</span>
+        </section>
+  
+      </ion-slide>       
       </ion-slides>
-      
-    </section>
-    
   
  
     
         
   
-    <div class="botones">
+   <!--  <div class="botones">
       <ion-item class="seccion2">
         <ion-card><ion-icon color="azul" name="book" (click)="Servicios()" item-start></ion-icon>
           <p>Servicios</p>
@@ -74,6 +64,57 @@
         </ion-card>
       </ion-item>
     </div>
+ -->
+
+
+    <ion-grid class="botones">
+        <ion-row  class="seccion2" >
+          <ion-col col-2>
+          <ion-row ><ion-item>
+              <ion-card><ion-icon color="azul" name="book" (click)="Servicios()" item-start></ion-icon>
+                <p>Servicios</p>
+              </ion-card>
+            </ion-item></ion-row>
+          <ion-row ><ion-item  *ngIf="(loggedIn)">
+              <ion-card ><ion-icon color="azul" name="calendar" (click)="agenda()" item-start ></ion-icon>
+                <p>Mi agenda</p>
+              </ion-card>
+            </ion-item></ion-row>               
+          </ion-col>
+          
+        </ion-row>
+
+        <ion-row class="seccion2">
+            <ion-col col-2 >
+                <ion-row ><ion-item >
+                  <ion-card><ion-icon color="azul" name="star" (click)="Promocion()" item-start></ion-icon>
+                   <p>Promociones</p>
+                  </ion-card>
+                  </ion-item></ion-row>
+                <ion-row><ion-item  *ngIf="(loggedIn)">
+                    <ion-card><ion-icon  color="azul" name="paper" (click)="solicitud()" item-start></ion-icon>
+                      <p>Solicitar Cita</p>
+                    </ion-card>
+                  </ion-item></ion-row>
+              
+              </ion-col>
+
+
+        </ion-row>
+        
+        
+      </ion-grid>
+
+
+
+
+
+
+
+
+
+
+
   
   
   
@@ -114,10 +155,14 @@
     
 
   <!--  <ion-item item-start width="20px" height="20px">
-    <img src="assets/imgs/luxo25.png">
+   
    </ion-item> -->
 
-  
-
-    
   </ion-content>  
+
+  <ion-footer>
+
+     <div id="footer">
+       <h3 class="letrafooter"> Luxo</h3>
+      </div>
+     </ion-footer>
