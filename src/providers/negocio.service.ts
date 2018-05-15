@@ -18,9 +18,7 @@ import 'rxjs/add/operator/catch';
 */
 @Injectable()
 export class NegocioService {
-  getServicios(): any {
-    throw new Error("Method not implemented.");
-  }
+ 
     private url = 'http://localhost:5000/negocio';
     private options;
       constructor(private http2: Http,private http: HttpClient) {

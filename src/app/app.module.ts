@@ -43,6 +43,7 @@ import { CiudadService } from '../providers/ciudad.service';
 import { NegocioService } from '../providers/negocio.service';
 import { ContactoService } from '../providers/contacto.service';
 import { TipocService } from '../providers/tipoc.service';
+import { PromocionService } from '../providers/promocion.service';
 
 
 
@@ -124,6 +125,8 @@ import { TipocService } from '../providers/tipoc.service';
     ContactoService,
     TipocService,
     ImagePicker,
+    PromocionService
+    
    
   ]
 })
