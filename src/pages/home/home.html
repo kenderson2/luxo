@@ -23,17 +23,17 @@
   <ion-content text-center>
 
 
-     <ion-slides id="sliderhome" autoplay="6000" slidesPerView="1" loop="true" effect="coverflow">
+    <ion-slides  *ngIf="items && items.length" id="sliderhome" autoplay="6000" slidesPerView="1" loop="true" effect="coverflow">
          
-        <ion-slide *ngFor="let slide of slides" [ngStyle]="{'background' : 'url(' + slide.imagen + ')'}" >
-        
-        <section class="banner">
-            <span class="banner-titulo">{{slide.title}}</span>
-            <span class="precio">{{ slide.precio }}</span>
-        </section>
-  
-      </ion-slide>       
-      </ion-slides>
+      <ion-slide *ngFor="let item of items" [ngStyle]="{'background' : 'url(' + item.img + ')'}" >
+      
+      <section class="banner">
+          <span class="banner-titulo">{{item.descripcion}}</span>
+         
+      </section>
+
+    </ion-slide>       
+    </ion-slides>
   
  
     
@@ -120,34 +120,14 @@
   
     <ion-card>
       <h6 class="titulos">Ultimas tendencias</h6>
-    <ion-slides class="slidemin" #slider autoplay="9000"  spaceBetween="8" slidesPerView="3" loop="true">
+    <ion-slides *ngIf="tendencias && tendencias.length" class="slidemin" #slider autoplay="9000"  spaceBetween="8" slidesPerView="3" loop="true">
   
-        <ion-slide  class="minic">
+        <ion-slide *ngFor="let tendencia of tendencias" [ngStyle]="{'background' : 'url(' + tendencia.img + ')'}"  class="minic">
             
-                <img src="assets/imgs/imagen6.jpg"/>
-                
           
         </ion-slide>
       
-        <ion-slide  class="minic">
-           
-                <img src="assets/imgs/permanenteuña.jpg"/>
-                
-                        
-        </ion-slide>
-  
-        <ion-slide  class="minic">
-            
-                <img src="assets/imgs/imagen13.jpg"/>                 
-             
-          
-        </ion-slide>
-      
-        <ion-slide  class="minic">
-            
-          <img src="assets/imgs/imagen10.jpg"/>                 
-       
-        </ion-slide>
+        
       </ion-slides>
     </ion-card>
     

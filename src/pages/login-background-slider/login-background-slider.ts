@@ -3,6 +3,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { AuthService } from '../../services/auth.service';
+import { ToastController } from 'ionic-angular';
+import { UserService } from '../../providers/user.service';
 import { HomePage } from '../home/home';
 
 @IonicPage()
@@ -20,7 +22,7 @@ export class LoginBackgroundSliderPage {
   ];
   public loginForm: any;
 
-  constructor(public formBuilder: FormBuilder, public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController,private auth:AuthService) {
+  constructor(public formBuilder: FormBuilder, public navCtrl: NavController, public navParams: NavParams,public alertCtrl: AlertController,private auth:AuthService, private toastCtrl: ToastController) {
     this.loginForm = formBuilder.group({
       email: ['', Validators.required],
       password: ['', Validators.compose([Validators.minLength(2),
@@ -30,6 +32,8 @@ export class LoginBackgroundSliderPage {
   correo: string;
   contrasenna: any;
   isLogged: boolean;
+  usuario=[];
+  user :any;
 
   ionViewDidLoad() {
     console.log('Hello LoginBackgroundSlider Page');
@@ -64,14 +68,32 @@ export class LoginBackgroundSliderPage {
      console.log(f);       
        this.auth.login(f)
        .subscribe(results=>{
-        if(results){
-          this.navCtrl.setRoot(HomePage)
+        if(results){                 
+          this.navCtrl.setRoot(HomePage);
+          this.presentToast();
         }
       },
         error=>{
           this.alerta();
         }
       )
+  }
+ 
+
+
+  presentToast() {
+    let toast = this.toastCtrl.create({
+      message: 'Bienvenido Nury',
+      duration: 3000,
+      position: 'top',
+      cssClass: "toast.scss"      
+    });
+  
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+  
+    toast.present();
   }
 
 }

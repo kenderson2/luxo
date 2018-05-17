@@ -43,6 +43,8 @@ import { CiudadService } from '../providers/ciudad.service';
 import { NegocioService } from '../providers/negocio.service';
 import { ContactoService } from '../providers/contacto.service';
 import { TipocService } from '../providers/tipoc.service';
+import { HomeService } from '../providers/home.service';
+import { TendenciasService } from '../providers/tendencias.service';
 import { PromocionService } from '../providers/promocion.service';
 
 import { CalificarPage } from '../pages/calificar/calificar';
@@ -136,7 +138,9 @@ import { IonRating } from '../components/ion-rating/ion-rating';
     ContactoService,
     TipocService,
     ImagePicker,
-    PromocionService
+    HomeService,
+    TendenciasService,
+    PromocionService,
     
    
   ]
