@@ -45,6 +45,9 @@ import { ContactoService } from '../providers/contacto.service';
 import { TipocService } from '../providers/tipoc.service';
 import { PromocionService } from '../providers/promocion.service';
 
+import { CalificarPage } from '../pages/calificar/calificar';
+import { IonRating } from '../components/ion-rating/ion-rating';
+
 
 
 
@@ -74,6 +77,8 @@ import { PromocionService } from '../providers/promocion.service';
     OpinionPage,
     MicalendarioPage,   
     RechazoservicioPage,
+    IonRating,
+    CalificarPage
   ],
   imports: [
     BrowserModule,
@@ -108,8 +113,14 @@ import { PromocionService } from '../providers/promocion.service';
     CatalogosistemaPage,
     OpinionPage, 
     MicalendarioPage,
-    RechazoservicioPage,  
-  ],
+    RechazoservicioPage, 
+    CalificarPage, IonRating,
+   
+
+
+
+
+],
   providers: [
     StatusBar,
     ToastService,

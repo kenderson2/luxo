@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { MotivoGarantiaPage } from '../motivo-garantia/motivo-garantia';
-
+import { CalificarPage } from '../calificar/calificar';
+import { HomePage } from '../home/home';
 /**
  * Generated class for the ViewServicioPage page.
  *
@@ -31,6 +32,10 @@ export class ViewServicioPage {
   }
 
   calificar(){
+
+
+
+    this.openModal(CalificarPage);
 
   }
   Enviar(){
