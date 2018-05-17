@@ -45,6 +45,7 @@ import { ContactoService } from '../providers/contacto.service';
 import { TipocService } from '../providers/tipoc.service';
 import { HomeService } from '../providers/home.service';
 import { TendenciasService } from '../providers/tendencias.service';
+import { PromocionService } from '../providers/promocion.service';
 
 
 
@@ -128,6 +129,8 @@ import { TendenciasService } from '../providers/tendencias.service';
     ImagePicker,
     HomeService,
     TendenciasService,
+    PromocionService,
+    
    
   ]
 })

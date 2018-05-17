@@ -7,5 +7,8 @@ export class Negocio {
        public valores: string,
        public resenna: string,
        public direccion: string,
+       public telefono: string,
+       public correo: string,
+       public horario_trabajo: string,
     ) { }
  }

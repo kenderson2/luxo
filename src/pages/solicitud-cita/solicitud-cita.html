@@ -28,8 +28,8 @@
       <ion-item text-wrap>
           <ion-label floating>Tipo de Servicio:</ion-label>
           <ion-select [(ngModel)]="servicio" multiple="true">
-            <ion-option *ngFor="let c of servicios" value="{{c.nombre}}" (ionSelect)="itemView(c.tipos);">{{c.nombre}}</ion-option>
-            
+            <ion-option *ngFor="let c of servicios" value="{{c.nombre}}" (ionSelect)="itemView(c.tipos);">{{c.nombre}}
+            </ion-option>
           </ion-select>
         </ion-item>
         <ion-item text-wrap>
