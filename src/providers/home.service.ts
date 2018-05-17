@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Ciudad } from './ciudad';
+import { contacto} from './contacto';
 import { Http, Response } from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
-
+import { Usuario } from './usuario';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/first';
@@ -17,9 +17,8 @@ import 'rxjs/add/operator/catch';
   and Angular DI.
 */
 @Injectable()
-export class CiudadService {
-    private url = 'http://localhost:5000/ciudades';
-    private url2 = 'http://localhost:5000/ciudades/estado/:${id}'
+export class HomeService {
+    private url = 'http://localhost:5000/slider';
     private options;
       constructor(private http2: Http,private http: HttpClient) {
         let headers = new Headers({
@@ -31,16 +30,9 @@ export class CiudadService {
       }
     
     
-      getCiudades() {
+      getHome() {
         return this.http.get(this.url); /*aqui la ruta para obtener el get*/ 
       }
-
-      getCiudadesPorEstado(id : number){
-        return this.http.get(this.url2);
-      }
-
-
-
-      
+    
     }
     

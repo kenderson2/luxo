@@ -39,7 +39,7 @@
   <ion-item text-wrap>
     <ion-label floating>Estado</ion-label>
     <ion-select [(ngModel)]="estado">
-      <ion-option *ngFor="let c of items" value="{{c.id}}" (ionSelect)="itemView('items2', c.items2);">{{c.descripcion}}
+      <ion-option *ngFor="let c of items" value="{{c.id}}" (ionSelect)="itemView('items2', c.id);">{{c.descripcion}}
       </ion-option>
     </ion-select>
   </ion-item>
