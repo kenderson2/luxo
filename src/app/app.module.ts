@@ -46,6 +46,8 @@ import { TipocService } from '../providers/tipoc.service';
 import { HomeService } from '../providers/home.service';
 import { TendenciasService } from '../providers/tendencias.service';
 import { PromocionService } from '../providers/promocion.service';
+import { DetalleServicioService } from '../providers/detalle-servicio.service';
+import { TipoParametroM } from '../providers/tipo-parametroM.service';
 
 
 
@@ -130,7 +132,8 @@ import { PromocionService } from '../providers/promocion.service';
     HomeService,
     TendenciasService,
     PromocionService,
-    
+    DetalleServicioService,
+    TipoParametroM,
    
   ]
 })
