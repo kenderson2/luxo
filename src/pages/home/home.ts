@@ -107,7 +107,7 @@ export class HomePage {
         {
           text: 'Ok',
           handler: () => {
-            this.navCtrl.setRoot(HomePage)
+            this.navCtrl.setRoot(LoginBackgroundSliderPage)
           }
         }        
       ]

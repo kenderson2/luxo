@@ -15,4 +15,20 @@
 
 <ion-content padding>
 
+
+  <ion-rating
+ 
+    
+    [numStars]="5"
+    [readOnly]="false"
+    [value]="3.2" 
+    (clicked)="starClicked($event)">
+</ion-rating>
+
+<ion-col col-6>
+  <button ion-button full color="tercer" (click)="calificar()">
+    <ion-icon name="paper" item-start></ion-icon>
+    &nbsp; Calificar
+  </button>
+</ion-col>
 </ion-content>
