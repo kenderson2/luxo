@@ -19,7 +19,8 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class CiudadService {
     private url = 'http://localhost:5000/ciudades';
-    private url2 = 'http://localhost:5000/ciudades/estado/:${id}'
+    private url2 = 'http://localhost:5000/ciudades/estado';
+    
     private options;
       constructor(private http2: Http,private http: HttpClient) {
         let headers = new Headers({
@@ -36,7 +37,10 @@ export class CiudadService {
       }
 
       getCiudadesPorEstado(id : number){
-        return this.http.get(this.url2);
+        let url =`${this.url2}/${id}`;
+        console.log(url);
+        return this.http.get(url);
+        
       }
 
 
