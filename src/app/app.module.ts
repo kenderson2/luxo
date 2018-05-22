@@ -46,8 +46,6 @@ import { TipocService } from '../providers/tipoc.service';
 
 
 
-
-
 @NgModule({
   declarations: [
     MyApp,
