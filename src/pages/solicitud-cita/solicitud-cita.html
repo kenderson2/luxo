@@ -28,14 +28,15 @@
       <ion-item text-wrap>
           <ion-label floating>Tipo de Servicio:</ion-label>
           <ion-select [(ngModel)]="servicio">
-            <ion-option *ngFor="let c of servicios" value="{{c.nombre}}" (ionSelect)="itemView(c.tipos);">{{c.nombre}}
+            <ion-option *ngFor="let c of items" value="{{c.id}}" (ionSelect)="iniciarLista2(c.id);">{{c.descripcion}}
             </ion-option>
           </ion-select>
         </ion-item>
+        
         <ion-item text-wrap>
           <ion-label floating>Detalle:</ion-label>
-          <ion-select [(ngModel)]="tipo" multiple="true">
-            <ion-option *ngFor="let r of tipos" value="{{r.id}}">{{r.nombre}}
+          <ion-select [(ngModel)]="tipos" multiple="true" (ionChange)="calcularPresupuesto()">
+            <ion-option *ngFor="let r of items2" value="{{r.id}}">{{r.nombre}}
             </ion-option>  
           </ion-select>
         </ion-item>
@@ -43,7 +44,7 @@
         <p align="justify">Presupuesto:</p>
           <ion-item>
          <!--   <ion-label floating>Monto a cancelar:</ion-label>-->
-            <span class="infos_presup">{{presupuesto.monto}}</span>
+         <ion-input [(ngModel)]="presupuesto" disabled="true"></ion-input>   
           </ion-item>              
       <ion-item text-wrap>
         <p>Si esta de acuerdo con el presupuesto presione Aceptar para continuar

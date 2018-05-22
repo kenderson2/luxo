@@ -17,9 +17,9 @@ import 'rxjs/add/operator/catch';
   and Angular DI.
 */
 @Injectable()
-export class CiudadService {
-    private url = 'http://localhost:5000/ciudades';
-    private url2 = 'http://localhost:5000/ciudades/estado';
+export class DetalleServicioService {
+    private url = 'http://localhost:5000/ciudades'; // < falta este
+    private url2 = 'http://localhost:5000/tipo-servicio-parametro'; // me devuelve los valores para el segundo combo
     
     private options;
       constructor(private http2: Http,private http: HttpClient) {
@@ -31,12 +31,13 @@ export class CiudadService {
         console.log('Hello UserServiceProvider Provider');
       }
     
+      /// importante cambiar los nombres de estos 2 metodos de abajo
     
       getCiudades() {
         return this.http.get(this.url); /*aqui la ruta para obtener el get*/ 
       }
 
-      getCiudadesPorEstado(id : number){
+      getDetallesPorServicio(id : number){
         let url =`${this.url2}/${id}`;
         console.log(url);
         return this.http.get(url);

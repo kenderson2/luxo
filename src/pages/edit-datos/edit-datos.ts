@@ -24,11 +24,12 @@ export class EditDatosPage {
   searchQuery: string = '';
   items: any[];
   items2: any [];
+  ciudades:number;
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,
     public viewCtrl: ViewController, private imagePicker: ImagePicker, private service: EstadoService, private service2: CiudadService,
     public auth:AuthService,public userauth:UserService) {
       this.iniciarLista();
-      this.iniciarLista2();
+      //this.iniciarLista2();
     }
 
     public body:any = {
@@ -47,8 +48,10 @@ export class EditDatosPage {
        }
      )
    }
-   iniciarLista2(){
-    this.service2.getCiudades()
+
+   // este metodo se debe cambiar a getCiudadesPorEstado(ciudades)
+   iniciarLista2(ciudades){
+    this.service2.getCiudadesPorEstado(ciudades)
     .subscribe(
      (data) => { // Success
        this.items2 = data['data'];     
@@ -73,7 +76,7 @@ export class EditDatosPage {
   profilePicture: string;
   imagen:any;
   images: any = [];
-  usuario=[];
+  usuario:any[];
   user = {
     name: 'Nury',
     apellido: 'Amaro',
@@ -190,11 +193,13 @@ export class EditDatosPage {
       "nombre": "Azul"
     }]
   }]*/
-ciudades:any;
+
+
   itemView(ciudades){
     console.log('Seleccionado:');
     console.log(ciudades);
-    this.ciudades = ciudades;
+    //this.ciudades = ciudades;
+    this.iniciarLista2(ciudades);
   }
 
   updateImage(value) {
@@ -256,7 +261,12 @@ ciudades:any;
       .subscribe(
         (data) => { // Success
           this.user=JSON.parse(data.text());
-          this.usuario = this.user['data'];               
+          this.usuario = this.user['data'];
+          this.fechanac=this.usuario['fecha_nacimiento'];  
+          this.direccion=this.usuario['direccion'];
+          this.telefono=this.usuario['telefono'];
+          this.estado=this.usuario['estado'];
+          this.ciudad=this. usuario['ciudad'];
         },
         (error) =>{
           console.error(error);

@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Ciudad } from './ciudad';
+import { contacto} from './contacto';
 import { Http, Response } from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
-
+import { Usuario } from './usuario';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/first';
 import 'rxjs/add/operator/catch';
+import { MotivoCancelacion } from './motivo-cancelacion';
 
 
 /*
@@ -17,10 +18,8 @@ import 'rxjs/add/operator/catch';
   and Angular DI.
 */
 @Injectable()
-export class CiudadService {
-    private url = 'http://localhost:5000/ciudades';
-    private url2 = 'http://localhost:5000/ciudades/estado';
-    
+export class MotivoCancelacionService {
+    private url = 'http://localhost:5000/motivo-cancelacion';
     private options;
       constructor(private http2: Http,private http: HttpClient) {
         let headers = new Headers({
@@ -32,19 +31,12 @@ export class CiudadService {
       }
     
     
-      getCiudades() {
+    getMotivo(){
         return this.http.get(this.url); /*aqui la ruta para obtener el get*/ 
-      }
-
-      getCiudadesPorEstado(id : number){
-        let url =`${this.url2}/${id}`;
-        console.log(url);
-        return this.http.get(url);
-        
-      }
-
-
-
-      
     }
+        
+    postCancelacion(motivo: MotivoCancelacion){
+        return this.http.post(this.url,motivo,this.options); /*Cambiar la ruta por el localhost*/ 
+    }
+}
     

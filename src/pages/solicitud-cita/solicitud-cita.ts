@@ -2,8 +2,11 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, AlertController, ModalController, ViewController } from 'ionic-angular';
 import { ToastService } from '../../providers/toast.service';
 import { AlertService } from '../../providers/alert.service';
-import { HomePage } from '../home/home';
+import { TipoParametroM } from '../../providers/tipo-parametroM.service';
+import { DetalleServicioService } from '../../providers/detalle-servicio.service';
 import { MotivosRechazoCitaPage } from '../motivos-rechazo-cita/motivos-rechazo-cita';
+import { HomePage } from '../home/home';
+
 
 /**
  * Generated class for the SolicitudCitaPage page.
@@ -21,10 +24,13 @@ export class SolicitudCitaPage {
   @ViewChild('solicitudSlider') solicitudSlider: any;
   manicurista: any;
   hora: any;
-  tipos: any;
-  presupuesto = {
-    monto:'0 BsF'
-  };
+  tipos: any[];
+  items: any;
+  items2: any[];
+  servicio: any[];
+  a:number;
+  aux:any;
+  presupuesto:number=0;
   horas = ['08:00 am','09:00 am', '10:00 am','11:00 am','01:00 pm','02:00 pm','03:00 pm','04:00 pm'];
   servicios: any = [{
     "id": "1",
@@ -99,8 +105,50 @@ export class SolicitudCitaPage {
   manicuristas = ['Maria Perez', 'Luisa Diaz', 'Paula Ramos', 'Maria Rojas', 'Indiferente'];
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, public alertService: AlertService,
-    public toastCtrl: ToastService, public modalCtrl: ModalController, public viewCtrl: ViewController) {
+    public toastCtrl: ToastService, public modalCtrl: ModalController, public viewCtrl: ViewController,
+    public service: TipoParametroM,public service2: DetalleServicioService) {
+      this.iniciarLista();
   }
+
+  
+  iniciarLista(){
+    this.service.getTipoParametroM()
+    .subscribe(
+     (data) => { // Success
+       this.items = data['data'];     
+       console.log(data);          
+     },
+     (error) =>{
+       console.error(error);
+     }
+   )
+ }
+ 
+ iniciarLista2(a){
+  this.service2.getDetallesPorServicio(a)
+  .subscribe(
+   (data) => { // Success
+     this.items2 = data['data'];     
+     console.log(data); 
+     console.log(this.items2);         
+   },
+   (error) =>{
+     console.error(error);
+   }
+ )
+}
+
+calcularPresupuesto(){
+  let acum:number=0;
+  for(let i=0;i<this.tipos.length;i++){
+    this.aux=this.items2.find(servicio => servicio.id == this.tipos[i]);
+    acum=acum+this.aux.precio;
+  }
+  this.presupuesto=acum;
+}
+
+
+
 
   next(){
     this.solicitudSlider.slideNext();

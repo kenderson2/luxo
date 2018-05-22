@@ -10,41 +10,53 @@
 </ion-header>
 <ion-content padding id="page1"  >
     <h2 align="Center">Quienes somos</h2>
-  
-                <div id="prueba" align="center"><img align="Center" src="../assets/imgs/luxo2.png"/></div>
-              
+    <div id="prueba" align="center"><img align="Center" src="../assets/imgs/luxo2.png"/></div>
 
+    <accordion-list *ngFor="let item of items; let index = index" [title]="'Reseña'"
+    textColor="#FFF"
+    hasMargin="false"
+              headerColor="#f25089" >
 
-                <accordion-list *ngFor="let item of items; let index = index" [title]="'Mision'"
-
-                textColor="#FFF"
-                hasMargin="false"
+              <p text-wrap align="justify">{{item.resenna}}</p>
+    </accordion-list>
+    <accordion-list *ngFor="let item of items; let index = index" [title]="'Misión'"
+      textColor="#FFF"
+      hasMargin="false"
                 headerColor="#f25089" >
 
-                <p text-wrap>{{item.mision}}</p>
+                <p text-wrap align="justify">{{item.mision}}</p>
                
 
               </accordion-list>
-              <accordion-list *ngFor="let item of items; let index = index" [title]="'Vision'"
+              <accordion-list *ngFor="let item of items; let index = index" [title]="'Visión'"
 
               textColor="#FFF"
               hasMargin="false"
               headerColor="#f25089" >
 
-              <p text-wrap>{{item.vision}}</p>
-             
-
+              <p text-wrap align="justify">{{item.vision}}</p>
             </accordion-list>
+
             <accordion-list *ngFor="let item of items; let index = index" [title]="'Valores '"
 
             textColor="#FFF"
             hasMargin="false"
             headerColor="#f25089" >
 
-            <p text-wrap>{{item.valores}}</p>
-           
+            <p text-wrap align="justify">{{item.valores}}</p>
+         </accordion-list>
 
-          </accordion-list>
-          
+         <accordion-list *ngFor="let item of items; let index = index" [title]="'Visitanos '"
+         
+                     textColor="#FFF"
+                     hasMargin="false"
+                     headerColor="#f25089" >
+         
+                     <p text-wrap align="justify">{{item.direccion}}</p>
+                     <p text-wrap align="center">{{item.telefono}}</p>
+                     <p text-wrap align="center">{{item.correo}}</p>
+                     <p text-wrap align="justify">{{item.horario_trabajo}}</p>
+                  </accordion-list>
+         
 
 </ion-content>
