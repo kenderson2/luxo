@@ -24,14 +24,13 @@ export class SolicitudCitaPage {
   @ViewChild('solicitudSlider') solicitudSlider: any;
   manicurista: any;
   hora: any;
-  tipos: any;
+  tipos: any[];
   items: any;
-  items2: any;
+  items2: any[];
   servicio: any[];
   a:number;
-  presupuesto = {
-    monto:'0 BsF'
-  };
+  aux:any;
+  presupuesto:number=0;
   horas = ['08:00 am','09:00 am', '10:00 am','11:00 am','01:00 pm','02:00 pm','03:00 pm','04:00 pm'];
   servicios: any = [{
     "id": "1",
@@ -137,6 +136,15 @@ export class SolicitudCitaPage {
      console.error(error);
    }
  )
+}
+
+calcularPresupuesto(){
+  let acum:number=0;
+  for(let i=0;i<this.tipos.length;i++){
+    this.aux=this.items2.find(servicio => servicio.id == this.tipos[i]);
+    acum=acum+this.aux.precio;
+  }
+  this.presupuesto=acum;
 }
 
 

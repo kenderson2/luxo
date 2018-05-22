@@ -76,7 +76,7 @@ export class EditDatosPage {
   profilePicture: string;
   imagen:any;
   images: any = [];
-  usuario=[];
+  usuario:any[];
   user = {
     name: 'Nury',
     apellido: 'Amaro',
@@ -261,7 +261,12 @@ export class EditDatosPage {
       .subscribe(
         (data) => { // Success
           this.user=JSON.parse(data.text());
-          this.usuario = this.user['data'];               
+          this.usuario = this.user['data'];
+          this.fechanac=this.usuario['fecha_nacimiento'];  
+          this.direccion=this.usuario['direccion'];
+          this.telefono=this.usuario['telefono'];
+          this.estado=this.usuario['estado'];
+          this.ciudad=this. usuario['ciudad'];
         },
         (error) =>{
           console.error(error);
