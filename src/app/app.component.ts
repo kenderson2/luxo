@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Nav, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { NavController, MenuController } from 'ionic-angular';
 
 import { HomePage } from '../pages/home/home';
 import { LoginBackgroundSliderPage } from '../pages/login-background-slider/login-background-slider';
@@ -34,11 +35,14 @@ export class MyApp {
   pages1: any;
   pages2: any;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen,public auth: AuthService,public userauth: UserService) {
+  constructor(public platform: Platform, public statusBar: StatusBar,
+     public splashScreen: SplashScreen,public auth: AuthService,
+     public userauth: UserService, public navCtrl: NavController, public menuCtrl: MenuController) {
     this.initializeApp();
    
 
     if(this.loggedIn){
+     
      this.pages = [
       { title: 'Inicio', icono:'home', component: HomePage  },      
      { title: 'Perfíl', icono:'camera', component: PerfilPage},            
