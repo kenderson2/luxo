@@ -34,60 +34,76 @@
   
   <div [ngSwitch]="notificacion">
     <ion-list *ngSwitchCase="'Otros'">
+
+      
         <ion-card>
             <ion-item>
               <ion-thumbnail item-left>
-                <img src="assets/imgs/garantia.png" alt="">
+                <img src="assets/imgs/luxo2.png" alt="">
+              </ion-thumbnail>
+                            
+            </ion-item>  
+           
+          <ion-card-content>
+              <p align="justify">Gracias por sus sugerencias, su opinión es importante para nosotros,
+                nos ayudan a mejorar para prestarle un mejor servicio.
+              </p>
+          </ion-card-content>                          
+        </ion-card> 
+      
+        <ion-card>
+            <ion-item>
+              <ion-thumbnail item-left>
+                <img src="assets/imgs/luxo2.png" alt="">
+              </ion-thumbnail>
+                            
+            </ion-item>  
+           
+          <ion-card-content>
+            <p align="justify">
+              Gracias por preferirnos, te invitamos a calificar el servicio recibido y de esta manera 
+              nos ayudas a mejorar para ti! 
+            </p>
+          </ion-card-content>                          
+        </ion-card>
+        <ion-card>
+            <ion-item>
+              <ion-thumbnail item-left>
+                <img src="assets/imgs/luxo2.png" alt="">
               </ion-thumbnail>
               <h2>Garantia</h2>              
             </ion-item>  
            
             <ion-card-content>
-              <p align="justify">Su garantia ha sido aprobada,presione el boton aplicar para programar su nueva cita. Recuerde estamos para servirle</p>
+              <p align="justify">
+                Se ha generado una garantia por el servicio recibido que puede ser reclamada en cualquier momento 
+                en caso de necesitarlo. Recuerde estamos para servirle</p>
             </ion-card-content>
           
-            <button color="azul" (click)="cita()" ion-button outline small>Aplicar</button>
+          <!--  <button color="azul" (click)="cita()" ion-button outline small>Aplicar</button> -->
           </ion-card>
-
-          <ion-card>
-              <ion-item>
-                <ion-thumbnail item-left>
-                  <img src="assets/imgs/luxo2.png" alt="">
-                </ion-thumbnail>
-                              
-              </ion-item>  
-             
-              <ion-card-content>
-                <p align="justify">Gracias por sus sugerencias, sus opiones son muy importantes para nosotros,
-                  nos ayudan a mejorar para prestarle un mejor servicio.
-                </p>
-              </ion-card-content>
-            
-              
-            </ion-card>
-      
+     
     </ion-list>
   
     <ion-list *ngSwitchCase="'Promociones'">
-        <h4>Especialmente para ti</h4>
+       
+        <h4>Especial para chicos</h4>
         <ion-list>
           <ion-card>
             <ion-item>
               <ion-thumbnail item-left>
-                <img src="assets/imgs/imagen2.jpg" alt="">
+                <img src="assets/imgs/manicurehombre.jpg" alt="">
               </ion-thumbnail>
               <h2>30% de descuento</h2>
-              <p>Valido hasta 20/04/2018</p>
+              <p>Valido hasta 23/06/2018</p>
             </ion-item>  
            
             <ion-card-content>
-              <p>Prueba esta nueva promocion, especialmente para ti</p>
-            </ion-card-content>
-          
+              <p>Prueba esta nueva promoción, especialmente para ti</p>
+            </ion-card-content>          
             <button color="azul" (click)="cita()"  ion-button outline small>Aplicar</button>
           </ion-card>
-        
-         
+            
           <ion-card>
             <ion-item>
               <ion-thumbnail item-left>
@@ -103,8 +119,8 @@
           
             <button color="azul" (click)="cita()"  ion-button outline small>Aplicar</button>
           </ion-card>
-        
-        
+      
+        <h4>Pedicure</h4>
           <ion-card>
             <ion-item>
               <ion-thumbnail item-left>
@@ -119,10 +135,8 @@
             </ion-card-content>
           
             <button color="azul" (click)="cita()"  ion-button outline small>Aplicar</button>
-          </ion-card>
-          
-          
-        </ion-list>
+          </ion-card>         
+    </ion-list>
     </ion-list>
   </div>
   

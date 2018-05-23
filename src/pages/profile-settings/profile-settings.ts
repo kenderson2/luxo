@@ -21,9 +21,9 @@ export class ProfileSettingsPage {
   currency: any;
 
   user = {
-    name: 'Nury',
-    apellido: 'Amaro',
-    imageUrl: 'assets/imgs/nury.jpg'
+    name: 'Fernanda',
+    apellido: 'Torres',
+    imageUrl: 'assets/imgs/fernanda.jpg'
   };
 
   constructor(

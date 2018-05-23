@@ -20,17 +20,17 @@ import { HomePage } from '../home/home';
 })
 export class MicalendarioPage {
   citas = [{
-    fecha: '28 de Abril, 2018',
+    fecha: '09/05/18',
     manicurista: 'Maria Perez',
-    hora: '11:30 a.m',
+    hora: '09:00 a.m',
     servicios: 'Manicure'
   },
-{
+/*{
   fecha: '5 de Mayo, 2018',
   manicurista: 'Maria Perez',
   hora: '11:30 a.m',
   servicios: 'Sistema de Uñas'
-}]
+}*/]
 
   items: { name: string; img: string; descripcion: string; }[];
 
