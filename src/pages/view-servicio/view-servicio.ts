@@ -17,16 +17,11 @@ import { HomePage } from '../home/home';
 })
 export class ViewServicioPage {
 
-  user = {
-    name: 'Nury',
-    apellido: 'Amaro',
-    image: 'assets/imgs/nury.jpg'
-  };
 
   servicio = {
     title: 'Manicure',
     desc:'Manicure con decoración animal print en tonos rosas y gris.',
-    fecha: '5 de noviembre, 2017',
+    fecha: '09/05/2018',
     manicurista: 'Maria Perez',
     calificacion: '0',
   }

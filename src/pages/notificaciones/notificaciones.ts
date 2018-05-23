@@ -21,7 +21,8 @@ export class NotificacionesPage {
   public thumbnails: { title: string, image: string, ribbonText: string, class: string }[] = [
     { title: 'Sistema de uñas 30% de descuento', image: 'assets/imgs/imagen11.jpg', ribbonText: 'activa', class: 'sale' },
     { title: 'Manicure', image: 'assets/imgs/imagen13.jpg', ribbonText: '50% menos', class: 'cruzeiro' },
-    { title: 'manicure 2x1', image: 'assets/imgs/promo1.jpg', ribbonText: 'Expirado', class: 'atletico' }
+    { title: 'manicure 2x1', image: 'assets/imgs/promo1.jpg', ribbonText: 'Expirado', class: 'atletico' },
+    { title: 'Día del Padre', image: 'assets/imgs/promo1.jpg', ribbonText: 'Activa', class: 'sale' }
   ];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {

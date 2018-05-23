@@ -35,7 +35,7 @@
         
         <ion-item text-wrap>
           <ion-label floating>Detalle:</ion-label>
-          <ion-select [(ngModel)]="tipos" multiple="true">
+          <ion-select [(ngModel)]="tipos" multiple="true" (ionChange)="calcularPresupuesto()">
             <ion-option *ngFor="let r of items2" value="{{r.id}}">{{r.nombre}}
             </ion-option>  
           </ion-select>
@@ -44,7 +44,7 @@
         <p align="justify">Presupuesto:</p>
           <ion-item>
          <!--   <ion-label floating>Monto a cancelar:</ion-label>-->
-            <span class="infos_presup">{{presupuesto.monto}}</span>
+         <ion-input [(ngModel)]="presupuesto" disabled="true"></ion-input>   
           </ion-item>              
       <ion-item text-wrap>
         <p>Si esta de acuerdo con el presupuesto presione Aceptar para continuar

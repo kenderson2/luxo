@@ -48,11 +48,11 @@ import { TendenciasService } from '../providers/tendencias.service';
 import { PromocionService } from '../providers/promocion.service';
 import { DetalleServicioService } from '../providers/detalle-servicio.service';
 import { TipoParametroM } from '../providers/tipo-parametroM.service';
+import {MotivoCancelacionService} from '../providers/motivo-cancelacion.service';
+import {TipoMotivoCancelacionService} from '../providers/tipo-motivo-cancelacion.service';
 
 import { CalificarPage } from '../pages/calificar/calificar';
 import { IonRating } from '../components/ion-rating/ion-rating';
-
-
 
 
 
@@ -118,13 +118,9 @@ import { IonRating } from '../components/ion-rating/ion-rating';
     OpinionPage, 
     MicalendarioPage,
     RechazoservicioPage, 
-    CalificarPage, IonRating,
-   
-
-
-
-
-],
+    CalificarPage, 
+    IonRating,
+  ],
   providers: [
     StatusBar,
     ToastService,
@@ -145,7 +141,8 @@ import { IonRating } from '../components/ion-rating/ion-rating';
     PromocionService,
     DetalleServicioService,
     TipoParametroM,
-   
+   MotivoCancelacionService,
+   TipoMotivoCancelacionService
   ]
 })
 export class AppModule {}

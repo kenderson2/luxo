@@ -16,12 +16,12 @@
 <ion-content>
   <ion-list no-lines>
     <ion-list-header>
-      <ion-avatar item-start >
+      <ion-avatar >
         <img [src]="user.imageUrl ? user.imageUrl : placeholderPicture" >
       </ion-avatar>
     </ion-list-header>
 
-    <button ion-button (click)="getPictures()">Get Pictures</button>
+    <button ion-button (click)="getPictures()">Cambiar Foto</button>
     <div *ngFor="let image of images">
     <img src="{{image}}"/>
     </div>

@@ -15,20 +15,63 @@
 
 <ion-content padding>
 
-
-  <ion-rating
+<ion-card>
+  <h2 align="center">Calidad del servicio</h2>
+  <ion-card-content>
+      <ion-rating
  
     
-    [numStars]="5"
-    [readOnly]="false"
-    [value]="3.2" 
-    (clicked)="starClicked($event)">
-</ion-rating>
+      [numStars]="5"
+      [readOnly]="false"
+      [value]="3.2" 
+      (clicked)="starClicked($event)">
+  </ion-rating>
+  
+  <ion-col col-6>
+    <button ion-button full color="tercer" (click)="calificar()">
+       &nbsp; Calificar
+    </button>
+  </ion-col>
+  </ion-card-content>
+</ion-card>
 
-<ion-col col-6>
-  <button ion-button full color="tercer" (click)="calificar()">
-    <ion-icon name="paper" item-start></ion-icon>
-    &nbsp; Calificar
-  </button>
-</ion-col>
+<ion-card>
+  <h2 align="center">Atención al cliente</h2>
+  <ion-card-content>
+      <ion-rating
+ 
+    
+      [numStars]="5"
+      [readOnly]="false"
+      [value]="3.2" 
+      (clicked)="starClicked($event)">
+  </ion-rating>
+  
+  <ion-col col-6>
+    <button ion-button full color="tercer" (click)="calificar()">
+      &nbsp; Calificar
+    </button>
+  </ion-col>
+  </ion-card-content>
+</ion-card>
+
+<ion-card>
+    <h2 align="center">Precio del servicio</h2>
+    <ion-card-content>
+        <ion-rating
+   
+      
+        [numStars]="5"
+        [readOnly]="false"
+        [value]="3.2" 
+        (clicked)="starClicked($event)">
+    </ion-rating>
+    
+    <ion-col col-6>
+      <button ion-button full color="tercer" (click)="calificar()">
+        &nbsp; Calificar
+      </button>
+    </ion-col>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
