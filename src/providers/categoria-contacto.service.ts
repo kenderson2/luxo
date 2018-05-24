@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { CategoriaContacto} from './categoria-contacto';
 import { Http, Response } from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
 import { Usuario } from './usuario';
@@ -7,7 +8,6 @@ import { Usuario } from './usuario';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/first';
 import 'rxjs/add/operator/catch';
-import { MotivoCancelacion } from './motivo-cancelacion';
 
 
 /*
@@ -17,8 +17,8 @@ import { MotivoCancelacion } from './motivo-cancelacion';
   and Angular DI.
 */
 @Injectable()
-export class MotivoCancelacionService {
-    private url = 'http://localhost:5000/motivo-cancelacion';
+export class CategoriaContactoService {
+    private url = 'http://localhost:5000/categoria-contacto';
     private options;
       constructor(private http2: Http,private http: HttpClient) {
         let headers = new Headers({
@@ -30,12 +30,9 @@ export class MotivoCancelacionService {
       }
     
     
-    getMotivo(){
+      getContacto() {
         return this.http.get(this.url); /*aqui la ruta para obtener el get*/ 
+      }
+    
     }
-        
-    postCancelacion(motivo: MotivoCancelacion){
-        return this.http.post(this.url,motivo,this.options); /*Cambiar la ruta por el localhost*/ 
-    }
-}
     

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
-
 import { ContactoService } from '../../providers/contacto.service';
 import { TipocService } from '../../providers/tipoc.service';
+import { CategoriaContactoService } from '../../providers/categoria-contacto.service';
 
 
 /**
@@ -24,17 +24,20 @@ export class OpinionPage {
   searchQuery: string = '';
   items: any[];
   items1: any[];
+  motivo:any;
+  razon:any;
+  comentario:any;
+
   constructor(public navCtrl: NavController,private service: ContactoService,private service2: TipocService,public navParams: NavParams,
-    public alertCtrl: AlertController
+    public alertCtrl: AlertController, public service3: CategoriaContactoService
  )
   {
     this.iniciarLista();
     this.iniciarLista1();
   }
   iniciarLista(){
-    this.service.getContacto().subscribe(
-     (data) => { // Success
-     
+    this.service3.getContacto().subscribe(
+     (data) => { // Success     
        this.items= data['data'];               
      },
      (error) =>{
@@ -45,8 +48,7 @@ export class OpinionPage {
 
  iniciarLista1(){
   this.service2.getTipoc().subscribe(
-   (data) => { // Success
-   
+   (data) => { // Success   
      this.items1= data['data'];               
    },
    (error) =>{
@@ -55,16 +57,31 @@ export class OpinionPage {
  )
 }
 
-
 enviar(){
-  let alert = this.alertCtrl.create({
-    title:    'Mensaje',
-    subTitle: 'Su opinión ha sido enviada exitosamente!',
-    buttons:  ['OK']
+  let f = {id_categoria:this.razon,id_tipo_contacto:this.motivo,descripcion:this.comentario};
+    console.log(f);   
+    this.service.postContacto(f)
+  .subscribe(
+    rs => this.showAlert(),
+    er => console.log(er),
+    () => console.log('ok')
+  )
+}
+
+showAlert(){
+  const alert = this.alertCtrl.create({
+    title: 'Opinión enviada!',
+    subTitle: 'Gracias por darnos a conocer tu opinión, sera tomada en cuenta para el mejoramiento de la organización',
+    buttons: [{
+      text: 'OK!',
+      handler: () => {
+        this.navCtrl.setRoot(OpinionPage)
+      }
+    }
+  ]
   });
   alert.present();
 }
-
 
    getItems(ev: any) {
     // Reset items back to all of the items

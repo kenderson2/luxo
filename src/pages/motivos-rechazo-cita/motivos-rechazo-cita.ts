@@ -17,7 +17,7 @@ import { SolicitudCitaPage } from '../solicitud-cita/solicitud-cita';
 @Component({
   selector: 'page-motivos-rechazo-cita',
   templateUrl: 'motivos-rechazo-cita.html',
-})
+}) 
 export class MotivosRechazoCitaPage {
   motivos: any[];
   id: any;

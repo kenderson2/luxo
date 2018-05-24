@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { contacto} from './contacto';
+import { Contacto} from './contacto';
 import { Http, Response } from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
 import { Usuario } from './usuario';
@@ -18,7 +18,7 @@ import 'rxjs/add/operator/catch';
 */
 @Injectable()
 export class ContactoService {
-    private url = 'http://localhost:5000/categoria-contacto';
+    private url = 'http://localhost:5000/contacto';
     private options;
       constructor(private http2: Http,private http: HttpClient) {
         let headers = new Headers({
@@ -33,6 +33,10 @@ export class ContactoService {
       getContacto() {
         return this.http.get(this.url); /*aqui la ruta para obtener el get*/ 
       }
-    
+
+         
+    postContacto(contacto: Contacto){
+        return this.http.post(this.url,contacto,this.options); /*Cambiar la ruta por el localhost*/ 
     }
     
+    }
