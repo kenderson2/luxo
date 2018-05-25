@@ -4,6 +4,7 @@ import { AlertService } from '../../providers/alert.service';
 import { ToastService } from '../../providers/toast.service';
 import { MotivosRechazoCitaPage } from '../motivos-rechazo-cita/motivos-rechazo-cita';
 import { RechazoservicioPage } from '../rechazoservicio/rechazoservicio';
+import { UserService } from '../../providers/user.service';
 import { HomePage } from '../home/home';
 
 /**
@@ -19,23 +20,9 @@ import { HomePage } from '../home/home';
   templateUrl: 'micalendario.html',
 })
 export class MicalendarioPage {
-  citas = [{
-    fecha: '09/05/18',
-    manicurista: 'Maria Perez',
-    hora: '09:00 a.m',
-    servicios: 'Manicure'
-  },
-/*{
-  fecha: '5 de Mayo, 2018',
-  manicurista: 'Maria Perez',
-  hora: '11:30 a.m',
-  servicios: 'Sistema de Uñas'
-}*/]
-
-  items: { name: string; img: string; descripcion: string; }[];
-
+  citas = [];
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, public alertService: AlertService,
-    public toastCtrl: ToastService, public modalCtrl: ModalController, public viewCtrl: ViewController) {
+    public toastCtrl: ToastService, public modalCtrl: ModalController, public viewCtrl: ViewController,private user:UserService) {
   }
   next()
   {
@@ -78,6 +65,19 @@ alert.present();
     this.modalCtrl.create(pageName, null, { cssClass: 'inset-modal' }).present();
   }
   ionViewDidLoad() {
+      this.user.getAgenda()
+      .subscribe(
+        (data) => { // Success
+          this.user=JSON.parse(data.text());
+          this.citas = this.user['data'];               
+          console.log(this.citas)
+        },
+        (error) =>{
+          console.error(error);
+        }
+      )
+    
+
     console.log('ionViewDidLoad MicalendarioPage');
   }
 

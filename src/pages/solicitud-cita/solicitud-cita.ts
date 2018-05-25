@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, Nav, AlertController, ModalController, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, AlertController, ModalController, ViewController } from 'ionic-angular';
 import { ToastService } from '../../providers/toast.service';
 import { AlertService } from '../../providers/alert.service';
 import { TipoParametroM } from '../../providers/tipo-parametroM.service';
@@ -7,6 +7,7 @@ import { DetalleServicioService } from '../../providers/detalle-servicio.service
 import {ManicuristaService} from '../../providers/manicurista.service';
 import { MotivosRechazoCitaPage } from '../motivos-rechazo-cita/motivos-rechazo-cita';
 import { HomePage } from '../home/home';
+import {SolicitarService} from '../../providers/solicitud.service';
 
 
 /**
@@ -22,9 +23,7 @@ import { HomePage } from '../home/home';
   templateUrl: 'solicitud-cita.html',
 })
 export class SolicitudCitaPage {
-  @ViewChild('solicitudSlider') 
-  @ViewChild(Nav) nav: Nav;
-  solicitudSlider: any;
+  @ViewChild('solicitudSlider') solicitudSlider: any;
   manicurista: any;
   hora: any;
   tipos: any[];
@@ -34,12 +33,14 @@ export class SolicitudCitaPage {
   servicio: any[];
   a:number;
   aux:any;
+  fecha:any;
   presupuesto:number=0;
-  horas = ['08:00 am','09:00 am', '10:00 am','11:00 am','01:00 pm','02:00 pm','03:00 pm','04:00 pm'];
+  horario_empleado:number;
+  horas = ['08:00:00','09:00:00', '10:00:00','11:00:00','13:00:00','14:00:00','15:00:00','16:00:00'];
   
-  constructor(public alertCtrl: AlertController, public alertService: AlertService,
+  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public alertService: AlertService,
     public toastCtrl: ToastService, public modalCtrl: ModalController, public viewCtrl: ViewController,
-    public service: TipoParametroM,public service2: DetalleServicioService, private service3: ManicuristaService) {
+    public service: TipoParametroM,public service2: DetalleServicioService, private service3: ManicuristaService, private solcitar :SolicitarService ) {
       this.iniciarLista();
       this.iniciarLista3();
   }
@@ -89,7 +90,8 @@ iniciarLista4(m){
   this.service3.getHorario(m)
   .subscribe(
    (data) => { // Success
-     this.manicurista = data['data'];     
+     this.manicurista = data['data'];
+     this.horario_empleado=this.manicurista['id_horario']     
      console.log(data); 
      console.log(this.items2);         
    },
@@ -114,6 +116,7 @@ calcularPresupuesto(){
   next(){
     this.solicitudSlider.slideNext();
   }
+
   save() {    
     const alert = this.alertCtrl.create({
       title: 'Seguro de enviar la solicitud?',
@@ -128,7 +131,18 @@ calcularPresupuesto(){
         {
           text: 'Registrar',
           handler: () => {
-            this.nav.setRoot(HomePage)
+            let f = {presupuesto :this.presupuesto,servicio:this.tipos,horario_empleado:this.horario_empleado,hora_inicio:this.hora,hora_fin:this.hora,
+            fecha:this.initDate
+            };
+            console.log(f);
+             this.solcitar.realizarSolicitud(f)
+                 .subscribe(
+                   rs =>  this.navCtrl.setRoot(HomePage),
+                   er => console.log(er),
+                   () => console.log('ok')
+                 )
+           
+           
           }
         }
       ]

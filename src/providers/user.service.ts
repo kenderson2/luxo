@@ -13,6 +13,7 @@ import 'rxjs/add/operator/catch';
 export class UserService {
     private url = 'http://localhost:5000/tokencliente';
     private url2= 'http://localhost:5000/tokenperfil';
+    private url3= 'http://localhost:5000/agenda-movil';
     token : any;
     private options;
 
@@ -30,7 +31,12 @@ export class UserService {
       getUsuario(): Observable<any> {
         let url = `${this.url}`;
         return this.http.get(url, this.options);
-                             }
+      }
+
+      getAgenda(): Observable<any> {
+        let url = `${this.url3}`;
+        return this.http.get(url, this.options);
+      }
 
       private handleError (error: Response | any) {
         let errMsg: string;
