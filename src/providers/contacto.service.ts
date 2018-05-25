@@ -1,9 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Contacto} from './contacto';
 import { Http, Response } from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
-import { Usuario } from './usuario';
+import { Contacto} from './contacto';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/first';
@@ -27,13 +26,11 @@ export class ContactoService {
         });
         this.options = new RequestOptions({ headers: headers });
         console.log('Hello UserServiceProvider Provider');
-      }
-    
+      } 
     
       getContacto() {
         return this.http.get(this.url); /*aqui la ruta para obtener el get*/ 
       }
-
          
     postContacto(contacto: Contacto){
         return this.http.post(this.url,contacto,this.options); /*Cambiar la ruta por el localhost*/ 

@@ -1,4 +1,4 @@
-export class TipoParametroM {
+export class TipoParametroMl {
     constructor(
        public id: number,
        public descripcion: string,

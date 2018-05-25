@@ -37,7 +37,7 @@ export class MyApp {
 
   constructor(public platform: Platform, public statusBar: StatusBar,
      public splashScreen: SplashScreen,public auth: AuthService,
-     public userauth: UserService, public navCtrl: NavController, public menuCtrl: MenuController) {
+     public userauth: UserService, public menuCtrl: MenuController) {
     this.initializeApp();
    
 

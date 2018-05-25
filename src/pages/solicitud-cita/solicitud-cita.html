@@ -74,7 +74,7 @@
           <ion-item>
             <ion-label floating>Manicurista Preferida</ion-label>
               <ion-select [(ngModel)]="manicurista">
-                <ion-option *ngFor="let manicurista of manicuristas" [value]="manicurista">{{manicurista}}</ion-option>
+                <ion-option *ngFor="let m of manicuristas" value="{{m.id}}">{{m.nombre}} {{m.apellido}}</ion-option>
               </ion-select>
           </ion-item>
         <p align="justify">Fecha de la cita</p>

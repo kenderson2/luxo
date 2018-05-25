@@ -43,6 +43,7 @@ import { CiudadService } from '../providers/ciudad.service';
 import { NegocioService } from '../providers/negocio.service';
 import { ContactoService } from '../providers/contacto.service';
 import { TipocService } from '../providers/tipoc.service';
+import {CategoriaContactoService } from '../providers/categoria-contacto.service';
 import { HomeService } from '../providers/home.service';
 import { TendenciasService } from '../providers/tendencias.service';
 import { PromocionService } from '../providers/promocion.service';
@@ -50,6 +51,7 @@ import { DetalleServicioService } from '../providers/detalle-servicio.service';
 import { TipoParametroM } from '../providers/tipo-parametroM.service';
 import {MotivoCancelacionService} from '../providers/motivo-cancelacion.service';
 import {TipoMotivoCancelacionService} from '../providers/tipo-motivo-cancelacion.service';
+import {ManicuristaService} from '../providers/manicurista.service';
 
 import { CalificarPage } from '../pages/calificar/calificar';
 import { IonRating } from '../components/ion-rating/ion-rating';
@@ -134,6 +136,7 @@ import { IonRating } from '../components/ion-rating/ion-rating';
     UserService,
     NegocioService,
     ContactoService,
+    CategoriaContactoService,
     TipocService,
     ImagePicker,
     HomeService,
@@ -141,8 +144,9 @@ import { IonRating } from '../components/ion-rating/ion-rating';
     PromocionService,
     DetalleServicioService,
     TipoParametroM,
-   MotivoCancelacionService,
-   TipoMotivoCancelacionService
+    MotivoCancelacionService,
+    TipoMotivoCancelacionService,
+    ManicuristaService
   ]
 })
 export class AppModule {}

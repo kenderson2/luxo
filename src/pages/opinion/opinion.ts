@@ -19,8 +19,6 @@ import { CategoriaContactoService } from '../../providers/categoria-contacto.ser
 })
 export class OpinionPage {
 
-
-  
   searchQuery: string = '';
   items: any[];
   items1: any[];
@@ -29,7 +27,7 @@ export class OpinionPage {
   comentario:any;
 
   constructor(public navCtrl: NavController,private service: ContactoService,private service2: TipocService,public navParams: NavParams,
-    public alertCtrl: AlertController, public service3: CategoriaContactoService
+    public alertCtrl: AlertController, private service3: CategoriaContactoService
  )
   {
     this.iniciarLista();
@@ -58,16 +56,16 @@ export class OpinionPage {
 }
 
 enviar(){
-  let f = {id_categoria:this.razon,id_tipo_contacto:this.motivo,descripcion:this.comentario};
+  let f = {id_categoria:this.razon,id_tipo_contacto:this.motivo};
     console.log(f);   
     this.service.postContacto(f)
   .subscribe(
-    rs => this.showAlert(),
+  //  rs => this.showAlert(),
     er => console.log(er),
     () => console.log('ok')
   )
 }
-
+/*
 showAlert(){
   const alert = this.alertCtrl.create({
     title: 'Opinión enviada!',
@@ -82,8 +80,8 @@ showAlert(){
   });
   alert.present();
 }
-
-   getItems(ev: any) {
+*/
+  getItems(ev: any) {
     // Reset items back to all of the items
     this.iniciarLista();
     this.iniciarLista1();
@@ -97,4 +95,5 @@ showAlert(){
         return (item.nombre.toLowerCase().indexOf(val.toLowerCase()) > -1);
       })
     }
-  }}
+  }
+}

@@ -1,9 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, AlertController, ModalController, ViewController } from 'ionic-angular';
+import { IonicPage, Nav, AlertController, ModalController, ViewController } from 'ionic-angular';
 import { ToastService } from '../../providers/toast.service';
 import { AlertService } from '../../providers/alert.service';
 import { TipoParametroM } from '../../providers/tipo-parametroM.service';
 import { DetalleServicioService } from '../../providers/detalle-servicio.service';
+import {ManicuristaService} from '../../providers/manicurista.service';
 import { MotivosRechazoCitaPage } from '../motivos-rechazo-cita/motivos-rechazo-cita';
 import { HomePage } from '../home/home';
 
@@ -21,93 +22,26 @@ import { HomePage } from '../home/home';
   templateUrl: 'solicitud-cita.html',
 })
 export class SolicitudCitaPage {
-  @ViewChild('solicitudSlider') solicitudSlider: any;
+  @ViewChild('solicitudSlider') 
+  @ViewChild(Nav) nav: Nav;
+  solicitudSlider: any;
   manicurista: any;
   hora: any;
   tipos: any[];
   items: any;
   items2: any[];
+  manicuristas: any[];
   servicio: any[];
   a:number;
   aux:any;
   presupuesto:number=0;
   horas = ['08:00 am','09:00 am', '10:00 am','11:00 am','01:00 pm','02:00 pm','03:00 pm','04:00 pm'];
-  servicios: any = [{
-    "id": "1",
-    "nombre": "Manicure",
-    "tipos": [{
-      "id": "1",
-      "nombre": "Limpieza",
-      "precio": "1000"
-    }, 
-      {
-        "id": "2",
-        "nombre": "Aplicación de esmalte",
-        "precio": "700"
-      },
-      {
-        "id":"3",
-        "nombre": "Decoración",
-        "precio": "1000"
-      }, {
-        "id": "4",
-        "nombre": "Servicio completo",
-        "precio": "5000"
-      }]
-  }, {
-    "id": "1",
-    "nombre": "Pedicure",
-    "tipos": [{
-      "id": "1",
-      "nombre": "Limpieza",
-      "precio": "1000"
-    }, 
-      {
-        "id": "2",
-        "nombre": "Aplicación de esmalte",
-        "precio": "700"
-      },
-      {
-        "id":"3",
-        "nombre": "Decoración",
-        "precio": "1000"
-      }, {
-        "id": "4",
-        "nombre": "Servicio completo",
-        "precio": "5000"
-      }]
-  }, {
-    "id": "1",
-    "nombre": "Sistema de Uñas",
-    "tipos": [{
-      "id": "1",
-      "nombre": "Gel",
-      "precio": "5000"
-    }, 
-      {
-        "id": "2",
-        "nombre": "Acrigel",
-        "precio": "5000"
-      },
-      {
-        "id": "3",
-        "nombre": "Esculpida",
-        "precio": "5000"
-      },
-      {
-        "id":"4",
-        "nombre": "Mantenimiento",
-        "precio": "3000"
-      }]
-  }
-  ];
-
-  manicuristas = ['Maria Perez', 'Luisa Diaz', 'Paula Ramos', 'Maria Rojas', 'Indiferente'];
-
-  constructor(public navCtrl: NavController, public alertCtrl: AlertController, public alertService: AlertService,
+  
+  constructor(public alertCtrl: AlertController, public alertService: AlertService,
     public toastCtrl: ToastService, public modalCtrl: ModalController, public viewCtrl: ViewController,
-    public service: TipoParametroM,public service2: DetalleServicioService) {
+    public service: TipoParametroM,public service2: DetalleServicioService, private service3: ManicuristaService) {
       this.iniciarLista();
+      this.iniciarLista3();
   }
 
   
@@ -138,6 +72,20 @@ export class SolicitudCitaPage {
  )
 }
 
+iniciarLista3(){
+  this.service3.getManicurista()
+  .subscribe(
+   (data) => { // Success
+     this.manicuristas = data['data'];     
+     console.log(data);          
+   },
+   (error) =>{
+     console.error(error);
+   }
+ )
+}
+
+
 calcularPresupuesto(){
   let acum:number=0;
   for(let i=0;i<this.tipos.length;i++){
@@ -167,7 +115,7 @@ calcularPresupuesto(){
         {
           text: 'Registrar',
           handler: () => {
-            this.navCtrl.setRoot(HomePage)
+            this.nav.setRoot(HomePage)
           }
         }
       ]
@@ -175,12 +123,7 @@ calcularPresupuesto(){
 
     alert.present();
   }
-
-  addServicio() {
-  	console.log('Agregar Servicios');
-  	this.servicios.push();
-  }
-  cancelar(){
+cancelar(){
     const alert = this.alertCtrl.create({
     title: 'Seguro de cancelar la solicitud?',
      // message: 'Su cita se agendara según los datos suministrados en la solicitud',
@@ -194,7 +137,7 @@ calcularPresupuesto(){
         {
           text: 'No',
           handler: () => {
-            this.navCtrl.setRoot(SolicitudCitaPage)
+            this.nav.setRoot(HomePage)
           }
         }        
       ]
