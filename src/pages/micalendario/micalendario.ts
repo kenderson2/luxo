@@ -5,6 +5,11 @@ import { ToastService } from '../../providers/toast.service';
 import { MotivosRechazoCitaPage } from '../motivos-rechazo-cita/motivos-rechazo-cita';
 import { RechazoservicioPage } from '../rechazoservicio/rechazoservicio';
 import { HomePage } from '../home/home';
+import { AuthService } from '../../services/auth.service';
+import { UserService } from '../../providers/user.service';
+import { Usuario } from '../../providers/usuario';
+import {AgendaService} from '../../providers/agenda.service';
+
 
 /**
  * Generated class for the MicalendarioPage page.
@@ -19,40 +24,28 @@ import { HomePage } from '../home/home';
   templateUrl: 'micalendario.html',
 })
 export class MicalendarioPage {
-  citas = [{
-    fecha: '09/05/18',
-    manicurista: 'Maria Perez',
-    hora: '09:00 a.m',
-    servicios: 'Manicure'
-  },
-/*{
-  fecha: '5 de Mayo, 2018',
-  manicurista: 'Maria Perez',
-  hora: '11:30 a.m',
-  servicios: 'Sistema de Uñas'
-}*/]
-
-  items: { name: string; img: string; descripcion: string; }[];
+  usuario=[];
+  user :any;
+  citas:any[];
 
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, public alertService: AlertService,
-    public toastCtrl: ToastService, public modalCtrl: ModalController, public viewCtrl: ViewController) {
+    public toastCtrl: ToastService, public modalCtrl: ModalController, public viewCtrl: ViewController,
+    private auth : AuthService, private userauth:UserService, private agenda: AgendaService) {
+      this.iniciarLista();
   }
-  next()
-  {
-    const alert = this.alertCtrl.create({
-title:'Notificacion',
-message:'Gracias Por confiar en nuestros Servicios ',
-buttons: [
-  {
-    text: 'Ok',
-    handler: () => {
-      this.navCtrl.setRoot(HomePage)
-    }
-  }        
-]
-});
-alert.present(); 
-}
+
+  
+  iniciarLista(){
+    this.agenda.getCitas().subscribe(
+     (data) => { // Success     
+       this.citas= data['data'];               
+     },
+     (error) =>{
+       console.error(error);
+     }
+   )
+ }
+
   cancelar(){
     const alert = this.alertCtrl.create({
     title: 'Seguro de cancelar la cita?',
@@ -77,8 +70,22 @@ alert.present();
   openModal(pageName) {
     this.modalCtrl.create(pageName, null, { cssClass: 'inset-modal' }).present();
   }
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad MicalendarioPage');
+    if(this.auth.checkSession()){
+      this.userauth.getUsuario()
+      .subscribe(
+        (data) => { // Success
+          this.user=JSON.parse(data.text());
+          this.usuario = this.user['data'];               
+          console.log(this.usuario)
+        },
+        (error) =>{
+          console.error(error);
+        }
+      )
+    }
   }
 
 }
