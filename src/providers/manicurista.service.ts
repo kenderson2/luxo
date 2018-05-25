@@ -33,4 +33,10 @@ export class ManicuristaService {
       getManicurista() {
         return this.http.get(this.url); /*aqui la ruta para obtener el get*/ 
       }
+      getHorario(id : number){
+        let url =`http://localhost:5000/empleado/${id}/horario`;
+        console.log(url);
+        return this.http.get(url);
+        
+      }
 }

@@ -85,6 +85,19 @@ iniciarLista3(){
  )
 }
 
+iniciarLista4(m){
+  this.service3.getHorario(m)
+  .subscribe(
+   (data) => { // Success
+     this.manicurista = data['data'];     
+     console.log(data); 
+     console.log(this.items2);         
+   },
+   (error) =>{
+     console.error(error);
+   }
+ )
+}
 
 calcularPresupuesto(){
   let acum:number=0;
