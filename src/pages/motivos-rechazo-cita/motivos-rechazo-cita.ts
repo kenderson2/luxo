@@ -69,7 +69,7 @@ export class MotivosRechazoCitaPage {
       buttons: [{
         text: 'OK!',
         handler: () => {
-          this.navCtrl.setRoot(SolicitudCitaPage)
+          this.navCtrl.setRoot(HomePage)
         }
       }
     ]

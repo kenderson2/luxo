@@ -52,7 +52,11 @@ import { TipoParametroM } from '../providers/tipo-parametroM.service';
 import {MotivoCancelacionService} from '../providers/motivo-cancelacion.service';
 import {TipoMotivoCancelacionService} from '../providers/tipo-motivo-cancelacion.service';
 import {ManicuristaService} from '../providers/manicurista.service';
+<<<<<<< HEAD
 import {SolicitarService} from '../providers/solicitud.service';
+=======
+import {AgendaService} from '../providers/agenda.service';
+>>>>>>> d5ad78ce84447773d52f8a9e9b503ea0f93aa353
 
 import { CalificarPage } from '../pages/calificar/calificar';
 import { IonRating } from '../components/ion-rating/ion-rating';
@@ -148,7 +152,11 @@ import { IonRating } from '../components/ion-rating/ion-rating';
     MotivoCancelacionService,
     TipoMotivoCancelacionService,
     ManicuristaService,
+<<<<<<< HEAD
     SolicitarService
+=======
+    AgendaService
+>>>>>>> d5ad78ce84447773d52f8a9e9b503ea0f93aa353
   ]
 })
 export class AppModule {}
