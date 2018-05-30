@@ -112,8 +112,8 @@ calcularPresupuesto(){
   this.presupuesto=acum;
 }
 
-  obtenerID(a){
-    this.navCtrl.push(MotivosRechazoCitaPage,a);
+  obtenerID(){
+    this.navCtrl.push(MotivosRechazoCitaPage,{status: true});
   }
 
 
@@ -165,7 +165,7 @@ cancelar(a){
           text: 'Si',
           handler: () => {
         //    this.openModal(MotivosRechazoCitaPage)
-        this.obtenerID(a);
+        this.obtenerID();
           }
         },
         {

@@ -20,7 +20,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class MotivoCancelacionService {
     private url = 'http://localhost:5000/cancelacion-solicitud';
-    private url2= 'http://localhost:5000/tokencancelacion';
+    //private url2= 'http://localhost:5000/tokencancelacion';
     token : any;
     private options;
 
@@ -36,7 +36,7 @@ export class MotivoCancelacionService {
       }
     
       getMotivo(): Observable<any> {
-        let url = `${this.url2}`;
+        let url = `${this.url}`;
         return this.http.get(url, this.options);
       }
         
