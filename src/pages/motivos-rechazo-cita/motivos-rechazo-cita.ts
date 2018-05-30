@@ -19,17 +19,21 @@ import { SolicitudCitaPage } from '../solicitud-cita/solicitud-cita';
   templateUrl: 'motivos-rechazo-cita.html',
 }) 
 export class MotivosRechazoCitaPage {
-  motivos: any[];
+  motivos = [];
   id: any;
   motivo:any;
   descripcion:any;
  //formDesc: FormControl;
+  objetoRecibido: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController,
   public alertCtrl: AlertController, public formBuilder: FormBuilder, private service: TipoMotivoCancelacionService,
   private serv: MotivoCancelacionService) {
     this.iniciarLista();
     this.formDesc = this.createformContact();
+    this.objetoRecibido = navParams.data;
+    
+      console.log(this.navParams.get('a'))
   }
 
   iniciarLista(){
@@ -52,7 +56,7 @@ export class MotivosRechazoCitaPage {
 }
 
   Enviar() {
-    let f = {id_tipo_motivo_cancelacion:this.motivo,descripcion: this.descripcion};
+    let f = {id_tipo_motivo_cancelacion:this.motivo,descripcion: this.descripcion,servicios:this.objetoRecibido};
      console.log(f);   
       this.serv.postCancelacion(f)
           .subscribe(
@@ -82,6 +86,6 @@ export class MotivosRechazoCitaPage {
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad MotivosRechazoCitaPage');
-  }
+    }
 
 }

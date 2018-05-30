@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, AlertController, ModalController, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, AlertController, ModalController, ViewController, NavParams } from 'ionic-angular';
 import { ToastService } from '../../providers/toast.service';
 import { AlertService } from '../../providers/alert.service';
 import { TipoParametroM } from '../../providers/tipo-parametroM.service';
@@ -32,6 +32,7 @@ export class SolicitudCitaPage {
   manicuristas: any[];
   servicio: any[];
   a:number;
+  b:number;
   aux:any;
   fecha:any;
   presupuesto:number=0;
@@ -40,7 +41,8 @@ export class SolicitudCitaPage {
   
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, public alertService: AlertService,
     public toastCtrl: ToastService, public modalCtrl: ModalController, public viewCtrl: ViewController,
-    public service: TipoParametroM,public service2: DetalleServicioService, private service3: ManicuristaService, private solcitar :SolicitarService ) {
+    public service: TipoParametroM,public service2: DetalleServicioService, private service3: ManicuristaService, private solcitar :SolicitarService,
+    public navParams: NavParams ) {
       this.iniciarLista();
       this.iniciarLista3();
   }
@@ -110,6 +112,10 @@ calcularPresupuesto(){
   this.presupuesto=acum;
 }
 
+  obtenerID(a){
+    this.navCtrl.push(MotivosRechazoCitaPage,a);
+  }
+
 
 
 
@@ -150,7 +156,7 @@ calcularPresupuesto(){
 
     alert.present();
   }
-cancelar(){
+cancelar(a){
     const alert = this.alertCtrl.create({
     title: 'Seguro de cancelar la solicitud?',
      // message: 'Su cita se agendara según los datos suministrados en la solicitud',
@@ -158,13 +164,14 @@ cancelar(){
         {
           text: 'Si',
           handler: () => {
-            this.openModal(MotivosRechazoCitaPage)
+        //    this.openModal(MotivosRechazoCitaPage)
+        this.obtenerID(a);
           }
         },
         {
           text: 'No',
           handler: () => {
-            this.nav.setRoot(HomePage)
+            this.navCtrl.setRoot(HomePage)
           }
         }        
       ]

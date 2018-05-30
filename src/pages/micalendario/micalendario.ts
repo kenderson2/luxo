@@ -24,7 +24,8 @@ import {AgendaService} from '../../providers/agenda.service';
 export class MicalendarioPage {
   citas = [];
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, public alertService: AlertService,
-    public toastCtrl: ToastService, public modalCtrl: ModalController, public viewCtrl: ViewController,private user:UserService) {
+    public toastCtrl: ToastService, public modalCtrl: ModalController, public viewCtrl: ViewController,private user:UserService,
+  private agenda: AgendaService) {
   }
 
   
@@ -78,20 +79,7 @@ export class MicalendarioPage {
       )
     
 
-    console.log('ionViewDidLoad MicalendarioPage');
-    if(this.auth.checkSession()){
-      this.userauth.getUsuario()
-      .subscribe(
-        (data) => { // Success
-          this.user=JSON.parse(data.text());
-          this.usuario = this.user['data'];               
-          console.log(this.usuario)
-        },
-        (error) =>{
-          console.error(error);
-        }
-      )
-    }
+    console.log('ionViewDidLoad MicalendarioPage');    
   }
 
 }
