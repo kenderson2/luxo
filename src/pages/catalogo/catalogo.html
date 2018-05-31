@@ -16,7 +16,7 @@
 
   <ion-content class="card-background-page">
 
-    <ion-card *ngFor="let item of items">
+    <ion-card *ngFor="let item of items"  (click)="detalle(item.id)">
       <img [src]="item.img"/>
       <ion-card-content>
         <ion-card-title>
@@ -26,7 +26,7 @@
           {{item.descripcion}}
         </p>
       </ion-card-content> 
-      <div (click)="detalle(item.id)" outline class="card-title">Manicure</div>
+      <!-- <div (click)="detalle(item.id)" outline class="card-title">Manicure</div> -->
     
     </ion-card>
   </ion-content>

@@ -25,7 +25,7 @@
 
     <ion-slides  *ngIf="items && items.length" id="sliderhome" autoplay="6000" slidesPerView="1" loop="true" effect="coverflow">
          
-      <ion-slide *ngFor="let item of items" [ngStyle]="{'background' : 'url(' + item.img + ')'}" >
+      <ion-slide *ngFor="let item of items" [ngStyle]="{'background' : 'url(' + item.img + ')'}" alt="assets/imgs/esmaltepies.jpg">
       
       <section class="banner">
           <span class="banner-titulo">{{item.descripcion}}</span>

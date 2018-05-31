@@ -17,12 +17,13 @@ import { SolicitudCitaPage } from '../solicitud-cita/solicitud-cita';
 @Component({
   selector: 'page-motivos-rechazo-cita',
   templateUrl: 'motivos-rechazo-cita.html',
-})
+}) 
 export class MotivosRechazoCitaPage {
   motivos: any[];
   id: any;
   motivo:any;
   descripcion:any;
+  dato: number  
  //formDesc: FormControl;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController,
@@ -30,6 +31,7 @@ export class MotivosRechazoCitaPage {
   private serv: MotivoCancelacionService) {
     this.iniciarLista();
     this.formDesc = this.createformContact();
+     this.dato=this.navParams.get('a');
   }
 
   iniciarLista(){
@@ -54,6 +56,7 @@ export class MotivosRechazoCitaPage {
   Enviar() {
     let f = {id_tipo_motivo_cancelacion:this.motivo,descripcion: this.descripcion};
      console.log(f);   
+     console.log(this.dato);
       this.serv.postCancelacion(f)
           .subscribe(
             rs => this.showAlert(),
@@ -61,7 +64,8 @@ export class MotivosRechazoCitaPage {
             () => console.log('ok')
           )
   }
-  
+  ketchup: number = this.navParams.get('a');
+
   showAlert(){
     const alert = this.alertCtrl.create({
       title: 'Información enviada!',
@@ -69,7 +73,7 @@ export class MotivosRechazoCitaPage {
       buttons: [{
         text: 'OK!',
         handler: () => {
-          this.navCtrl.setRoot(SolicitudCitaPage)
+          this.navCtrl.setRoot(HomePage)
         }
       }
     ]

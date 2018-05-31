@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams} from 'ionic-angular';
 import {SolicitudCitaPage } from '../solicitud-cita/solicitud-cita';
 import { ServicioService } from '../../providers/servicio.service';
+import { CatalogoPage} from '../catalogo/catalogo';
+import { ParametroService } from '../../providers/parametro.service';
 /**
  * Generated class for the CatalogomanicurePage page.
  *
@@ -18,11 +20,16 @@ import { ServicioService } from '../../providers/servicio.service';
 export class CatalogomanicurePage {
   searchQuery: string = '';
   items: any[];
-  constructor(public navCtrl: NavController,private service: ServicioService) {
-    this.iniciarLista();
+  idp: number;
+  constructor(public navCtrl: NavController,private service: ServicioService, public navPara: NavParams, public paramserv : ParametroService) {
+    
+    this.idp = this.navPara.get('id');
+    this.iniciarLista(this.idp);
+    console.log("entre en catalogomanicure")
+    
   }
-  iniciarLista(){
-    this.service.getServicios()
+  iniciarLista(idp){
+    this.paramserv.getParametro(idp)
     .subscribe(
      (data) => { // Success
        this.items = data['data'];               
@@ -31,12 +38,13 @@ export class CatalogomanicurePage {
        console.error(error);
      }
    )
- }
+ } 
+
   
 
    getItems(ev: any) {
     // Reset items back to all of the items
-    this.iniciarLista();
+    this.iniciarLista(this.idp);
 
     // set val to the value of the searchbar
     let val = ev.target.value;

@@ -18,7 +18,7 @@ import 'rxjs/add/operator/catch';
 */
 @Injectable()
 export class ServicioService {
-    private url = 'http://localhost:5000/servicios';
+    private url = 'http://localhost:5000/tipo-parametro-movil';
     private options;
       constructor(private http2: Http,private http: HttpClient) {
         let headers = new Headers({

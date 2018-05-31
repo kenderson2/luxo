@@ -1,7 +1,8 @@
-export class TipoParametroMl {
+export class CategoriaContacto {
     constructor(
        public id: number,
+     
        public descripcion: string,
-       public clasificacion: string,
+    
     ) { }
  }

@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { contacto} from './contacto';
 import { Http, Response } from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
 import { Usuario } from './usuario';
+import { AuthService } from '../services/auth.service';
+import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/first';
@@ -19,22 +20,21 @@ import { MotivoCancelacion } from './motivo-cancelacion';
 */
 @Injectable()
 export class MotivoCancelacionService {
-    private url = 'http://localhost:5000/motivo-cancelacion';
+    private url = 'http://localhost:5000/cancelacion-solicitud';
+    token : any;
     private options;
-      constructor(private http2: Http,private http: HttpClient) {
-        let headers = new Headers({
-          'Content-Type': 'application/json'
-          //'Authorization':'Bearer ' + token
-        });
-        this.options = new RequestOptions({ headers: headers });
-        console.log('Hello UserServiceProvider Provider');
+
+      constructor(private http: Http,private auth: AuthService) {
+        this.token=auth.obtenerToken();
+         console.log(this.token)
+            let token = localStorage.getItem('token');
+            let headers = new Headers({
+              'Content-Type': 'application/json',
+              'Authorization':'Bearer '+this.token
+            });
+            this.options = new RequestOptions({ headers: headers });
       }
     
-    
-    getMotivo(){
-        return this.http.get(this.url); /*aqui la ruta para obtener el get*/ 
-    }
-        
     postCancelacion(motivo: MotivoCancelacion){
         return this.http.post(this.url,motivo,this.options); /*Cambiar la ruta por el localhost*/ 
     }

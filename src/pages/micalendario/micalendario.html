@@ -13,41 +13,41 @@
 <ion-card *ngFor="let cita of citas">
   <ion-card-content>
     <ion-row>
-      <ion-col>
-        <h2><strong>Fecha</strong></h2> 
+      <ion-col col-3>
+        <h2><strong>Fecha:</strong></h2> 
       </ion-col>
-      <ion-col>
-        <h2><strong>Hora</strong></h2> 
+      <ion-col col-9>
+        {{cita.fecha}}
+    </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-3>
+        <h2><strong>Hora:</strong></h2> 
+      </ion-col>
+      <ion-col col-9>
+          {{cita.hora_inicio}}
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col>
-          {{cita.fecha}}
-      </ion-col>
-      <ion-col>
-          {{cita.hora}}
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
+      <ion-col col-6>
         <h2><strong>Manicurista:</strong></h2>
       </ion-col>
-      <ion-col>
-          <p>{{cita.manicurista}}</p>
+      <ion-col col-13>
+          <p>{{cita.nombre}} {{cita.apellido}}</p>
       </ion-col>
     </ion-row>
-     
+     <!--
     <h2><strong>Servicios</strong></h2> 
     <ion-list>
       <ion-item text-wrap>
           {{cita.servicios}}
       </ion-item>
-    </ion-list>
+    </ion-list>-->
   </ion-card-content>
  
   <ion-row class="align-center">
-    <ion-col col-6>
-      <button ion-button class="icon-left" color="tercer" (click)="cancelar()">Cancelar </button>
+    <ion-col col-4>
+      <button ion-button block class="icon-left" color="tercer" (click)="cancelar()">Cancelar </button>
     </ion-col>
   </ion-row>
 </ion-card>

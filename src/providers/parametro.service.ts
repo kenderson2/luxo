@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { TipoParametroMl} from './tipo-parametroMl';
+import { Ciudad } from './ciudad';
 import { Http, Response } from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
-import { Usuario } from './usuario';
+
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/first';
@@ -17,8 +17,10 @@ import 'rxjs/add/operator/catch';
   and Angular DI.
 */
 @Injectable()
-export class TipoParametroM {
-    private url = 'http://localhost:5000/tipo-parametro-movil';
+export class ParametroService {
+
+    private url2 = 'http://localhost:5000/tipo-servicio-parametro';
+    
     private options;
       constructor(private http2: Http,private http: HttpClient) {
         let headers = new Headers({
@@ -30,9 +32,15 @@ export class TipoParametroM {
       }
     
     
-      getTipoParametroM(){
-        return this.http.get(this.url); /*aqui la ruta para obtener el get*/ 
+      getParametro(id_tipo_parametro : number){
+        let url =`${this.url2}/${id_tipo_parametro}`;
+        console.log(url);
+        return this.http.get(url);
+        
       }
-    
+
+
+
+      
     }
     

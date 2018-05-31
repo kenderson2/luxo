@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
 import { ViewServicioPage } from '../view-servicio/view-servicio';
 
 /**
@@ -17,7 +17,7 @@ import { ViewServicioPage } from '../view-servicio/view-servicio';
 export class CalificarPage {
 
   
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {
   }
 
 
@@ -35,6 +35,8 @@ export class CalificarPage {
   calificar(){
     this.navCtrl.push(ViewServicioPage);
   }
-
+  dismiss() {
+    this.viewCtrl.dismiss();
+  }
 
 }
