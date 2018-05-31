@@ -24,16 +24,12 @@ export class MotivosRechazoCitaPage {
   motivo:any;
   descripcion:any;
  //formDesc: FormControl;
-  objetoRecibido: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController,
   public alertCtrl: AlertController, public formBuilder: FormBuilder, private service: TipoMotivoCancelacionService,
   private serv: MotivoCancelacionService) {
     this.iniciarLista();
     this.formDesc = this.createformContact();
-    this.objetoRecibido = navParams.data;
-    
-      console.log(this.navParams.get('a'))
   }
 
   iniciarLista(){
@@ -56,7 +52,7 @@ export class MotivosRechazoCitaPage {
 }
 
   Enviar() {
-    let f = {id_tipo_motivo_cancelacion:this.motivo,descripcion: this.descripcion,servicios:this.objetoRecibido};
+    let f = {id_tipo_motivo_cancelacion:this.motivo,descripcion: this.descripcion,servicio:this.navParams.get('id_servicio')};
      console.log(f);   
       this.serv.postCancelacion(f)
           .subscribe(

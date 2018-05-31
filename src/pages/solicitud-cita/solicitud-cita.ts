@@ -33,7 +33,9 @@ export class SolicitudCitaPage {
   servicio: any[];
   a:number;
   b:number;
+  i:number;
   aux:any;
+  aux2:any;
   fecha:any;
   presupuesto:number=0;
   horario_empleado:number;
@@ -75,6 +77,10 @@ export class SolicitudCitaPage {
  )
 }
 
+//enviarId(id){
+ //this.i=id;
+//}
+
 iniciarLista3(){
   this.service3.getManicurista()
   .subscribe(
@@ -112,12 +118,14 @@ calcularPresupuesto(){
   this.presupuesto=acum;
 }
 
-  obtenerID(){
-    this.navCtrl.push(MotivosRechazoCitaPage,{status: true});
+  enviarId(){
+    let e:number;
+    for(let i=0;i<this.tipos.length;i++){
+      this.aux2=this.items2.find(servicio => servicio.id == this.tipos[i])
+      e=this.aux2.id;
+    }
+    this.i=e;
   }
-
-
-
 
   next(){
     this.solicitudSlider.slideNext();
@@ -156,16 +164,14 @@ calcularPresupuesto(){
 
     alert.present();
   }
-cancelar(a){
+cancelar(id_servicio){
     const alert = this.alertCtrl.create({
     title: 'Seguro de cancelar la solicitud?',
-     // message: 'Su cita se agendara según los datos suministrados en la solicitud',
       buttons: [
         {
           text: 'Si',
-          handler: () => {
-        //    this.openModal(MotivosRechazoCitaPage)
-        this.obtenerID();
+          handler: () => {        
+          this.navCtrl.push(MotivosRechazoCitaPage,{id_servicio: this.tipos})
           }
         },
         {
