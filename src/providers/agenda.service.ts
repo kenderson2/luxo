@@ -20,6 +20,7 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class AgendaService {
     private url = 'http://localhost:5000/agenda-movil';
+    private url2= 'http://localhost:5000/cita';
     private options;
     token : any;
       constructor(private http: Http,private auth: AuthService) {
@@ -37,6 +38,11 @@ export class AgendaService {
         let url = `${this.url}`;
         return this.http.get(url, this.options);
                              }
+      cancelarCita(id : number){
+          let url2 =`${this.url2}/${id}`;
+          return this.http.put(url2,this.options);
+        }
+  
                              private handleError (error: Response | any) {
                                 let errMsg: string;
                                 if (error instanceof Response) {

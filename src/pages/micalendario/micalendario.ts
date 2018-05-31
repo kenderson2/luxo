@@ -40,14 +40,20 @@ export class MicalendarioPage {
    )
  }
 
-  cancelar(){
+  cancelar(id: number){
     const alert = this.alertCtrl.create({
     title: 'Seguro de cancelar la cita?',
       buttons: [
         {
           text: 'Si',
           handler: () => {
-            this.openModal(RechazoservicioPage)
+               this.agenda.cancelarCita(id)
+                   .subscribe(
+                     rs =>  this.navCtrl.setRoot(MicalendarioPage),
+                     er => console.log(er),
+                     () => console.log('ok')
+                   )
+             
           }
         },
         {
