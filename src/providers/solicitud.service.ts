@@ -29,4 +29,5 @@ export class SolicitarService {
       realizarSolicitud(solicitud: Solicitud){
           return this.http.post(this.url,solicitud,this.options); /*Cambiar la ruta por el localhost*/ 
       }
+
 }
