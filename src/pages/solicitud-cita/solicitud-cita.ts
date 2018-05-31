@@ -164,14 +164,14 @@ calcularPresupuesto(){
 
     alert.present();
   }
-cancelar(id_servicio){
+cancelar(id_servicio,presupuesto){
     const alert = this.alertCtrl.create({
     title: 'Seguro de cancelar la solicitud?',
       buttons: [
         {
           text: 'Si',
           handler: () => {        
-          this.navCtrl.push(MotivosRechazoCitaPage,{id_servicio: this.tipos})
+          this.navCtrl.push(MotivosRechazoCitaPage,{id_servicio: this.tipos,presupuesto: this.presupuesto})
           }
         },
         {

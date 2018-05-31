@@ -52,7 +52,7 @@ export class MotivosRechazoCitaPage {
 }
 
   Enviar() {
-    let f = {id_tipo_motivo_cancelacion:this.motivo,descripcion: this.descripcion,servicio:this.navParams.get('id_servicio')};
+    let f = {id_tipo_motivo_cancelacion:this.motivo,descripcion: this.descripcion,servicio:this.navParams.get('id_servicio'),presupuesto:this.navParams.get('presupuesto')};
      console.log(f);   
       this.serv.postCancelacion(f)
           .subscribe(
