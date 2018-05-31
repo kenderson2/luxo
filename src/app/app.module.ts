@@ -57,6 +57,8 @@ import {AgendaService} from '../providers/agenda.service';
 
 import { CalificarPage } from '../pages/calificar/calificar';
 import { IonRating } from '../components/ion-rating/ion-rating';
+import { SPrestadoService } from '../providers/sprestado.service';
+import { ReclamoService } from '../providers/reclamo.service';
 
 
 
@@ -150,7 +152,9 @@ import { IonRating } from '../components/ion-rating/ion-rating';
     TipoMotivoCancelacionService,
     ManicuristaService,
     SolicitarService,
-    AgendaService
+    AgendaService,
+    SPrestadoService,
+    ReclamoService,
   ]
 })
 export class AppModule {}

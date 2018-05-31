@@ -12,43 +12,60 @@
 
 </ion-header>
 
-<ion-content padding>
-  <ion-card>       
+<ion-content>
+
+
+<ion-card *ngFor="let item of items">
     <ion-card-content>
-      <ion-item text-wrap>
-        <p align="justify">
-          {{servicio.desc}}
-        </p>
-      </ion-item>
-      <ion-item text-wrap>
-        <ion-icon name="ios-clock-outline" item-start large></ion-icon>
-        <h2>Fecha:</h2>
-        <p>{{servicio.fecha}}</p>
-      </ion-item>
-      <ion-item text-wrap>
-        <ion-icon name="flower" item-start large></ion-icon>
-        <h2>Manicurista:</h2>
-        <p>{{servicio.manicurista}}</p>
-      </ion-item>
-      <ion-item text-wrap>
-        <ion-icon name="star" item-start large></ion-icon>
-        <h2>Calificación</h2>
-        <p>{{servicio.calificacion}}</p>
-      </ion-item>
+       
+        <ion-card-content>
+            <ion-item text-wrap>
+              <p align="justify">
+                {{item.servicio.descripcion}}
+              </p>
+            </ion-item>
+            <ion-item text-wrap>
+              <ion-icon name="ios-clock-outline" item-start large></ion-icon>
+              <h2>Fecha:</h2>
+              <p>{{item.fecha_prestacion}}</p>
+            </ion-item>
+            <ion-item text-wrap>
+              <ion-icon name="flower" item-start large></ion-icon>
+              <h2>Manicurista:</h2>
+              <p>{{item.servicio.manicurista}}</p>
+            </ion-item>
+            <ion-item text-wrap>
+              <ion-icon name="star" item-start large></ion-icon>
+              <h2>Calificacion</h2>
+              <p>{{item.servicio.calificacion}}</p>
+            </ion-item>
+          </ion-card-content>
+      
+
+         
+
+
+
     </ion-card-content>
+
+    
+    <ion-row class="align-center">
+    
+    
+        <ion-col col-6>
+          <button ion-button full color="azul" (click)="calificar()">
+            <ion-icon name="star" item-start></ion-icon>
+            &nbsp; Calificar
+          </button>
+        </ion-col>
+            <ion-col col-6>
+            <button ion-button full color="tercer" (click)="garantia()">
+              <ion-icon name="paper" item-start></ion-icon>
+             &nbsp; Reclamo
+            </button>
+         </ion-col>
+      </ion-row>
   </ion-card>
-  <ion-row class="align-center">
-      <ion-col col-6>
-        <button ion-button full color="azul" (click)="calificar()">
-          <ion-icon name="star" item-start></ion-icon>
-          &nbsp; Calificar
-        </button>
-      </ion-col>
-      <ion-col col-6>
-        <button ion-button full color="tercer" (click)="garantia()">
-          <ion-icon name="paper" item-start></ion-icon>
-          &nbsp; Reclamo
-        </button>
-      </ion-col>
-    </ion-row>
+ 
+
 </ion-content>
