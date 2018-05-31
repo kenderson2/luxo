@@ -19,7 +19,7 @@ import { SolicitudCitaPage } from '../solicitud-cita/solicitud-cita';
   templateUrl: 'motivos-rechazo-cita.html',
 }) 
 export class MotivosRechazoCitaPage {
-  motivos: any[];
+  motivos = [];
   id: any;
   motivo:any;
   descripcion:any;
@@ -54,7 +54,7 @@ export class MotivosRechazoCitaPage {
 }
 
   Enviar() {
-    let f = {id_tipo_motivo_cancelacion:this.motivo,descripcion: this.descripcion};
+    let f = {id_tipo_motivo_cancelacion:this.motivo,descripcion: this.descripcion,servicio:this.navParams.get('id_servicio'),presupuesto:this.navParams.get('presupuesto')};
      console.log(f);   
      console.log(this.dato);
       this.serv.postCancelacion(f)
@@ -86,6 +86,6 @@ export class MotivosRechazoCitaPage {
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad MotivosRechazoCitaPage');
-  }
+    }
 
 }

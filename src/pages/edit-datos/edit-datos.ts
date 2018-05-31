@@ -23,6 +23,7 @@ import { AuthService } from '../../services/auth.service';
 export class EditDatosPage {
   searchQuery: string = '';
   items: any[];
+  item2:any;
   items2: any [];
   ciudades:number;
   constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController,
@@ -67,6 +68,7 @@ export class EditDatosPage {
    
 
   img1: any;
+  img:any;
   sexo: any;
   fechanac:any;
   direccion:any;
@@ -103,7 +105,7 @@ export class EditDatosPage {
   
   
   save() {
-    let f = {sexo :this.sexo,direccion:this.direccion,telefono:this.telefono};
+    let f = {fecha_nacimiento: this.fechanac,sexo :this.sexo,direccion:this.direccion,telefono:this.telefono,id_ciudad:this.ciudad};
      console.log(f);
    
       this.userauth.actualizarPerfil(f)

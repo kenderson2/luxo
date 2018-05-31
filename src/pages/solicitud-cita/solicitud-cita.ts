@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, AlertController, ModalController, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, AlertController, ModalController, ViewController, NavParams } from 'ionic-angular';
 import { ToastService } from '../../providers/toast.service';
 import { AlertService } from '../../providers/alert.service';
 import { TipoParametroM } from '../../providers/tipo-parametroM.service';
@@ -8,6 +8,7 @@ import {ManicuristaService} from '../../providers/manicurista.service';
 import { MotivosRechazoCitaPage } from '../motivos-rechazo-cita/motivos-rechazo-cita';
 import { HomePage } from '../home/home';
 import {SolicitarService} from '../../providers/solicitud.service';
+import { MicalendarioPage } from '../micalendario/micalendario';
 
 
 /**
@@ -32,7 +33,10 @@ export class SolicitudCitaPage {
   manicuristas: any[];
   servicio: any[];
   a:number;
+  b:number;
+  i:number;
   aux:any;
+  aux2:any;
   fecha:any;
   presupuesto:number=0;
   horario_empleado:number;
@@ -40,7 +44,8 @@ export class SolicitudCitaPage {
   
   constructor(public navCtrl: NavController, public alertCtrl: AlertController, public alertService: AlertService,
     public toastCtrl: ToastService, public modalCtrl: ModalController, public viewCtrl: ViewController,
-    public service: TipoParametroM,public service2: DetalleServicioService, private service3: ManicuristaService, private solcitar :SolicitarService ) {
+    public service: TipoParametroM,public service2: DetalleServicioService, private service3: ManicuristaService, private solcitar :SolicitarService,
+    public navParams: NavParams ) {
       this.iniciarLista();
       this.iniciarLista3();
   }
@@ -113,8 +118,14 @@ calcularPresupuesto(){
   this.presupuesto=acum;
 }
 
-
-
+  enviarId(){
+    let e:number;
+    for(let i=0;i<this.tipos.length;i++){
+      this.aux2=this.items2.find(servicio => servicio.id == this.tipos[i])
+      e=this.aux2.id;
+    }
+    this.i=e;
+  }
 
   next(){
     this.solicitudSlider.slideNext();
@@ -140,7 +151,7 @@ calcularPresupuesto(){
             console.log(f);
              this.solcitar.realizarSolicitud(f)
                  .subscribe(
-                   rs =>  this.navCtrl.setRoot(HomePage),
+                  rs => this.showAlert(),
                    er => console.log(er),
                    () => console.log('ok')
                  )
@@ -153,6 +164,22 @@ calcularPresupuesto(){
 
     alert.present();
   }
+
+  showAlert(){
+    const alert = this.alertCtrl.create({
+      title: 'Citas guardados!',
+      subTitle: 'Su cita fue agendada satisfactoriamente',
+      buttons: [{
+        text: 'OK!',
+        handler: () => {
+          this.navCtrl.setRoot(MicalendarioPage)
+        }
+      }
+    ]
+    });
+    alert.present();
+  }
+
   enviarID(a){
     this.navCtrl.push(MotivosRechazoCitaPage,a);
   }
@@ -161,13 +188,11 @@ cancelar(a){
   console.log(a);
     const alert = this.alertCtrl.create({
     title: 'Seguro de cancelar la solicitud?',
-     // message: 'Su cita se agendara según los datos suministrados en la solicitud',
       buttons: [
         {
           text: 'Si',
-          handler: () => {
-            this.enviarID(a);
-           // this.openModal(MotivosRechazoCitaPage)
+          handler: () => {        
+          this.navCtrl.push(MotivosRechazoCitaPage,{id_servicio: this.tipos,presupuesto: this.presupuesto})
           }
         },
         {

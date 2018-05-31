@@ -9,7 +9,8 @@
   <ion-content class="menu-content myBg" scrollbar-y-auto>
 
     <div id="prueba">
-        <img src="assets/imgs/luxo2.png"/>
+        <div *ngIf="(loggedIn)"><img src="{{usuario.img}}"/></div>
+        <div *ngIf="!(loggedIn)"><img src="assets/imgs/luxo2.png"/></div>
         <h5 *ngIf="(loggedIn)">{{usuario.nombre}}{{usuario.apellido}}</h5>
         <h5 *ngIf="!(loggedIn)">Invitado</h5>
       </div>

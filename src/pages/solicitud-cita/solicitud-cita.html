@@ -36,15 +36,15 @@
         <ion-item text-wrap>
           <ion-label floating>Detalle:</ion-label>
           <ion-select [(ngModel)]="tipos" multiple="true" (ionChange)="calcularPresupuesto()">
-            <ion-option *ngFor="let r of items2" value="{{r.id}}">{{r.nombre}}
+            <ion-option *ngFor="let r of items2" value="{{r.id}}" >{{r.nombre}}
             </ion-option>  
           </ion-select>
         </ion-item>
           
         <p align="justify">Presupuesto:</p>
           <ion-item>
-         <!--   <ion-label floating>Monto a cancelar:</ion-label>-->
-         <ion-input [(ngModel)]="presupuesto" disabled="true"></ion-input>   
+         <ion-input [(ngModel)]="presupuesto" disabled="true"></ion-input>  
+         <ion-label>BsS</ion-label> 
           </ion-item>              
       <ion-item text-wrap>
         <p>Si esta de acuerdo con el presupuesto presione Aceptar para continuar

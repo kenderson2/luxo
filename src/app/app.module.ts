@@ -58,6 +58,8 @@ import {AgendaService} from '../providers/agenda.service';
 import { CalificarPage } from '../pages/calificar/calificar';
 import { IonRating } from '../components/ion-rating/ion-rating';
 import {ParametroService } from '../providers/parametro.service';
+import { SPrestadoService } from '../providers/sprestado.service';
+import { ReclamoService } from '../providers/reclamo.service';
 
 
 
@@ -152,7 +154,9 @@ import {ParametroService } from '../providers/parametro.service';
     ManicuristaService,
     SolicitarService,
     AgendaService,
-    ParametroService
+    ParametroService,
+    SPrestadoService,
+    ReclamoService,
   ]
 })
 export class AppModule {}

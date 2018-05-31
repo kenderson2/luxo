@@ -63,7 +63,7 @@ page-perfil {
         height: 100%;
         position: absolute;
         z-index: 0;
-        background: url(../assets/imgs/fernanda.jpg)no-repeat center center/cover;
+        background: no-repeat center center/cover;
         opacity: 0.5;
         mix-blend-mode: lighten;
       }
@@ -133,6 +133,7 @@ page-perfil {
           top: 0;
         }
       }
+      
       .infos_name,
       .infos_dir,
       .infos_tlfn {

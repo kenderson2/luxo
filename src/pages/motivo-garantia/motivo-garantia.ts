@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController, AlertController } from 'ionic-angular';
+import { ReclamoService } from '../../providers/reclamo.service';
+
+
 
 /**
  * Generated class for the MotivoGarantiaPage page.
@@ -14,14 +17,31 @@ import { IonicPage, NavController, NavParams, ViewController, AlertController } 
   templateUrl: 'motivo-garantia.html',
 })
 export class MotivoGarantiaPage {
-  motivo: any;
+  items: any;
+
   
-    motivos = ['Perdida de esmalte', 'Se cayo la decoración', 'Se cayo una/s uña/s']
+ 
   
-    constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController,
-    public alertCtrl: AlertController) {
+    constructor( private service:ReclamoService ,public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController,
+    public alertCtrl: AlertController) {this.iniciarLista();
     }
   
+      
+    iniciarLista()
+
+    {
+      this.service.getReclamos().subscribe(
+       (data) => { // Success
+       
+         this.items= data['data'];               
+       },
+       (error) =>{
+         console.error(error);
+       }
+     )
+   
+  
+  }
     Enviar() {
       const alert = this.alertCtrl.create({
         title: 'Solicitud enviada!',

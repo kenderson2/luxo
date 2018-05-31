@@ -69,7 +69,7 @@ export class LoginBackgroundSliderPage {
        this.auth.login(f)
        .subscribe(results=>{
         if(results){                 
-          this.navCtrl.setRoot(HomePage);
+          this.navCtrl.setRoot(HomePage,{valor:'true'});
           this.presentToast();
         }
       },
@@ -83,7 +83,7 @@ export class LoginBackgroundSliderPage {
 
   presentToast() {
     let toast = this.toastCtrl.create({
-      message: 'Bienvenido Nury',
+      message: 'Bienvenido ',
       duration: 3000,
       position: 'top',
       cssClass: "toast.scss"      

@@ -12,7 +12,7 @@
     </ion-navbar>
   </ion-header>
   <div class="card-profile">
-    <div class="card-profile_visual"></div>
+    <div class="card-profile_visual"><img src="{{usuario.img}}" alt="assets/imgs/fernanda.jpg" ></div>
     <div class="card-profile_user-infos">
       <span class="infos_name">{{usuario.nombre}} {{usuario.apellido}}</span>
       <span class="infos_dir">{{usuario.descripcion}}, {{usuario.estado_nombre}}</span>
@@ -22,7 +22,7 @@
       <div class="stats-holder">
         <div class="user-stats">
             <ion-buttons>
-                <button ion-button clear icon-only (click)="configurar()">
+                <button ion-button clear icon-only >
                     <strong>Servicios</strong>
                     
                 </button>
@@ -38,12 +38,25 @@
             </div>
     </div>
   
-    <div id="posts" class="container">
-        <ion-card *ngFor="let post of posts">
+
+
+        <ion-card *ngFor="let item of items">
           <ion-card-content>
-              <h2><strong>{{post.date}}</strong></h2>
-            <p align="justify">{{post.text}}</p>
+             
+              <h2><strong>{{item.fecha_prestacion}}</strong></h2>
+            
+        
+              <h2><strong>{{item.servicio.nombre}}</strong></h2>
+  
+                <p align="justify">
+                  {{item.servicio.descripcion}}
+                </p>
+    
+    
+
           </ion-card-content>
+
+          
           <ion-row>
             <ion-col>
               <button ion-button color="nav" clear small block (click)="detalle()">
@@ -54,5 +67,5 @@
             </ion-row>
         </ion-card>
       </div> 
-    </div> 
+  
 </ion-content>

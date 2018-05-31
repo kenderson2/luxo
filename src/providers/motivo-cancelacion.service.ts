@@ -21,6 +21,7 @@ import { MotivoCancelacion } from './motivo-cancelacion';
 @Injectable()
 export class MotivoCancelacionService {
     private url = 'http://localhost:5000/cancelacion-solicitud';
+    //private url2= 'http://localhost:5000/tokencancelacion';
     token : any;
     private options;
 
@@ -35,6 +36,11 @@ export class MotivoCancelacionService {
             this.options = new RequestOptions({ headers: headers });
       }
     
+      getMotivo(): Observable<any> {
+        let url = `${this.url}`;
+        return this.http.get(url, this.options);
+      }
+        
     postCancelacion(motivo: MotivoCancelacion){
         return this.http.post(this.url,motivo,this.options); /*Cambiar la ruta por el localhost*/ 
     }

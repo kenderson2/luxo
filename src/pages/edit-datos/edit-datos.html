@@ -22,7 +22,7 @@
     </ion-list-header>
 
     <button ion-button (click)="getPictures()">Cambiar Foto</button>
-    <div *ngFor="let image of images">
+    <div *ngFor="let image of images" [(ngModel)]="img">
     <img src="{{image}}"/>
     </div>
  
@@ -45,7 +45,7 @@
   </ion-item>
   <ion-item text-wrap>
     <ion-label floating>Ciudad</ion-label>
-    <ion-select [(ngModel)]="item2">
+    <ion-select [(ngModel)]="ciudad">
       <ion-option *ngFor="let r of items2" value="{{r.id}}" >{{r.descripcion}}
       </ion-option>  
     </ion-select>

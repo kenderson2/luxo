@@ -77,6 +77,9 @@ export class MicalendarioPage {
           console.error(error);
         }
       )
-    }
+    
+
+    console.log('ionViewDidLoad MicalendarioPage');    
+  }
 
 }

@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
 import { MotivoGarantiaPage } from '../motivo-garantia/motivo-garantia';
 import { CalificarPage } from '../calificar/calificar';
 import { HomePage } from '../home/home';
+import { SPrestadoService } from '../../providers/sprestado.service';
 /**
  * Generated class for the ViewServicioPage page.
  *
@@ -18,13 +19,10 @@ import { HomePage } from '../home/home';
 export class ViewServicioPage {
 
 
-  servicio = {
-    title: 'Manicure',
-    desc:'Manicure con decoración animal print en tonos rosas y gris.',
-    fecha: '09/05/2018',
-    manicurista: 'Maria Perez',
-    calificacion: '0',
-  }
+  
+  items: any[];
+
+  
 
   calificar(){
 
@@ -42,11 +40,33 @@ export class ViewServicioPage {
   openModal(pageName) {
     this.modalCtrl.create(pageName, null, { cssClass: 'inset-modal' }).present();
   }
-  constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
-  }
+  
+  constructor(private service1: SPrestadoService,public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController) {
+  
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ViewServicioPage');
-  }
+
+  
+  this.iniciarLista();}
+  iniciarLista()
+
+  {
+    this.service1.getServiciop().subscribe(
+     (data) => { // Success
+     
+       this.items= data['data'];               
+     },
+     (error) =>{
+       console.error(error);
+     }
+   )
+ 
 
 }
+
+ionViewDidLoad() {
+  console.log('ionViewDidLoad ViewServicioPage');
+}
+
+}
+  
+
